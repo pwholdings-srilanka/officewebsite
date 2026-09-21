@@ -5,7 +5,7 @@
     <link>https://pwholdings.lk/articles.html</link>
     <description>Expert Zoho Guides, Sri Lanka IRD VAT/SSCL Tax Accounting, and Cloud ERP Trends by PW Holdings.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 21 Sep 2026 09:18:34 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 21 Sep 2026 09:26:09 GMT</lastBuildDate>
     <atom:link href="https://pwholdings.lk/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Zoho Books Sri Lanka VAT &amp; SSCL Setup: Complete 2026 IRD Tax Guide</title>
@@ -14,38 +14,58 @@
       <pubDate>Mon, 14 Sep 2026 18:30:00 GMT</pubDate>
       <dc:creator>PW Holdings Senior ERP Consultants</dc:creator>
       <category>Tax &amp; IRD Guide</category>
-      <description>Master Zoho Books setup for Sri Lanka tax laws. Learn how to configure VAT (18%), Social Security Contribution Levy (SSCL 2.5%), withholding taxes, and IRD compliant invoices.</description>
+      <description>Comprehensive IRD tax compliance setup, custom tax rates, withholding taxes, automated tax returns, and digital invoice generation for Sri Lankan businesses.</description>
       <media:content url="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" medium="image" width="1200" height="675" />
     </item>
     <item>
-      <title>Zoho One vs SAP &amp; Oracle: Complete ROI &amp; Cost Comparison for Sri Lankan Enterprises</title>
-      <link>https://pwholdings.lk/articles/zoho-one-vs-sap-oracle-sri-lanka-cost-comparison/</link>
-      <guid isPermaLink="true">https://pwholdings.lk/articles/zoho-one-vs-sap-oracle-sri-lanka-cost-comparison/</guid>
+      <title>Zoho One vs SAP vs ERPNext: Best ERP for Sri Lankan SMEs in 2026</title>
+      <link>https://pwholdings.lk/articles/zoho-one-vs-sap-erpnext-sri-lanka-enterprise-comparison/</link>
+      <guid isPermaLink="true">https://pwholdings.lk/articles/zoho-one-vs-sap-erpnext-sri-lanka-enterprise-comparison/</guid>
       <pubDate>Fri, 11 Sep 2026 18:30:00 GMT</pubDate>
       <dc:creator>PW Holdings Enterprise Architecture Team</dc:creator>
-      <category>Cloud ERP &amp; Migration</category>
-      <description>Discover why Sri Lankan SMEs and mid-market enterprises are migrating from legacy ERPs like SAP Business One and Microsoft Dynamics to Zoho One&apos;s 45+ integrated app suite.</description>
+      <category>Cloud ERP</category>
+      <description>Compare total cost of ownership, implementation timelines, multi-currency features, and local partner support across leading ERP suites in Colombo.</description>
       <media:content url="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" medium="image" width="1200" height="675" />
     </item>
     <item>
-      <title>Automating Sri Lankan Payroll: Zoho Payroll Setup for EPF (12%+8%), ETF (3%) &amp; Gratuity</title>
-      <link>https://pwholdings.lk/articles/zoho-payroll-sri-lanka-epf-etf-gratuity-compliance/</link>
-      <guid isPermaLink="true">https://pwholdings.lk/articles/zoho-payroll-sri-lanka-epf-etf-gratuity-compliance/</guid>
+      <title>How to Configure Sri Lanka EPF, ETF &amp; APIT in Zoho Payroll</title>
+      <link>https://pwholdings.lk/articles/zoho-payroll-sri-lanka-epf-etf-apit-compliance-guide/</link>
+      <guid isPermaLink="true">https://pwholdings.lk/articles/zoho-payroll-sri-lanka-epf-etf-apit-compliance-guide/</guid>
       <pubDate>Mon, 07 Sep 2026 18:30:00 GMT</pubDate>
       <dc:creator>PW Holdings HR Tech Practice</dc:creator>
       <category>Payroll &amp; HR</category>
-      <description>A comprehensive guide on managing Sri Lankan labor laws, statutory EPF and ETF calculations, Form C submission preparation, and pay slip automation using Zoho Payroll.</description>
-      <media:content url="https://images.unsplash.com/photo-1450133064473-71024230f91b?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" medium="image" width="1200" height="675" />
+      <description>Automate monthly salary slips, statutory employer contributions, C-Form generation, and direct bank salary transfers in Sri Lanka.</description>
+      <media:content url="https://images.unsplash.com/photo-1554224154-26032ffc0d07?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" medium="image" width="1200" height="675" />
     </item>
     <item>
-      <title>Scaling B2B Sales in Sri Lanka: Best Practices for Zoho CRM &amp; WhatsApp Integration</title>
-      <link>https://pwholdings.lk/articles/zoho-crm-sales-pipeline-automation-sri-lanka/</link>
-      <guid isPermaLink="true">https://pwholdings.lk/articles/zoho-crm-sales-pipeline-automation-sri-lanka/</guid>
+      <title>Connecting WhatsApp Business API with Zoho CRM &amp; SalesIQ</title>
+      <link>https://pwholdings.lk/articles/zoho-crm-whatsapp-business-api-integration-sri-lanka/</link>
+      <guid isPermaLink="true">https://pwholdings.lk/articles/zoho-crm-whatsapp-business-api-integration-sri-lanka/</guid>
       <pubDate>Fri, 04 Sep 2026 18:30:00 GMT</pubDate>
       <dc:creator>PW Holdings CRM &amp; Growth Team</dc:creator>
-      <category>CRM &amp; Automation</category>
-      <description>How leading Sri Lankan sales teams use Zoho CRM, Zia AI forecasting, and WhatsApp Business API integration to close deals 40% faster.</description>
-      <media:content url="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" medium="image" width="1200" height="675" />
+      <category>CRM Automation</category>
+      <description>Turn incoming WhatsApp chat queries into qualified leads automatically, send automated payment receipts, and increase customer retention in Sri Lanka.</description>
+      <media:content url="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" medium="image" width="1200" height="675" />
+    </item>
+    <item>
+      <title>Migrating from Tally / QuickBooks Desktop to Zoho Books Cloud</title>
+      <link>https://pwholdings.lk/articles/migrating-from-tally-quickbooks-to-zoho-books-sri-lanka/</link>
+      <guid isPermaLink="true">https://pwholdings.lk/articles/migrating-from-tally-quickbooks-to-zoho-books-sri-lanka/</guid>
+      <pubDate>Tue, 01 Sep 2026 18:30:00 GMT</pubDate>
+      <dc:creator>PW Holdings Data Migration Specialists</dc:creator>
+      <category>Migration Guide</category>
+      <description>Zero-downtime data migration checklist for chart of accounts, outstanding customer balances, vendor ledgers, and opening stock quantities in Sri Lanka.</description>
+      <media:content url="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" medium="image" width="1200" height="675" />
+    </item>
+    <item>
+      <title>Automating Multi-Branch Stock Transfers &amp; Re-Order Points with Zoho</title>
+      <link>https://pwholdings.lk/articles/zoho-inventory-multi-warehouse-stock-transfer-sri-lanka/</link>
+      <guid isPermaLink="true">https://pwholdings.lk/articles/zoho-inventory-multi-warehouse-stock-transfer-sri-lanka/</guid>
+      <pubDate>Thu, 27 Aug 2026 18:30:00 GMT</pubDate>
+      <dc:creator>PW Holdings Supply Chain Practice</dc:creator>
+      <category>Supply Chain &amp; Inventory</category>
+      <description>Real-time barcode scanning, batch tracking with expiry dates, and automated PO generation across warehouse hubs in Sri Lanka.</description>
+      <media:content url="https://images.unsplash.com/photo-1450133064473-71024230f91b?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" medium="image" width="1200" height="675" />
     </item>
   </channel>
 </rss>

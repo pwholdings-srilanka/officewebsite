@@ -19,20 +19,32 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://pwholdings.lk/articles/zoho-one-vs-sap-oracle-sri-lanka-cost-comparison/</loc>
+    <loc>https://pwholdings.lk/articles/zoho-one-vs-sap-erpnext-sri-lanka-enterprise-comparison/</loc>
     <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://pwholdings.lk/articles/zoho-payroll-sri-lanka-epf-etf-gratuity-compliance/</loc>
+    <loc>https://pwholdings.lk/articles/zoho-payroll-sri-lanka-epf-etf-apit-compliance-guide/</loc>
     <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://pwholdings.lk/articles/zoho-crm-sales-pipeline-automation-sri-lanka/</loc>
+    <loc>https://pwholdings.lk/articles/zoho-crm-whatsapp-business-api-integration-sri-lanka/</loc>
     <lastmod>2026-09-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pwholdings.lk/articles/migrating-from-tally-quickbooks-to-zoho-books-sri-lanka/</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pwholdings.lk/articles/zoho-inventory-multi-warehouse-stock-transfer-sri-lanka/</loc>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

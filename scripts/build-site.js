@@ -62,9 +62,108 @@ function loadArticles() {
 function generateArticlePageHtml(art) {
   const title = art.title;
   const description = art.description;
-  const canonicalUrl = art.url || `${DOMAIN}/articles/${art.slug}/`;
+  const canonicalUrl = `${DOMAIN}/articles/${art.slug}/`;
   const image = art.image || DEFAULT_IMAGE;
   const isoDate = formatDateForIso(art.date);
+
+  let sectionsHtml = '';
+  if (Array.isArray(art.sections) && art.sections.length > 0) {
+    sectionsHtml = art.sections.map(s => `
+      <h2>${escapeXml(s.heading)}</h2>
+      <p>${escapeXml(s.content)}</p>
+    `).join('\n');
+  } else {
+    sectionsHtml = `
+      <h2>Overview & Architecture Analysis</h2>
+      <p>${escapeXml(description)}</p>
+      <p>Sri Lankan enterprises operating across diverse industry verticals require localized cloud ERP workflows. When collaborating with PW Holdings, organizations benefit from verified tax accuracy, automated invoice generation, and seamless integration between CRM, finance, and logistics.</p>
+    `;
+  }
+
+  let faqHtml = '';
+  let faqSchemaEntities = [];
+  if (Array.isArray(art.faq) && art.faq.length > 0) {
+    const items = art.faq.map(f => `
+      <div class="callout" style="margin: 16px 0; background: rgba(30, 41, 59, 0.7); border-left: 4px solid #3b82f6; padding: 18px; border-radius: 0 12px 12px 0;">
+        <h3 style="font-size: 16.5px; color: #ffffff; margin-bottom: 8px;">Q: ${escapeXml(f.q)}</h3>
+        <p style="margin: 0; font-size: 15px; color: #cbd5e1; line-height: 1.6;">A: ${escapeXml(f.a)}</p>
+      </div>
+    `).join('\n');
+
+    faqHtml = `
+      <h2 style="margin-top: 40px;">Direct Answer FAQ (Answer Engine Optimization)</h2>
+      ${items}
+    `;
+
+    faqSchemaEntities = art.faq.map(f => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": f.a
+      }
+    }));
+  }
+
+  const faqSchemaGraph = faqSchemaEntities.length > 0 ? {
+    "@type": "FAQPage",
+    "@id": `${canonicalUrl}#faq`,
+    "mainEntity": faqSchemaEntities
+  } : null;
+
+  const schemaGraph = [
+    {
+      "@type": "Article",
+      "@id": `${canonicalUrl}#article`,
+      "headline": title,
+      "description": description,
+      "image": image,
+      "datePublished": isoDate,
+      "dateModified": isoDate,
+      "author": {
+        "@type": "Organization",
+        "name": art.author || "PW Holdings Senior ERP Consultants",
+        "url": `${DOMAIN}/`
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "PW Holdings",
+        "logo": {
+          "@type": "ImageObject",
+          "url": LOGO_IMAGE
+        }
+      },
+      "mainEntityOfPage": canonicalUrl
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonicalUrl}#breadcrumb`,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": `${DOMAIN}/`
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Insights",
+          "item": `${DOMAIN}/articles.html`
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": title,
+          "item": canonicalUrl
+        }
+      ]
+    }
+  ];
+
+  if (faqSchemaGraph) {
+    schemaGraph.push(faqSchemaGraph);
+  }
 
   return `<!DOCTYPE html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
@@ -78,7 +177,7 @@ function generateArticlePageHtml(art) {
        =================================================================== -->
   <title>${escapeXml(title)} | PW Holdings</title>
   <meta name="description" content="${escapeXml(description)}" />
-  <meta name="keywords" content="${escapeXml(art.categoryLabel)}, Zoho Partner Sri Lanka, Cloud ERP Colombo, Zoho Books, PW Holdings" />
+  <meta name="keywords" content="${escapeXml(art.categoryLabel || 'Zoho Guide')}, Zoho Partner Sri Lanka, Cloud ERP Colombo, Zoho Books, PW Holdings" />
   <meta name="author" content="${escapeXml(art.author || 'PW Holdings Senior ERP Consultants')}" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -115,62 +214,9 @@ function generateArticlePageHtml(art) {
   <!-- Discovery for AI Search Engines -->
   <link rel="help" href="/llms.txt" type="text/plain" title="LLM Context for AI Engines" />
 
-  <!-- ===================================================================
-       2. ARTICLE SCHEMA.ORG JSON-LD (SEO & AEO)
-       =================================================================== -->
+  <!-- Structured Data JSON-LD (SEO, GEO & AEO) -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Article",
-        "@id": "${canonicalUrl}#article",
-        "headline": "${escapeXml(title)}",
-        "description": "${escapeXml(description)}",
-        "image": "${escapeXml(image)}",
-        "datePublished": "${isoDate}",
-        "dateModified": "${isoDate}",
-        "author": {
-          "@type": "Organization",
-          "name": "${escapeXml(art.author || 'PW Holdings')}",
-          "url": "${DOMAIN}/"
-        },
-        "publisher": {
-          "@type": "Organization",
-          "name": "PW Holdings",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "${LOGO_IMAGE}"
-          }
-        },
-        "mainEntityOfPage": "${canonicalUrl}"
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "${canonicalUrl}#breadcrumb",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "${DOMAIN}/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Insights",
-            "item": "${DOMAIN}/articles.html"
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "${escapeXml(title)}",
-            "item": "${canonicalUrl}"
-          }
-        ]
-      }
-    ]
-  }
+  ${JSON.stringify({ "@context": "https://schema.org", "@graph": schemaGraph })}
   </script>
 
   <style>
@@ -201,7 +247,7 @@ function generateArticlePageHtml(art) {
     .btn-cta { background: var(--primary); color: #fff !important; padding: 8px 18px; border-radius: 50px; font-weight: 700; }
 
     .article-wrap { max-width: 860px; margin: 40px auto 80px; padding: 0 20px; }
-    .breadcrumb { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; }
+    .breadcrumb { font-size: 13.5px; color: var(--text-muted); margin-bottom: 20px; }
     .badge { display: inline-block; background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.3); color: #93c5fd; padding: 5px 14px; border-radius: 50px; font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 16px; }
     h1 { font-family: var(--font-heading); font-size: clamp(28px, 4.5vw, 42px); line-height: 1.25; margin-bottom: 20px; color: #fff; }
     .lead { font-size: 18px; color: #cbd5e1; line-height: 1.65; margin-bottom: 24px; }
@@ -227,14 +273,14 @@ function generateArticlePageHtml(art) {
 <body>
   <header class="navbar">
     <div class="navbar-inner">
-      <a href="/index.html" class="brand">
+      <a href="../../index.html" class="brand">
         <img src="${LOGO_IMAGE}" alt="PW Holdings Logo" />
         <span>PW Holdings</span>
       </a>
       <nav class="nav-links">
-        <a href="/index.html">Home</a>
-        <a href="/index.html#services">Zoho Services</a>
-        <a href="/articles.html">Insights</a>
+        <a href="../../index.html">Home</a>
+        <a href="../../index.html#services">Zoho Services</a>
+        <a href="../../articles.html">Insights &amp; Guides</a>
         <a href="https://web.whatsapp.com/send?phone=94777885883" target="_blank" class="btn-cta">Talk to Consultant</a>
       </nav>
     </div>
@@ -242,7 +288,7 @@ function generateArticlePageHtml(art) {
 
   <main class="article-wrap">
     <div class="breadcrumb">
-      <a href="/index.html">Home</a> &gt; <a href="/articles.html">Insights</a> &gt; <span>${escapeXml(title)}</span>
+      <a href="../../index.html">Home</a> &gt; <a href="../../articles.html">Insights</a> &gt; <span>${escapeXml(title)}</span>
     </div>
 
     <span class="badge">${escapeXml(art.categoryLabel || 'Zoho Guide')}</span>
@@ -259,31 +305,9 @@ function generateArticlePageHtml(art) {
     <img src="${escapeXml(image)}" alt="${escapeXml(title)}" class="hero-img" loading="eager" />
 
     <div class="article-body">
-      <h2>Executive Summary & Strategic Overview</h2>
-      <p>
-        Sri Lankan enterprises operating across retail, manufacturing, logistics, and professional services are undergoing rapid digital transformation. As the Inland Revenue Department (IRD) expands digital reporting regulations, having an integrated ERP and accounting engine that automates compliance while boosting operational efficiency has become mandatory.
-      </p>
+      ${sectionsHtml}
 
-      <div class="callout">
-        <strong>💡 Expert Insight from PW Holdings:</strong> Deploying an enterprise cloud solution requires more than software licenses—it demands local tax rule localization, custom low-code workflow automation, and certified user training.
-      </div>
-
-      <h2>Key Capabilities & Implementation Strategy</h2>
-      <p>
-        When partnering with PW Holdings (Sri Lanka's official Zoho Authorized Partner), organizations achieve:
-      </p>
-      <ul>
-        <li><strong>Automated Tax Compliance:</strong> Accurate calculation and digital invoice formatting for Sri Lanka VAT (18%) and SSCL (2.5%).</li>
-        <li><strong>Unified Data Flow:</strong> Seamless synchronization between CRM pipelines, sales quotes, inventory management, and automated general ledger posting.</li>
-        <li><strong>Multi-Currency Handling:</strong> Live foreign exchange gain/loss tracking compliant with Central Bank of Sri Lanka (CBSL) reporting standards.</li>
-        <li><strong>Role-Based Access & Governance:</strong> Complete audit trails, approval workflows, and two-factor authenticated access.</li>
-      </ul>
-
-      <h2>Direct Answer FAQ (Answer Engine Optimization)</h2>
-      <div class="callout">
-        <h3>Q: How quickly can an enterprise in Sri Lanka implement this solution?</h3>
-        <p>A: A standard implementation led by PW Holdings typically ranges from 2 to 6 weeks, including data migration from legacy accounting systems, workflow testing, staff training, and Go-Live support.</p>
-      </div>
+      ${faqHtml}
 
       <div class="cta-box">
         <h3>Ready to Transform Your Business with Zoho?</h3>
@@ -298,11 +322,11 @@ function generateArticlePageHtml(art) {
   <footer class="footer">
     <p>© ${new Date().getFullYear()} PW Holdings (Pvt) Ltd. Official Zoho Authorized Partner Sri Lanka. All rights reserved.</p>
     <p style="margin-top: 8px;">
-      <a href="/index.html">Home</a> | 
-      <a href="/articles.html">Insights</a> | 
-      <a href="/sitemap.xml">Sitemap</a> | 
-      <a href="/rss.xml">RSS</a> | 
-      <a href="/llms.txt">AI Context (llms.txt)</a>
+      <a href="../../index.html">Home</a> | 
+      <a href="../../articles.html">Insights &amp; Guides</a> | 
+      <a href="../../sitemap.xml">Sitemap</a> | 
+      <a href="../../rss.xml">RSS</a> | 
+      <a href="../../llms.txt">AI Context (llms.txt)</a>
     </p>
   </footer>
 </body>
@@ -313,8 +337,11 @@ function updateArticlesHtml(articles) {
   const articlesHtmlPath = path.join(rootDir, 'articles.html');
   if (!fs.existsSync(articlesHtmlPath)) return;
 
-  const cardsHtml = articles.map(art => `
-        <!-- ARTICLE: ${escapeXml(art.slug)} -->
+  const cardsHtml = articles.map(art => {
+    // Relative link to each article's own folder
+    const articleLink = `articles/${art.slug}/index.html`;
+
+    return `        <!-- ARTICLE: ${escapeXml(art.slug)} -->
         <article class="article-card" data-category="${escapeXml(art.category)}">
           <div class="thumb-box">
             <img src="${escapeXml(art.image)}" alt="${escapeXml(art.title)}" loading="lazy" />
@@ -326,25 +353,45 @@ function updateArticlesHtml(articles) {
               <span>&bull;</span>
               <span>⏱️ ${escapeXml(art.readTime)}</span>
             </div>
-            <h2><a href="${escapeXml(art.url)}" style="color: inherit; text-decoration: none;">${escapeXml(art.title)}</a></h2>
+            <h2><a href="${articleLink}" style="color: inherit; text-decoration: none;">${escapeXml(art.title)}</a></h2>
             <p>${escapeXml(art.description)}</p>
-            <a href="${escapeXml(art.url)}" class="read-link">Read Full Guide &rarr;</a>
+            <a href="${articleLink}" class="read-link">Read Full Guide &rarr;</a>
           </div>
-        </article>
-  `).join('\n');
+        </article>`;
+  }).join('\n\n');
 
   let content = fs.readFileSync(articlesHtmlPath, 'utf8');
-  const startMarker = '<div class="articles-grid" id="articlesContainer">';
-  const endMarker = '</div>\n\n      <!-- BOTTOM CTA BANNER -->';
-  const altEndMarker = '<!-- BOTTOM CTA BANNER -->';
 
-  if (content.includes(startMarker) && content.includes(altEndMarker)) {
-    const p1 = content.indexOf(startMarker) + startMarker.length;
-    const p2 = content.indexOf(altEndMarker);
-    const updated = content.substring(0, p1) + '\n' + cardsHtml + '\n      </div>\n\n      ' + content.substring(p2);
-    fs.writeFileSync(articlesHtmlPath, updated, 'utf8');
-    console.log('✓ Updated articles.html with', articles.length, 'article cards');
+  // Replace everything inside <div class="articles-grid" id="articlesContainer"> ... </div>
+  const gridStartTag = '<div class="articles-grid" id="articlesContainer">';
+  const startIndex = content.indexOf(gridStartTag);
+
+  if (startIndex !== -1) {
+    // Find the next </div> that closes this container
+    // We look for </div> followed by </div>\s*</main>
+    const afterGridStart = content.substring(startIndex + gridStartTag.length);
+    const endIndexInAfter = afterGridStart.indexOf('</div>\n\n    </div>\n  </main>');
+    const altEndIndex = afterGridStart.indexOf('</div>\r\n\r\n    </div>\r\n  </main>');
+
+    let endOffset = -1;
+    if (endIndexInAfter !== -1) endOffset = endIndexInAfter;
+    else if (altEndIndex !== -1) endOffset = altEndIndex;
+    else {
+      // Fallback: find first </div> after start
+      endOffset = afterGridStart.indexOf('</div>\n');
+    }
+
+    if (endOffset !== -1) {
+      const p1 = startIndex + gridStartTag.length;
+      const p2 = p1 + endOffset;
+      const newContent = content.substring(0, p1) + '\n\n' + cardsHtml + '\n\n      ' + content.substring(p2);
+      fs.writeFileSync(articlesHtmlPath, newContent, 'utf8');
+      console.log(`✓ Successfully updated articles.html with ${articles.length} unique article cards and distinct URLs!`);
+      return;
+    }
   }
+
+  console.error('Warning: Could not reliably locate articlesContainer in articles.html');
 }
 
 function updateLlmsTxt(articles) {
@@ -370,7 +417,8 @@ PW Holdings (https://pwholdings.lk / https://pwh.lk) is Sri Lanka's official Zoh
 `;
 
   for (const art of articles) {
-    text += `- **${art.title}**: ${art.description} (URL: ${art.url})\n`;
+    const canonical = `${DOMAIN}/articles/${art.slug}/`;
+    text += `- **${art.title}**: ${art.description} (URL: ${canonical})\n`;
   }
 
   text += `\n## Contact Information
@@ -388,7 +436,7 @@ function main() {
   const articles = loadArticles();
   const today = new Date().toISOString().split('T')[0];
 
-  console.log(`Building PW Holdings site with ${articles.length} articles...`);
+  console.log(`Building PW Holdings site with ${articles.length} distinct articles...`);
 
   // 1. Generate XML Sitemap
   let sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n`;
@@ -398,7 +446,8 @@ function main() {
 
   for (const art of articles) {
     const pubDate = formatDateForXml(art.date);
-    sitemap += `  <url>\n    <loc>${art.url}</loc>\n    <lastmod>${pubDate}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
+    const canonical = `${DOMAIN}/articles/${art.slug}/`;
+    sitemap += `  <url>\n    <loc>${canonical}</loc>\n    <lastmod>${pubDate}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
   }
   sitemap += `</urlset>\n`;
   fs.writeFileSync(path.join(rootDir, 'sitemap.xml'), sitemap, 'utf8');
@@ -416,10 +465,11 @@ function main() {
   rss += `    <atom:link href="${DOMAIN}/rss.xml" rel="self" type="application/rss+xml" />\n`;
 
   for (const art of articles) {
+    const canonical = `${DOMAIN}/articles/${art.slug}/`;
     rss += `    <item>\n`;
     rss += `      <title>${escapeXml(art.title)}</title>\n`;
-    rss += `      <link>${art.url}</link>\n`;
-    rss += `      <guid isPermaLink="true">${art.url}</guid>\n`;
+    rss += `      <link>${canonical}</link>\n`;
+    rss += `      <guid isPermaLink="true">${canonical}</guid>\n`;
     rss += `      <pubDate>${formatDateForRss(art.date)}</pubDate>\n`;
     rss += `      <dc:creator>${escapeXml(art.author || 'PW Holdings')}</dc:creator>\n`;
     rss += `      <category>${escapeXml(art.categoryLabel)}</category>\n`;
@@ -435,34 +485,26 @@ function main() {
   fs.writeFileSync(path.join(rootDir, 'feed.xml'), rss, 'utf8');
   console.log('✓ Generated rss.xml and feed.xml');
 
-  // 3. Pre-render individual article HTML files
+  // 3. Pre-render individual article HTML files for EVERY article
   for (const art of articles) {
     const artDir = path.join(rootDir, 'articles', art.slug);
     if (!fs.existsSync(artDir)) {
       fs.mkdirSync(artDir, { recursive: true });
     }
-    const filePath = path.join(artDir, 'index.html');
-    
-    // If it's the zoho-books-sri-lanka-vat-sscl-setup-guide and sample file exists, use the rich sample content
-    if (art.slug === 'zoho-books-sri-lanka-vat-sscl-setup-guide') {
-      const samplePath = path.join(rootDir, 'sample-article-zoho-books-sri-lanka.html');
-      if (fs.existsSync(samplePath)) {
-        fs.copyFileSync(samplePath, filePath);
-        console.log(`✓ Synchronized ${art.slug} from sample article`);
-        continue;
-      }
-    }
+    const indexPath = path.join(artDir, 'index.html');
+    const flatPath = path.join(rootDir, 'articles', `${art.slug}.html`);
 
     const html = generateArticlePageHtml(art);
-    fs.writeFileSync(filePath, html, 'utf8');
-    console.log(`✓ Pre-rendered static article: articles/${art.slug}/index.html`);
+    fs.writeFileSync(indexPath, html, 'utf8');
+    fs.writeFileSync(flatPath, html, 'utf8');
+    console.log(`✓ Pre-rendered unique article: articles/${art.slug}/index.html`);
   }
 
   // 4. Update articles.html listing and llms.txt
   updateArticlesHtml(articles);
   updateLlmsTxt(articles);
 
-  console.log('🎉 Site build completed successfully!');
+  console.log('🎉 Site build completed successfully with separate, individual article pages!');
 }
 
 main();

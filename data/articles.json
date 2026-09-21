@@ -2,49 +2,223 @@
   {
     "slug": "zoho-books-sri-lanka-vat-sscl-setup-guide",
     "title": "Zoho Books Sri Lanka VAT & SSCL Setup: Complete 2026 IRD Tax Guide",
-    "description": "Master Zoho Books setup for Sri Lanka tax laws. Learn how to configure VAT (18%), Social Security Contribution Levy (SSCL 2.5%), withholding taxes, and IRD compliant invoices.",
+    "description": "Comprehensive IRD tax compliance setup, custom tax rates, withholding taxes, automated tax returns, and digital invoice generation for Sri Lankan businesses.",
     "category": "tax",
     "categoryLabel": "Tax & IRD Guide",
     "date": "September 15, 2026",
     "readTime": "7 min read",
     "author": "PW Holdings Senior ERP Consultants",
     "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1200&auto=format&fit=crop",
-    "url": "https://pwholdings.lk/articles/zoho-books-sri-lanka-vat-sscl-setup-guide/"
+    "url": "articles/zoho-books-sri-lanka-vat-sscl-setup-guide/index.html",
+    "headline": "Mastering Sri Lanka VAT (18%) and SSCL (2.5%) in Zoho Books",
+    "sections": [
+      {
+        "heading": "Inland Revenue Department (IRD) Compliance Requirements",
+        "content": "Operating a business in Sri Lanka requires strict adherence to Inland Revenue Department (IRD) regulations. With Value Added Tax (VAT) standing at 18% and the Social Security Contribution Levy (SSCL) at 2.5%, improper tax accounting can result in severe penalties and cash flow disruption. Zoho Books provides dedicated tax localization configured by PW Holdings to automate calculations at point of sale."
+      },
+      {
+        "heading": "Configuring Tax Rates & Compound Calculations",
+        "content": "In Sri Lanka, SSCL is calculated on the liable turnover, followed by VAT on the combined value in specific industries. Inside Zoho Books, we set up hierarchical tax groups, automated exemption categories for export revenue, and digital tax invoices containing the mandatory Tax Identification Number (TIN) and VAT registration numbers."
+      },
+      {
+        "heading": "Automating RAMIS Returns & Financial Statements",
+        "content": "At the close of every tax period, Zoho Books generates detailed VAT and SSCL summary reports compatible with the Revenue Administration Management Information System (RAMIS). This eliminates manual spreadsheets, shortens audit preparation time, and gives CFOs full visibility into input and output tax positions."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Does Zoho Books calculate Sri Lanka VAT and SSCL automatically?",
+        "a": "Yes. When set up by PW Holdings, Zoho Books automatically applies 18% VAT and 2.5% SSCL on invoices, handles exempt goods, and prints legally compliant IRD tax invoices."
+      },
+      {
+        "q": "Can Zoho Books generate RAMIS tax return summaries?",
+        "a": "Yes, Zoho Books produces detailed tax summary schedules matching Inland Revenue Department (IRD) filing categories."
+      }
+    ]
   },
   {
-    "slug": "zoho-one-vs-sap-oracle-sri-lanka-cost-comparison",
-    "title": "Zoho One vs SAP & Oracle: Complete ROI & Cost Comparison for Sri Lankan Enterprises",
-    "description": "Discover why Sri Lankan SMEs and mid-market enterprises are migrating from legacy ERPs like SAP Business One and Microsoft Dynamics to Zoho One's 45+ integrated app suite.",
+    "slug": "zoho-one-vs-sap-erpnext-sri-lanka-enterprise-comparison",
+    "title": "Zoho One vs SAP vs ERPNext: Best ERP for Sri Lankan SMEs in 2026",
+    "description": "Compare total cost of ownership, implementation timelines, multi-currency features, and local partner support across leading ERP suites in Colombo.",
     "category": "erp",
-    "categoryLabel": "Cloud ERP & Migration",
+    "categoryLabel": "Cloud ERP",
     "date": "September 12, 2026",
     "readTime": "8 min read",
     "author": "PW Holdings Enterprise Architecture Team",
     "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop",
-    "url": "https://pwholdings.lk/articles/zoho-one-vs-sap-oracle-sri-lanka-cost-comparison/"
+    "url": "articles/zoho-one-vs-sap-erpnext-sri-lanka-enterprise-comparison/index.html",
+    "headline": "Enterprise ERP Comparison: Why Sri Lankan Businesses Choose Zoho One Over Legacy Suites",
+    "sections": [
+      {
+        "heading": "Total Cost of Ownership (TCO) & Licensing Breakdown",
+        "content": "Traditional ERP solutions like SAP Business One and Microsoft Dynamics require steep upfront software licensing fees, costly dedicated on-premise hardware, and expensive annual maintenance contracts (AMC). In contrast, Zoho One provides access to over 45+ enterprise applications—including Books, CRM, Desk, People, and Analytics—under a single, highly cost-effective subscription priced for emerging markets."
+      },
+      {
+        "heading": "Implementation Timelines: Weeks vs Months",
+        "content": "Legacy ERP deployments in Sri Lanka often extend from 6 to 18 months, leading to project fatigue and budget overruns. With PW Holdings' rapid agile deployment methodology, mid-market companies can transition their core financials, sales pipelines, and inventory to Zoho within 4 to 8 weeks with zero business disruption."
+      },
+      {
+        "heading": "Local Sri Lankan Partner Support & Customization",
+        "content": "Open-source solutions like ERPNext offer flexibility but lack guaranteed local enterprise SLA support and out-of-the-box mobile applications. Zoho One combines the robust security of enterprise-grade cloud architecture with low-code customization via Zoho Creator and dedicated on-site support from PW Holdings in Colombo."
+      }
+    ],
+    "faq": [
+      {
+        "q": "How much does Zoho One cost compared to SAP in Sri Lanka?",
+        "a": "Zoho One typically reduces total cost of ownership (TCO) by 60% to 75% compared to SAP Business One, eliminating high server infrastructure costs and steep annual maintenance fees."
+      },
+      {
+        "q": "Can Zoho One handle manufacturing and supply chain workflows?",
+        "a": "Yes. Zoho One includes Zoho Inventory, Zoho Creator, and Zoho Flow, allowing full tracking of multi-stage bills of materials (BOM), batch tracking, and warehouse automation."
+      }
+    ]
   },
   {
-    "slug": "zoho-payroll-sri-lanka-epf-etf-gratuity-compliance",
-    "title": "Automating Sri Lankan Payroll: Zoho Payroll Setup for EPF (12%+8%), ETF (3%) & Gratuity",
-    "description": "A comprehensive guide on managing Sri Lankan labor laws, statutory EPF and ETF calculations, Form C submission preparation, and pay slip automation using Zoho Payroll.",
+    "slug": "zoho-payroll-sri-lanka-epf-etf-apit-compliance-guide",
+    "title": "How to Configure Sri Lanka EPF, ETF & APIT in Zoho Payroll",
+    "description": "Automate monthly salary slips, statutory employer contributions, C-Form generation, and direct bank salary transfers in Sri Lanka.",
     "category": "payroll",
     "categoryLabel": "Payroll & HR",
     "date": "September 08, 2026",
-    "readTime": "6 min read",
+    "readTime": "7 min read",
     "author": "PW Holdings HR Tech Practice",
-    "image": "https://images.unsplash.com/photo-1450133064473-71024230f91b?q=80&w=1200&auto=format&fit=crop",
-    "url": "https://pwholdings.lk/articles/zoho-payroll-sri-lanka-epf-etf-gratuity-compliance/"
+    "image": "https://images.unsplash.com/photo-1554224154-26032ffc0d07?q=80&w=1200&auto=format&fit=crop",
+    "url": "articles/zoho-payroll-sri-lanka-epf-etf-apit-compliance-guide/index.html",
+    "headline": "Complete Payroll Automation: EPF, ETF, APIT, and Labor Compliance in Sri Lanka",
+    "sections": [
+      {
+        "heading": "Statutory Sri Lankan Deductions: EPF, ETF & APIT",
+        "content": "Sri Lankan labor legislation mandates Employee Provident Fund (EPF) deductions of 8% from employee earnings, matched by a 12% employer contribution, alongside a 3% Employee Trust Fund (ETF) employer contribution. Additionally, the Advance Personal Income Tax (APIT) progressive tax brackets require precise monthly withholdings."
+      },
+      {
+        "heading": "Automating Direct Bank Payments & C-Form Generation",
+        "content": "Managing payroll on spreadsheets risks calculation errors and delayed statutory submissions. Zoho Payroll automates statutory deductions, generates bank payment text files for direct upload to leading Sri Lankan banks (Commercial Bank, HNB, Sampath, Nations Trust), and prepares official EPF C-Forms with zero manual calculation."
+      },
+      {
+        "heading": "Employee Self-Service & Secure Digital Payslips",
+        "content": "Through the Zoho Payroll mobile portal, staff members can view monthly pay stubs, check tax deduction summaries, submit reimbursement claims, and manage leave balances, reducing administrative HR overhead by up to 70%."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Does Zoho Payroll support Sri Lanka EPF (12%+8%) and ETF (3%)?",
+        "a": "Yes, Zoho Payroll automatically calculates EPF (8% employee, 12% employer) and ETF (3% employer) based on total earnings in accordance with Sri Lankan Department of Labour rules."
+      },
+      {
+        "q": "Can employees view payslips on their mobile phones?",
+        "a": "Yes. Zoho Payroll provides a dedicated self-service mobile app on iOS and Android where employees can download password-protected payslips and submit expense claims."
+      }
+    ]
   },
   {
-    "slug": "zoho-crm-sales-pipeline-automation-sri-lanka",
-    "title": "Scaling B2B Sales in Sri Lanka: Best Practices for Zoho CRM & WhatsApp Integration",
-    "description": "How leading Sri Lankan sales teams use Zoho CRM, Zia AI forecasting, and WhatsApp Business API integration to close deals 40% faster.",
+    "slug": "zoho-crm-whatsapp-business-api-integration-sri-lanka",
+    "title": "Connecting WhatsApp Business API with Zoho CRM & SalesIQ",
+    "description": "Turn incoming WhatsApp chat queries into qualified leads automatically, send automated payment receipts, and increase customer retention in Sri Lanka.",
     "category": "crm",
-    "categoryLabel": "CRM & Automation",
+    "categoryLabel": "CRM Automation",
     "date": "September 05, 2026",
     "readTime": "6 min read",
     "author": "PW Holdings CRM & Growth Team",
-    "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop",
-    "url": "https://pwholdings.lk/articles/zoho-crm-sales-pipeline-automation-sri-lanka/"
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
+    "url": "articles/zoho-crm-whatsapp-business-api-integration-sri-lanka/index.html",
+    "headline": "WhatsApp CRM Automation: The Modern Sales Engine for Sri Lankan Companies",
+    "sections": [
+      {
+        "heading": "Why WhatsApp Is the #1 B2B & B2C Communication Channel in Sri Lanka",
+        "content": "Over 80% of customer inquiries in Sri Lanka occur over WhatsApp. However, when sales representatives communicate via personal phones, customer data is lost, response times lag, and management lacks visibility into the deal pipeline. Integrating official WhatsApp Business API with Zoho CRM resolves this completely."
+      },
+      {
+        "heading": "Instant Lead Capture & Automated Quotations",
+        "content": "When a prospect messages your official WhatsApp number, Zoho CRM automatically creates a new lead record, assigns it to the appropriate sales executive based on territory, and logs conversation history. Sales agents can generate PDF quotations from Zoho Books and send them directly inside WhatsApp in seconds."
+      },
+      {
+        "heading": "Zia AI Chatbots & Customer Service with Zoho SalesIQ",
+        "content": "By pairing WhatsApp with Zoho SalesIQ chatbots powered by Zia AI, businesses can answer customer FAQs 24/7, route support tickets to Zoho Desk, and automatically update payment status once invoices are cleared."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can multiple team members manage one WhatsApp Business number in Zoho CRM?",
+        "a": "Yes. With Zoho CRM WhatsApp Business API integration, your entire sales and support team can access a unified shared inbox using a single verified company number."
+      },
+      {
+        "q": "Is conversation history saved on the customer record?",
+        "a": "Yes, every incoming and outgoing message, image, and quotation is automatically logged on the customer's CRM profile for full auditability."
+      }
+    ]
+  },
+  {
+    "slug": "migrating-from-tally-quickbooks-to-zoho-books-sri-lanka",
+    "title": "Migrating from Tally / QuickBooks Desktop to Zoho Books Cloud",
+    "description": "Zero-downtime data migration checklist for chart of accounts, outstanding customer balances, vendor ledgers, and opening stock quantities in Sri Lanka.",
+    "category": "erp",
+    "categoryLabel": "Migration Guide",
+    "date": "September 02, 2026",
+    "readTime": "9 min read",
+    "author": "PW Holdings Data Migration Specialists",
+    "image": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1200&auto=format&fit=crop",
+    "url": "articles/migrating-from-tally-quickbooks-to-zoho-books-sri-lanka/index.html",
+    "headline": "Zero-Downtime Migration from Tally & QuickBooks to Zoho Books Cloud Accounting",
+    "sections": [
+      {
+        "heading": "The Limitations of Desktop Accounting Systems in 2026",
+        "content": "Legacy desktop tools like Tally Prime and QuickBooks Desktop tie accounting data to physical office PCs, lack real-time multi-branch visibility, require manual backups vulnerable to ransomware, and cannot seamlessly integrate with e-commerce or modern bank feeds in Sri Lanka."
+      },
+      {
+        "heading": "The 4-Step Zero-Downtime Migration Framework",
+        "content": "PW Holdings utilizes a proven migration framework: 1) Chart of Accounts cleanup and mapping; 2) Master data validation (Customers, Suppliers, Items); 3) Opening balance cutoff and historical trial balance reconciliation; 4) Parallel run and user training before official Go-Live."
+      },
+      {
+        "heading": "Multi-Branch & Cloud Access Advantages",
+        "content": "Post-migration, directors and accountants access real-time financial dashboards from any device or mobile phone. Direct bank statement synchronization, automatic payment reminders, and multi-location warehouse tracking are activated immediately."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Will my past accounting history be lost when migrating to Zoho Books?",
+        "a": "No. PW Holdings migrates complete customer ledgers, supplier balances, opening stock, and trial balances with full financial reconciliation."
+      },
+      {
+        "q": "How long does a standard Tally to Zoho Books migration take?",
+        "a": "A standard migration typically takes 5 to 10 business days depending on the volume of inventory items and historical ledger complexity."
+      }
+    ]
+  },
+  {
+    "slug": "zoho-inventory-multi-warehouse-stock-transfer-sri-lanka",
+    "title": "Automating Multi-Branch Stock Transfers & Re-Order Points with Zoho",
+    "description": "Real-time barcode scanning, batch tracking with expiry dates, and automated PO generation across warehouse hubs in Sri Lanka.",
+    "category": "tax",
+    "categoryLabel": "Supply Chain & Inventory",
+    "date": "August 28, 2026",
+    "readTime": "6 min read",
+    "author": "PW Holdings Supply Chain Practice",
+    "image": "https://images.unsplash.com/photo-1450133064473-71024230f91b?q=80&w=1200&auto=format&fit=crop",
+    "url": "articles/zoho-inventory-multi-warehouse-stock-transfer-sri-lanka/index.html",
+    "headline": "Multi-Warehouse Inventory Control: Barcode Scanning, Batch Expiry & Branch Transfers",
+    "sections": [
+      {
+        "heading": "Challenges of Multi-Location Inventory in Sri Lanka",
+        "content": "Companies running central warehouses in Kelaniya or Wattala alongside branch showrooms in Colombo, Kandy, and Galle face severe inventory discrepancies without a centralized ERP. Overstocking, stockouts of high-velocity items, and expired batches cause direct profit loss."
+      },
+      {
+        "heading": "Automated Inter-Branch Stock Transfers & In-Transit Tracking",
+        "content": "Zoho Inventory tracks stock movements with multi-step dispatch and receipt confirmation. When a branch manager requests inventory, the system generates delivery challans, logs goods-in-transit, and updates stock valuation automatically upon destination receipt."
+      },
+      {
+        "heading": "Automated Re-Order Triggers & Barcode Integration",
+        "content": "By defining minimum safety stock thresholds per warehouse, Zoho Inventory automatically generates draft Purchase Orders (POs) for approved vendors when stock levels deplete, preventing stockouts during peak retail seasons."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Does Zoho Inventory support barcode scanning on mobile devices?",
+        "a": "Yes. Warehouse staff can use the Zoho Inventory mobile app or dedicated Bluetooth barcode scanners for picking, packing, receiving, and cycle counts."
+      },
+      {
+        "q": "Can we track batch numbers and product expiry dates?",
+        "a": "Yes. Zoho Inventory supports FIFO/LIFO batch tracking with automated alerts for expiring perishable goods or pharmaceuticals."
+      }
+    ]
   }
 ]
