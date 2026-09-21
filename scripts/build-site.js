@@ -335,63 +335,784 @@ function generateArticlePageHtml(art) {
 
 function updateArticlesHtml(articles) {
   const articlesHtmlPath = path.join(rootDir, 'articles.html');
-  if (!fs.existsSync(articlesHtmlPath)) return;
+  if (!Array.isArray(articles) || articles.length === 0) return;
 
-  const cardsHtml = articles.map(art => {
-    // Relative link to each article's own folder
+  const heroArticle = articles[0];
+  const heroLink = `articles/${heroArticle.slug}/index.html`;
+
+  // Filter out hero from spotlight arrays if needed
+  const erpSpotlights = articles.filter(a => a.category === 'erp' || a.slug.includes('tally') || a.slug.includes('inventory')).slice(0, 2);
+  const taxSpotlights = articles.filter(a => a.category === 'tax' || a.category === 'payroll').slice(0, 2);
+
+  // All article cards for the dynamic grid
+  const allCardsHtml = articles.map(art => {
     const articleLink = `articles/${art.slug}/index.html`;
-
     return `        <!-- ARTICLE: ${escapeXml(art.slug)} -->
-        <article class="article-card" data-category="${escapeXml(art.category)}">
+        <article class="article-card" data-category="${escapeXml(art.category)}" data-title="${escapeXml(art.title.toLowerCase())}">
           <div class="thumb-box">
             <img src="${escapeXml(art.image)}" alt="${escapeXml(art.title)}" loading="lazy" />
-            <span class="card-badge">${escapeXml(art.categoryLabel)}</span>
+            <span class="card-badge">${escapeXml(art.categoryLabel || 'Guide')}</span>
           </div>
           <div class="card-content">
             <div class="card-meta">
               <span>📅 ${escapeXml(art.date)}</span>
               <span>&bull;</span>
-              <span>⏱️ ${escapeXml(art.readTime)}</span>
+              <span>⏱️ ${escapeXml(art.readTime || '6 min read')}</span>
             </div>
-            <h2><a href="${articleLink}" style="color: inherit; text-decoration: none;">${escapeXml(art.title)}</a></h2>
-            <p>${escapeXml(art.description)}</p>
-            <a href="${articleLink}" class="read-link">Read Full Guide &rarr;</a>
+            <h3 class="card-title">
+              <a href="${articleLink}">${escapeXml(art.title)}</a>
+            </h3>
+            <p class="card-desc">${escapeXml(art.description)}</p>
+            <div class="card-footer-row">
+              <span class="card-author">✍️ ${escapeXml(art.author ? art.author.split(' ')[0] + ' ' + art.author.split(' ')[1] : 'PW Holdings')}</span>
+              <a href="${articleLink}" class="read-link">Read Full Guide &rarr;</a>
+            </div>
           </div>
         </article>`;
   }).join('\n\n');
 
-  let content = fs.readFileSync(articlesHtmlPath, 'utf8');
+  // Spotlight Cards: ERP
+  const erpSpotlightsHtml = erpSpotlights.map(art => {
+    const articleLink = `articles/${art.slug}/index.html`;
+    return `        <article class="spotlight-card">
+          <div class="spotlight-thumb">
+            <img src="${escapeXml(art.image)}" alt="${escapeXml(art.title)}" loading="lazy" />
+          </div>
+          <div class="spotlight-content">
+            <div class="card-meta">
+              <span>📅 ${escapeXml(art.date)}</span>
+              <span>&bull;</span>
+              <span>⏱️ ${escapeXml(art.readTime)}</span>
+            </div>
+            <h3 class="card-title" style="font-size: 17px; margin-bottom: 8px;">
+              <a href="${articleLink}">${escapeXml(art.title)}</a>
+            </h3>
+            <p class="card-desc" style="font-size: 13.5px; margin-bottom: 14px;">${escapeXml(art.description)}</p>
+            <a href="${articleLink}" class="read-link">Explore Architecture Guide &rarr;</a>
+          </div>
+        </article>`;
+  }).join('\n\n');
 
-  // Replace everything inside <div class="articles-grid" id="articlesContainer"> ... </div>
-  const gridStartTag = '<div class="articles-grid" id="articlesContainer">';
-  const startIndex = content.indexOf(gridStartTag);
+  // Spotlight Cards: Tax & Payroll
+  const taxSpotlightsHtml = taxSpotlights.map(art => {
+    const articleLink = `articles/${art.slug}/index.html`;
+    return `        <article class="spotlight-card">
+          <div class="spotlight-thumb">
+            <img src="${escapeXml(art.image)}" alt="${escapeXml(art.title)}" loading="lazy" />
+          </div>
+          <div class="spotlight-content">
+            <div class="card-meta">
+              <span>📅 ${escapeXml(art.date)}</span>
+              <span>&bull;</span>
+              <span>⏱️ ${escapeXml(art.readTime)}</span>
+            </div>
+            <h3 class="card-title" style="font-size: 17px; margin-bottom: 8px;">
+              <a href="${articleLink}">${escapeXml(art.title)}</a>
+            </h3>
+            <p class="card-desc" style="font-size: 13.5px; margin-bottom: 14px;">${escapeXml(art.description)}</p>
+            <a href="${articleLink}" class="read-link">Review IRD Tax Schedule &rarr;</a>
+          </div>
+        </article>`;
+  }).join('\n\n');
 
-  if (startIndex !== -1) {
-    // Find the next </div> that closes this container
-    // We look for </div> followed by </div>\s*</main>
-    const afterGridStart = content.substring(startIndex + gridStartTag.length);
-    const endIndexInAfter = afterGridStart.indexOf('</div>\n\n    </div>\n  </main>');
-    const altEndIndex = afterGridStart.indexOf('</div>\r\n\r\n    </div>\r\n  </main>');
+  const pageHtml = `<!DOCTYPE html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    let endOffset = -1;
-    if (endIndexInAfter !== -1) endOffset = endIndexInAfter;
-    else if (altEndIndex !== -1) endOffset = altEndIndex;
-    else {
-      // Fallback: find first </div> after start
-      endOffset = afterGridStart.indexOf('</div>\n');
-    }
+  <!-- ===================================================================
+       1. BLOG & KNOWLEDGE HUB SEO / AEO / GEO META TAGS
+       =================================================================== -->
+  <title>Zoho ERP &amp; Business Automation Articles | PW Holdings Sri Lanka</title>
+  <meta name="description" content="Explore actionable Zoho ERP guides, Sri Lanka VAT/SSCL tax compliance tutorials, cloud migration benchmarks, and business automation research by PW Holdings." />
+  <meta name="keywords" content="Zoho Books Sri Lanka guide, Zoho ERP articles Colombo, Zoho VAT SSCL tutorial, Zoho One vs SAP Sri Lanka, Zoho payroll EPF ETF, PW Holdings Articles" />
+  <meta name="author" content="PW Holdings Editorial &amp; Architecture Team" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <link rel="canonical" href="${DOMAIN}/articles.html" />
 
-    if (endOffset !== -1) {
-      const p1 = startIndex + gridStartTag.length;
-      const p2 = p1 + endOffset;
-      const newContent = content.substring(0, p1) + '\n\n' + cardsHtml + '\n\n      ' + content.substring(p2);
-      fs.writeFileSync(articlesHtmlPath, newContent, 'utf8');
-      console.log(`✓ Successfully updated articles.html with ${articles.length} unique article cards and distinct URLs!`);
-      return;
+  <!-- Social Open Graph -->
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Zoho ERP &amp; Cloud Accounting Articles | PW Holdings Sri Lanka" />
+  <meta property="og:description" content="Stay ahead in business with certified Zoho tutorials, Sri Lankan tax updates, and cloud software implementation guides." />
+  <meta property="og:url" content="${DOMAIN}/articles.html" />
+  <meta property="og:site_name" content="PW Holdings" />
+  <meta property="og:image" content="${DEFAULT_IMAGE}" />
+
+  <!-- Favicon & Fonts -->
+  <link rel="icon" type="image/png" href="${LOGO_IMAGE}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- ===================================================================
+       2. SCHEMA.ORG COLLECTION PAGE & BLOG STRUCTURED DATA
+       =================================================================== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "@id": "${DOMAIN}/articles.html#blog",
+    "name": "PW Holdings Zoho ERP Knowledge Hub",
+    "description": "Expert insights, tutorials, and Sri Lankan business guides on Zoho One, Zoho Books, CRM, and Cloud ERP.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "PW Holdings",
+      "url": "${DOMAIN}/",
+      "logo": "${LOGO_IMAGE}"
     }
   }
+  </script>
 
-  console.error('Warning: Could not reliably locate articlesContainer in articles.html');
+  <style>
+    :root {
+      --bg-dark: #070d1e;
+      --bg-surface: #0e172e;
+      --bg-card: #0f1933;
+      --border-glass: rgba(255, 255, 255, 0.12);
+      --border-accent: rgba(99, 102, 241, 0.38);
+      --primary: #6366f1;
+      --primary-light: #818cf8;
+      --accent-teal: #06b6d4;
+      --accent-emerald: #10b981;
+      --text-white: #ffffff;
+      --text-muted: #94a3b8;
+      --text-subtle: #64748b;
+      --font-heading: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-dark);
+      color: var(--text-white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 2; }
+    a { text-decoration: none; color: inherit; }
+
+    /* 1. EDITORIAL TRUST BANNER (Science News Hub style) */
+    .trust-banner {
+      background: rgba(99, 102, 241, 0.08);
+      border-bottom: 1px solid rgba(99, 102, 241, 0.18);
+      padding: 9px 16px;
+      font-size: 13px;
+      color: var(--text-muted);
+      text-align: center;
+    }
+    .trust-banner-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .trust-lead {
+      color: var(--primary-light);
+      font-weight: 700;
+    }
+    .trust-sep { opacity: 0.4; }
+
+    /* 2. FROSTED GLASS NAVBAR */
+    .navbar {
+      position: sticky; top: 0; z-index: 1000;
+      padding: 16px 20px;
+      background: rgba(7, 13, 30, 0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-glass);
+    }
+    .navbar-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand img { height: 36px; padding: 4px 10px; background: #fff; border-radius: 8px; }
+    .brand-title { font-family: var(--font-heading); font-weight: 800; font-size: 17px; }
+    .nav-links { display: flex; align-items: center; gap: 14px; }
+    .nav-links a {
+      color: var(--text-muted); font-size: 14px; font-weight: 600;
+      padding: 7px 14px; border-radius: 8px; transition: 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: #fff; background: rgba(99, 102, 241, 0.15);
+    }
+    .btn-nav-cta {
+      background: linear-gradient(135deg, #6366f1, #a855f7);
+      color: #fff !important; padding: 9px 22px !important;
+      border-radius: 50px !important; font-weight: 700 !important;
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(99, 102, 241, 0.45); }
+
+    /* 3. HERO FEATURED BREAKTHROUGH (Split Grid layout like Science News Hub) */
+    .hero-featured-section {
+      padding: 50px 0 40px;
+      background: radial-gradient(circle at 50% 20%, rgba(99, 102, 241, 0.18), transparent 70%);
+      border-bottom: 1px solid var(--border-glass);
+    }
+    .hero-label-row {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 20px;
+    }
+    .hero-pill-badge {
+      background: linear-gradient(135deg, #6366f1, #a855f7);
+      color: #ffffff; font-size: 11.5px; font-weight: 800;
+      padding: 5px 14px; border-radius: 50px; text-transform: uppercase;
+      letter-spacing: 0.05em; display: inline-flex; align-items: center; gap: 6px;
+    }
+    .hero-category-label {
+      font-size: 12.5px; font-weight: 700; color: var(--accent-teal);
+      text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .hero-card-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 40px;
+      align-items: center;
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-glass);
+      border-radius: 28px;
+      padding: 40px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+    .hero-card-grid:hover { border-color: var(--border-accent); }
+    .hero-card-title {
+      font-family: var(--font-heading);
+      font-size: clamp(26px, 3.8vw, 38px);
+      font-weight: 900;
+      line-height: 1.25;
+      margin-bottom: 18px;
+      letter-spacing: -0.02em;
+    }
+    .hero-card-title a { color: #ffffff; transition: color 0.2s; }
+    .hero-card-title a:hover { color: var(--primary-light); }
+    .hero-card-desc {
+      font-size: 16px; color: var(--text-muted); line-height: 1.65;
+      margin-bottom: 24px;
+    }
+    .hero-card-meta {
+      display: flex; flex-wrap: wrap; gap: 16px; font-size: 13px;
+      color: var(--text-subtle); margin-bottom: 28px;
+    }
+    .meta-item { display: inline-flex; align-items: center; gap: 6px; }
+    .btn-hero-read {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+      color: #ffffff; font-weight: 700; font-size: 15px;
+      padding: 13px 30px; border-radius: 50px;
+      box-shadow: 0 8px 24px rgba(99, 102, 241, 0.35);
+      transition: all 0.25s ease;
+    }
+    .btn-hero-read:hover {
+      transform: translateY(-3px); box-shadow: 0 14px 34px rgba(99, 102, 241, 0.5);
+    }
+    .hero-card-media {
+      position: relative; border-radius: 20px; overflow: hidden;
+      aspect-ratio: 16/10; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border-glass);
+    }
+    .hero-card-media img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .hero-card-grid:hover .hero-card-media img { transform: scale(1.05); }
+
+    /* 4. FILTER & REALTIME SEARCH BAR (Science News Hub style) */
+    .filter-section {
+      padding: 36px 0 20px;
+    }
+    .filter-bar-wrap {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 20px; flex-wrap: wrap;
+    }
+    .category-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+    .cat-pill {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-glass);
+      color: var(--text-muted); padding: 8px 18px; border-radius: 30px;
+      font-size: 13px; font-weight: 600; cursor: pointer; transition: 0.2s;
+    }
+    .cat-pill:hover { background: rgba(99, 102, 241, 0.15); color: #fff; }
+    .cat-pill.active {
+      background: var(--primary); color: #fff; border-color: var(--primary-light);
+      box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
+    }
+    .search-wrap {
+      position: relative; display: flex; align-items: center;
+    }
+    .search-icon {
+      position: absolute; left: 16px; color: var(--text-subtle); pointer-events: none;
+    }
+    .search-wrap input {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-glass);
+      color: #fff; padding: 11px 20px 11px 44px;
+      border-radius: 30px; font-size: 14px; width: 300px;
+      outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .search-wrap input:focus {
+      border-color: var(--primary-light);
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+    }
+
+    /* 5. LATEST ARTICLES GRID (3-column NewsCard style) */
+    .section-title-row {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin: 30px 0 24px; padding-bottom: 14px; border-bottom: 1px solid var(--border-glass);
+    }
+    .section-kicker {
+      font-size: 11.5px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--primary-light); display: block; margin-bottom: 4px;
+    }
+    .section-heading {
+      font-family: var(--font-heading); font-size: 28px; font-weight: 900;
+      color: #ffffff; letter-spacing: -0.02em;
+    }
+    .article-count-badge {
+      font-size: 12.5px; color: var(--text-subtle); font-weight: 600;
+    }
+
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 28px;
+      margin-bottom: 60px;
+    }
+    .article-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      border-radius: 20px; overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: all 0.35s ease;
+    }
+    .article-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--border-accent);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+    }
+    .thumb-box {
+      height: 200px; width: 100%; position: relative; overflow: hidden;
+    }
+    .thumb-box img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .article-card:hover .thumb-box img { transform: scale(1.08); }
+    .card-badge {
+      position: absolute; top: 14px; left: 14px;
+      background: rgba(7, 13, 30, 0.85); backdrop-filter: blur(10px);
+      color: #93c5fa; font-size: 11px; font-weight: 700;
+      padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1);
+    }
+    .card-content {
+      padding: 24px; display: flex; flex-direction: column; flex: 1;
+    }
+    .card-meta {
+      display: flex; gap: 10px; font-size: 12px; color: var(--text-subtle);
+      margin-bottom: 12px;
+    }
+    .card-title {
+      font-family: var(--font-heading); font-size: 19px; font-weight: 800;
+      line-height: 1.35; margin-bottom: 12px; color: #ffffff;
+    }
+    .card-title a { color: #ffffff; transition: color 0.2s; }
+    .card-title a:hover { color: var(--primary-light); }
+    .card-desc {
+      font-size: 14px; color: var(--text-muted); line-height: 1.6;
+      margin-bottom: 22px; flex: 1;
+    }
+    .card-footer-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .card-author {
+      font-size: 12px; color: var(--text-subtle);
+    }
+    .read-link {
+      color: var(--primary-light); font-size: 13.5px; font-weight: 700;
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .read-link:hover { color: #ffffff; }
+
+    /* 6. TOPIC SPOTLIGHT SECTIONS (Science News Hub style) */
+    .spotlight-section {
+      padding: 60px 0;
+      border-top: 1px solid var(--border-glass);
+      background: rgba(14, 23, 46, 0.45);
+    }
+    .spotlight-header {
+      margin-bottom: 32px;
+    }
+    .spotlight-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 11.5px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--accent-teal);
+      background: rgba(6, 182, 212, 0.1); border: 1px solid rgba(6, 182, 212, 0.25);
+      padding: 4px 14px; border-radius: 30px; margin-bottom: 10px;
+    }
+    .spotlight-title {
+      font-family: var(--font-heading); font-size: 30px; font-weight: 900;
+      color: #ffffff; letter-spacing: -0.02em; margin-bottom: 8px;
+    }
+    .spotlight-sub {
+      font-size: 15.5px; color: var(--text-muted); max-width: 680px;
+    }
+    .spotlight-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+      gap: 24px;
+    }
+    .spotlight-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      border-radius: 20px; overflow: hidden;
+      display: grid; grid-template-columns: 200px 1fr;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .spotlight-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--border-accent);
+    }
+    .spotlight-thumb {
+      height: 100%; min-height: 180px; position: relative; overflow: hidden;
+    }
+    .spotlight-thumb img {
+      width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s;
+    }
+    .spotlight-card:hover .spotlight-thumb img { transform: scale(1.08); }
+    .spotlight-content {
+      padding: 22px; display: flex; flex-direction: column; justify-content: center;
+    }
+
+    /* 7. ARCHITECTURE CONSULTATION / NEWSLETTER CALLOUT */
+    .consult-callout-section {
+      padding: 70px 0;
+    }
+    .consult-card {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(168, 85, 247, 0.12) 100%);
+      border: 1.5px solid rgba(99, 102, 241, 0.3);
+      border-radius: 28px; padding: 50px 40px; text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      max-width: 900px; margin: 0 auto;
+    }
+    .consult-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11.5px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.08em; color: #a5b4fc;
+      background: rgba(99, 102, 241, 0.2); border: 1px solid rgba(99, 102, 241, 0.35);
+      padding: 5px 16px; border-radius: 50px; margin-bottom: 18px;
+    }
+    .consult-title {
+      font-family: var(--font-heading); font-size: clamp(24px, 3.5vw, 36px);
+      font-weight: 900; color: #fff; margin-bottom: 14px;
+    }
+    .consult-desc {
+      font-size: 16px; color: var(--text-muted); max-width: 650px;
+      margin: 0 auto 30px; line-height: 1.65;
+    }
+    .consult-actions {
+      display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
+    }
+    .btn-consult-wa {
+      background: #25D366; color: #000 !important; font-weight: 800;
+      padding: 13px 28px; border-radius: 50px; display: inline-flex;
+      align-items: center; gap: 8px; transition: transform 0.2s;
+    }
+    .btn-consult-wa:hover { transform: scale(1.04); }
+    .btn-consult-call {
+      background: rgba(255, 255, 255, 0.08); border: 1px solid var(--border-glass);
+      color: #fff !important; font-weight: 700; padding: 13px 26px; border-radius: 50px;
+    }
+
+    /* 8. FOOTER */
+    .footer {
+      background: #040711; padding: 60px 0 25px;
+      border-top: 1px solid var(--border-glass);
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1.2fr;
+      gap: 40px; margin-bottom: 40px;
+    }
+    .footer-col h4 {
+      font-family: var(--font-heading); font-size: 15px; font-weight: 800;
+      color: #fff; margin-bottom: 18px; text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .footer-col a {
+      display: block; color: var(--text-muted); font-size: 14px;
+      margin-bottom: 10px; transition: color 0.2s;
+    }
+    .footer-col a:hover { color: #fff; }
+    .footer-col p { font-size: 14px; color: var(--text-muted); margin-bottom: 8px; }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 25px; border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 13px; color: var(--text-subtle);
+    }
+
+    @media (max-width: 900px) {
+      .hero-card-grid { grid-template-columns: 1fr; }
+      .spotlight-grid { grid-template-columns: 1fr; }
+      .spotlight-card { grid-template-columns: 1fr; }
+      .spotlight-thumb { height: 180px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. EDITORIAL TRUST BANNER -->
+  <section class="trust-banner">
+    <div class="container trust-banner-inner">
+      <span>🛡️ <strong>Verified Sri Lanka IRD Compliance &amp; Official Zoho Architecture</strong></span>
+      <span class="trust-sep">•</span>
+      <span>Peer-reviewed by Certified Zoho Specialists &amp; Colombo Tax Consultants</span>
+      <span class="trust-sep">•</span>
+      <span class="trust-lead">Official Zoho Authorized Partner Sri Lanka • Colombo HQ</span>
+    </div>
+  </section>
+
+  <!-- 2. NAVBAR -->
+  <header class="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="brand">
+        <img src="${LOGO_IMAGE}" alt="PW Holdings Logo" />
+        <span class="brand-title">PW Holdings</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#sec1">About Us</a>
+        <a href="index.html#zoho-services">Zoho Solutions</a>
+        <a href="articles.html" class="active">Articles</a>
+        <a href="https://web.whatsapp.com/send?phone=94777885883" target="_blank">Contact Us</a>
+        <a href="https://zohobooks.lk/" target="_blank" class="btn-nav-cta">Book Demo</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- 3. HERO FEATURED STORY (Science News Hub style) -->
+    <section class="hero-featured-section">
+      <div class="container">
+        <div class="hero-label-row">
+          <span class="hero-pill-badge">✨ Featured ERP Breakthrough</span>
+          <span class="hero-category-label">${escapeXml(heroArticle.categoryLabel || 'Tax &amp; IRD Guide')}</span>
+        </div>
+
+        <div class="hero-card-grid">
+          <div class="hero-card-text">
+            <h1 class="hero-card-title">
+              <a href="${heroLink}">${escapeXml(heroArticle.title)}</a>
+            </h1>
+            <p class="hero-card-desc">${escapeXml(heroArticle.description)}</p>
+            
+            <div class="hero-card-meta">
+              <span class="meta-item">✍️ <strong>By:</strong> ${escapeXml(heroArticle.author || 'PW Holdings Senior Consultants')}</span>
+              <span class="meta-item">⏱️ <strong>Read Time:</strong> ${escapeXml(heroArticle.readTime || '7 min read')}</span>
+              <span class="meta-item">📅 <strong>Published:</strong> ${escapeXml(heroArticle.date)}</span>
+              <span class="meta-item">📍 <strong>Region:</strong> Sri Lanka</span>
+            </div>
+
+            <div class="hero-card-cta">
+              <a href="${heroLink}" class="btn-hero-read">
+                <span>Read Full Research Report &rarr;</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-card-media">
+            <a href="${heroLink}">
+              <img src="${escapeXml(heroArticle.image)}" alt="${escapeXml(heroArticle.title)}" loading="eager" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. FILTER & REALTIME SEARCH BAR -->
+    <section class="filter-section">
+      <div class="container">
+        <div class="filter-bar-wrap">
+          <div class="category-pills" id="categoryFilters">
+            <button class="cat-pill active" data-filter="all">All Articles (${articles.length})</button>
+            <button class="cat-pill" data-filter="tax">Tax &amp; IRD Guide</button>
+            <button class="cat-pill" data-filter="erp">Cloud ERP &amp; Zoho One</button>
+            <button class="cat-pill" data-filter="payroll">Payroll &amp; HR</button>
+            <button class="cat-pill" data-filter="crm">CRM &amp; WhatsApp</button>
+          </div>
+
+          <div class="search-wrap">
+            <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="searchInput" placeholder="Search guides &amp; keywords..." aria-label="Search articles" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. LATEST ARTICLES GRID (Science News Hub style) -->
+    <section style="padding: 10px 0 50px;">
+      <div class="container">
+        <div class="section-title-row">
+          <div>
+            <span class="section-kicker">Live Knowledge Base</span>
+            <h2 class="section-heading">Latest ERP &amp; Automation Articles</h2>
+          </div>
+          <span class="article-count-badge">Displaying ${articles.length} Verified Guides</span>
+        </div>
+
+        <div class="articles-grid" id="articlesContainer">
+${allCardsHtml}
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. SPOTLIGHT 1: ENTERPRISE CLOUD ERP & MIGRATIONS -->
+    <section class="spotlight-section">
+      <div class="container">
+        <div class="spotlight-header">
+          <div class="spotlight-badge">⚙️ ARCHITECTURE SPOTLIGHT</div>
+          <h2 class="spotlight-title">Enterprise Cloud ERP &amp; System Migrations</h2>
+          <p class="spotlight-sub">Strategic evaluation, total cost of ownership (TCO) benchmarks, and smooth transitions from on-premise legacy accounting to Zoho One.</p>
+        </div>
+
+        <div class="spotlight-grid">
+${erpSpotlightsHtml}
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. SPOTLIGHT 2: SRI LANKA IRD TAX & REGULATORY COMPLIANCE -->
+    <section class="spotlight-section" style="background: rgba(7, 13, 30, 0.7);">
+      <div class="container">
+        <div class="spotlight-header">
+          <div class="spotlight-badge" style="color: #34d399; background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.25);">🏛️ REGULATORY COMPLIANCE SPOTLIGHT</div>
+          <h2 class="spotlight-title">Sri Lanka Tax &amp; Statutory Workforce Compliance</h2>
+          <p class="spotlight-sub">Master 18% VAT, 2.5% SSCL, Inland Revenue Department RAMIS reporting, and statutory EPF/ETF payroll automation.</p>
+        </div>
+
+        <div class="spotlight-grid">
+${taxSpotlightsHtml}
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. ARCHITECTURE CONSULTATION CALLOUT (Science News Hub style) -->
+    <section class="consult-callout-section">
+      <div class="container">
+        <div class="consult-card">
+          <div class="consult-pill">🚀 ARCHITECTURE STRATEGY</div>
+          <h2 class="consult-title">Need Expert Guidance on Your Zoho Implementation?</h2>
+          <p class="consult-desc">Book a free 1-on-1 architecture walkthrough with PW Holdings' certified consultants. Get tailored advice on Inland Revenue Department (IRD) compliance, Deluge custom workflows, and multi-department consolidation.</p>
+          <div class="consult-actions">
+            <a href="https://web.whatsapp.com/send?phone=94777885883&text=Hello%20PW%20Holdings!%20I%20am%20reading%20your%20Articles%20and%20would%20like%20a%20free%20consultation." target="_blank" class="btn-consult-wa">
+              <span>💬 Chat on WhatsApp (+94 77 788 5883)</span>
+            </a>
+            <a href="tel:+94777885883" class="btn-consult-call">
+              <span>📞 Direct Hotline</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 9. FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand" style="margin-bottom: 14px;">
+            <img src="${LOGO_IMAGE}" alt="PW Holdings Logo" />
+            <span class="brand-title">PW Holdings</span>
+          </div>
+          <p style="max-width: 460px; line-height: 1.65;">
+            Sri Lanka's premier official Zoho Authorized Partner providing enterprise cloud ERP implementation, IRD VAT/SSCL compliance, custom Deluge software, and certified training.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Home</a>
+          <a href="index.html#sec1">About Us</a>
+          <a href="index.html#zoho-services">Zoho Solutions</a>
+          <a href="articles.html">Articles Hub</a>
+          <a href="sitemap.xml">XML Sitemap</a>
+          <a href="llms.txt">AI Context (llms.txt)</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Direct Consultation</h4>
+          <p><strong>Hotline:</strong> +94 77 788 5883</p>
+          <p><strong>Email:</strong> info@pwholdings.lk</p>
+          <p><strong>HQ:</strong> Colombo, Sri Lanka</p>
+          <p style="margin-top: 14px;">
+            <a href="https://web.whatsapp.com/send?phone=94777885883" target="_blank" style="color: #25D366; font-weight: 700;">💬 WhatsApp Specialist &rarr;</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; ${new Date().getFullYear()} PW Holdings (Pvt) Ltd. All Rights Reserved. Official Zoho Authorized Partner Sri Lanka.</p>
+        <p><a href="rss.xml" style="color: inherit;">RSS Feed</a> &bull; <a href="feed.xml" style="color: inherit;">Atom Feed</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 10. REAL-TIME FILTER & SEARCH JS -->
+  <script>
+    const filterButtons = document.querySelectorAll('.cat-pill');
+    const cards = document.querySelectorAll('.article-card');
+    const searchInput = document.getElementById('searchInput');
+
+    let currentFilter = 'all';
+    let currentSearch = '';
+
+    function applyFilters() {
+      cards.forEach(card => {
+        const category = card.getAttribute('data-category') || '';
+        const title = card.getAttribute('data-title') || '';
+        const desc = card.querySelector('.card-desc') ? card.querySelector('.card-desc').textContent.toLowerCase() : '';
+
+        const matchesCategory = currentFilter === 'all' || category === currentFilter;
+        const matchesSearch = !currentSearch || title.includes(currentSearch) || desc.includes(currentSearch);
+
+        if (matchesCategory && matchesSearch) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.getAttribute('data-filter') || 'all';
+        applyFilters();
+      });
+    });
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        currentSearch = e.target.value.toLowerCase().trim();
+        applyFilters();
+      });
+    }
+  </script>
+</body>
+</html>`;
+
+  fs.writeFileSync(articlesHtmlPath, pageHtml, 'utf8');
+  console.log(`✓ Generated complete Science-News-Hub-style articles.html with featured hero, live filters, and category spotlights!`);
 }
 
 function updateLlmsTxt(articles) {
