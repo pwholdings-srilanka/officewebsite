@@ -495,28 +495,6 @@ function updateArticlesHtml(articles) {
     .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 2; }
     a { text-decoration: none; color: inherit; }
 
-    /* 1. EDITORIAL TRUST BANNER (Science News Hub style) */
-    .trust-banner {
-      background: rgba(99, 102, 241, 0.08);
-      border-bottom: 1px solid rgba(99, 102, 241, 0.18);
-      padding: 9px 16px;
-      font-size: 13px;
-      color: var(--text-muted);
-      text-align: center;
-    }
-    .trust-banner-inner {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .trust-lead {
-      color: var(--primary-light);
-      font-weight: 700;
-    }
-    .trust-sep { opacity: 0.4; }
-
     /* 2. FROSTED GLASS NAVBAR */
     .navbar {
       position: sticky; top: 0; z-index: 1000;
@@ -868,18 +846,7 @@ function updateArticlesHtml(articles) {
 </head>
 <body>
 
-  <!-- 1. EDITORIAL TRUST BANNER -->
-  <section class="trust-banner">
-    <div class="container trust-banner-inner">
-      <span>🛡️ <strong>Verified Sri Lanka IRD Compliance &amp; Official Zoho Architecture</strong></span>
-      <span class="trust-sep">•</span>
-      <span>Peer-reviewed by Certified Zoho Specialists &amp; Colombo Tax Consultants</span>
-      <span class="trust-sep">•</span>
-      <span class="trust-lead">Official Zoho Authorized Partner Sri Lanka • Colombo HQ</span>
-    </div>
-  </section>
-
-  <!-- 2. NAVBAR -->
+  <!-- NAVBAR -->
   <header class="navbar">
     <div class="navbar-inner">
       <a href="index.html" class="brand">
