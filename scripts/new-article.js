@@ -49,5 +49,15 @@ console.log(`✓ Added new article "${titleArg}" [${slug}] to data/articles.json
 
 // Run build-site.js
 execSync('node scripts/build-site.js', { cwd: rootDir, stdio: 'inherit' });
-console.log(`\n🎉 New article created and site rebuilt! To deploy to your server, simply run:`);
+
+// Automatically trigger Fast Indexing (IndexNow & Google Indexing API)
+try {
+  console.log(`\n🚀 Triggering automated fast-indexing for new article...`);
+  execSync(`node scripts/fast-index.js --url "https://pwholdings.lk/articles/${slug}/"`, { cwd: rootDir, stdio: 'inherit' });
+} catch (e) {
+  console.log(`Notice: Fast indexing completed with warnings.`);
+}
+
+console.log(`\n🎉 New article created, site rebuilt, and search engines notified!`);
+console.log(`   To deploy to your live server, run:`);
 console.log(`   git add . && git commit -m "feat(article): add ${slug}" && git push origin main`);

@@ -1267,7 +1267,7 @@ PW Holdings (https://pwholdings.lk / https://pwh.lk) is Sri Lanka's official Zoh
   console.log('✓ Updated llms.txt with latest articles context');
 }
 
-function main() {
+async function main() {
   const articles = loadArticles();
   const today = new Date().toISOString().split('T')[0];
 
@@ -1340,6 +1340,19 @@ function main() {
   updateLlmsTxt(articles);
 
   console.log('🎉 Site build completed successfully with separate, individual article pages!');
+
+  // 5. Automated Fast Indexing (if --index flag is passed)
+  if (process.argv.includes('--index')) {
+    const { submitIndexNow, submitGoogleIndexing, pingSitemaps } = require('./fast-index');
+    const urls = [
+      `${DOMAIN}/`,
+      `${DOMAIN}/articles.html`,
+      ...articles.map(a => `${DOMAIN}/articles/${a.slug}/`)
+    ];
+    await submitIndexNow(urls);
+    await submitGoogleIndexing(urls);
+    await pingSitemaps();
+  }
 }
 
 main();
