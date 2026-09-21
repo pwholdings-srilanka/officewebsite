@@ -1,0 +1,50 @@
+[
+  {
+    "slug": "zoho-books-sri-lanka-vat-sscl-setup-guide",
+    "title": "Zoho Books Sri Lanka VAT & SSCL Setup: Complete 2026 IRD Tax Guide",
+    "description": "Master Zoho Books setup for Sri Lanka tax laws. Learn how to configure VAT (18%), Social Security Contribution Levy (SSCL 2.5%), withholding taxes, and IRD compliant invoices.",
+    "category": "tax",
+    "categoryLabel": "Tax & IRD Guide",
+    "date": "September 15, 2026",
+    "readTime": "7 min read",
+    "author": "PW Holdings Senior ERP Consultants",
+    "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1200&auto=format&fit=crop",
+    "url": "https://pwholdings.lk/articles/zoho-books-sri-lanka-vat-sscl-setup-guide/"
+  },
+  {
+    "slug": "zoho-one-vs-sap-oracle-sri-lanka-cost-comparison",
+    "title": "Zoho One vs SAP & Oracle: Complete ROI & Cost Comparison for Sri Lankan Enterprises",
+    "description": "Discover why Sri Lankan SMEs and mid-market enterprises are migrating from legacy ERPs like SAP Business One and Microsoft Dynamics to Zoho One's 45+ integrated app suite.",
+    "category": "erp",
+    "categoryLabel": "Cloud ERP & Migration",
+    "date": "September 12, 2026",
+    "readTime": "8 min read",
+    "author": "PW Holdings Enterprise Architecture Team",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop",
+    "url": "https://pwholdings.lk/articles/zoho-one-vs-sap-oracle-sri-lanka-cost-comparison/"
+  },
+  {
+    "slug": "zoho-payroll-sri-lanka-epf-etf-gratuity-compliance",
+    "title": "Automating Sri Lankan Payroll: Zoho Payroll Setup for EPF (12%+8%), ETF (3%) & Gratuity",
+    "description": "A comprehensive guide on managing Sri Lankan labor laws, statutory EPF and ETF calculations, Form C submission preparation, and pay slip automation using Zoho Payroll.",
+    "category": "payroll",
+    "categoryLabel": "Payroll & HR",
+    "date": "September 08, 2026",
+    "readTime": "6 min read",
+    "author": "PW Holdings HR Tech Practice",
+    "image": "https://images.unsplash.com/photo-1450133064473-71024230f91b?q=80&w=1200&auto=format&fit=crop",
+    "url": "https://pwholdings.lk/articles/zoho-payroll-sri-lanka-epf-etf-gratuity-compliance/"
+  },
+  {
+    "slug": "zoho-crm-sales-pipeline-automation-sri-lanka",
+    "title": "Scaling B2B Sales in Sri Lanka: Best Practices for Zoho CRM & WhatsApp Integration",
+    "description": "How leading Sri Lankan sales teams use Zoho CRM, Zia AI forecasting, and WhatsApp Business API integration to close deals 40% faster.",
+    "category": "crm",
+    "categoryLabel": "CRM & Automation",
+    "date": "September 05, 2026",
+    "readTime": "6 min read",
+    "author": "PW Holdings CRM & Growth Team",
+    "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop",
+    "url": "https://pwholdings.lk/articles/zoho-crm-sales-pipeline-automation-sri-lanka/"
+  }
+]

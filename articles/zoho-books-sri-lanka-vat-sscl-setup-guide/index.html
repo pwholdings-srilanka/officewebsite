@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- ===================================================================
+       1. ARTICLE SEO & AEO METADATA
+       =================================================================== -->
+  <title>Zoho Books Sri Lanka VAT & SSCL Setup: Complete 2026 IRD Tax Guide | PW Holdings</title>
+  <meta name="description" content="Master Zoho Books setup for Sri Lanka tax laws. Learn how to configure VAT (18%), Social Security Contribution Levy (SSCL 2.5%), withholding taxes, and IRD compliant invoices." />
+  <meta name="keywords" content="Zoho Books Sri Lanka VAT setup, SSCL tax Zoho Books, Sri Lanka IRD tax accounting, Zoho Books invoice template Sri Lanka, PW Holdings" />
+  <meta name="author" content="PW Holdings Senior ERP Consultants" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <link rel="canonical" href="https://pwholdings.lk/articles/zoho-books-sri-lanka-vat-sscl-setup-guide" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Zoho Books Sri Lanka VAT & SSCL Setup: Complete 2026 IRD Tax Guide" />
+  <meta property="og:description" content="Step-by-step tutorial on configuring Sri Lankan VAT, SSCL, and withholding taxes inside Zoho Books Cloud Accounting." />
+  <meta property="og:url" content="https://pwholdings.lk/articles/zoho-books-sri-lanka-vat-sscl-setup-guide" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1200&auto=format&fit=crop" />
+
+  <!-- Favicon & Fonts -->
+  <link rel="icon" type="image/png" href="https://res.cloudinary.com/dib0fble7/image/upload/v1777898970/WhatsApp_Image_2026-04-20_at_9.04.34_AM_1_izs6ly.jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- ===================================================================
+       2. ARTICLE & FAQ SCHEMA.ORG JSON-LD
+       =================================================================== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": "https://pwholdings.lk/articles/zoho-books-sri-lanka-vat-sscl-setup-guide#article",
+        "headline": "Zoho Books Sri Lanka VAT & SSCL Setup: Complete 2026 IRD Tax Guide",
+        "description": "Comprehensive tutorial for Sri Lankan businesses configuring VAT, SSCL, and digital tax invoices in Zoho Books.",
+        "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1200&auto=format&fit=crop",
+        "datePublished": "2026-09-01T08:00:00+05:30",
+        "dateModified": "2026-09-13T10:00:00+05:30",
+        "author": {
+          "@type": "Organization",
+          "name": "PW Holdings ERP Consultancy Team",
+          "url": "https://pwholdings.lk/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "PW Holdings",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://res.cloudinary.com/dib0fble7/image/upload/v1777898970/WhatsApp_Image_2026-04-20_at_9.04.34_AM_1_izs6ly.jpg"
+          }
+        },
+        "mainEntityOfPage": "https://pwholdings.lk/articles/zoho-books-sri-lanka-vat-sscl-setup-guide"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://pwholdings.lk/articles/zoho-books-sri-lanka-vat-sscl-setup-guide#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does Zoho Books support Sri Lanka VAT and SSCL calculations automatically?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. When configured by a Zoho Authorized Partner like PW Holdings, Zoho Books automatically applies 18% VAT and 2.5% SSCL on taxable sales, calculates compound or simple tax tiers, and formats invoices to meet Inland Revenue Department (IRD) requirements."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I connect Sri Lankan banks (Commercial Bank, Sampath, HNB) to Zoho Books?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, Zoho Books allows automated statement imports (CSV/OFX) and direct bank feed integrations for leading commercial banks in Sri Lanka for instant reconciliation."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg-dark: #070d1e;
+      --bg-surface: #0e172e;
+      --border-glass: rgba(255, 255, 255, 0.12);
+      --primary: #2563eb;
+      --primary-light: #60a5fa;
+      --accent-green: #10b981;
+      --text-white: #ffffff;
+      --text-muted: #94a3b8;
+      --text-subtle: #64748b;
+      --font-heading: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-body); background-color: var(--bg-dark); color: var(--text-white); line-height: 1.8; }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+    a { text-decoration: none; color: inherit; }
+
+    /* Nav */
+    .navbar {
+      padding: 16px 20px; background: rgba(7, 13, 30, 0.95);
+      border-bottom: 1px solid var(--border-glass); position: sticky; top: 0; z-index: 1000;
+    }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    .brand-img { height: 34px; padding: 3px 8px; background: #fff; border-radius: 6px; }
+
+    /* Article Hero */
+    .article-header { padding: 60px 0 30px; }
+    .cat-pill {
+      display: inline-block; background: rgba(37,99,235,0.2); color: #93c5fd;
+      padding: 5px 14px; border-radius: 30px; font-size: 12px; font-weight: 700; margin-bottom: 18px;
+    }
+    .article-header h1 { font-family: var(--font-heading); font-size: 38px; font-weight: 900; line-height: 1.25; margin-bottom: 20px; }
+    .author-bar { display: flex; align-items: center; gap: 14px; font-size: 13.5px; color: var(--text-muted); padding-bottom: 25px; border-bottom: 1px solid var(--border-glass); }
+
+    /* BLUF Box (Answer Engine Optimization) */
+    .aeo-bluf-box {
+      background: rgba(37, 99, 235, 0.1); border: 1.5px solid rgba(37, 99, 235, 0.35);
+      border-radius: 16px; padding: 24px; margin: 30px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    .aeo-bluf-box h3 { font-family: var(--font-heading); font-size: 16px; font-weight: 800; color: #93c5fd; margin-bottom: 10px; }
+    .aeo-bluf-box p { font-size: 15px; color: #e2e8f0; margin: 0; }
+
+    /* Content Typography */
+    .featured-media { width: 100%; border-radius: 18px; margin: 30px 0; border: 1px solid var(--border-glass); }
+    .article-body h2 { font-family: var(--font-heading); font-size: 26px; font-weight: 800; margin: 40px 0 16px; color: #ffffff; }
+    .article-body h3 { font-family: var(--font-heading); font-size: 20px; font-weight: 700; margin: 25px 0 12px; color: #93c5fd; }
+    .article-body p { font-size: 16px; color: #cbd5e1; margin-bottom: 20px; }
+    .article-body ul, .article-body ol { margin: 0 0 24px 24px; color: #cbd5e1; }
+    .article-body li { margin-bottom: 8px; }
+
+    /* Steps & Info Boxes */
+    .step-box {
+      background: var(--bg-surface); border: 1px solid var(--border-glass);
+      border-radius: 14px; padding: 22px; margin: 24px 0;
+    }
+    .step-box h4 { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+
+    /* In-Article CTA */
+    .article-cta-card {
+      background: linear-gradient(135deg, rgba(30,41,59,0.9), rgba(15,23,42,0.95));
+      border: 1.5px solid var(--primary); border-radius: 20px; padding: 35px;
+      text-align: center; margin: 50px 0; box-shadow: 0 15px 40px rgba(37,99,235,0.25);
+    }
+    .article-cta-card h3 { font-family: var(--font-heading); font-size: 24px; font-weight: 800; margin-bottom: 12px; }
+    .article-cta-card p { font-size: 15px; color: var(--text-muted); margin-bottom: 25px; }
+    .cta-btn {
+      background: var(--primary); color: #fff; font-weight: 700; padding: 14px 30px;
+      border-radius: 50px; display: inline-flex; align-items: center; gap: 8px;
+    }
+
+    /* Footer */
+    .footer { background: #040711; padding: 40px 0 20px; border-top: 1px solid var(--border-glass); text-align: center; color: var(--text-subtle); font-size: 13px; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" style="display: flex; align-items: center; gap: 10px;">
+        <img src="https://res.cloudinary.com/dib0fble7/image/upload/v1777898970/WhatsApp_Image_2026-04-20_at_9.04.34_AM_1_izs6ly.jpg" alt="Logo" class="brand-img" />
+        <span style="font-family: var(--font-heading); font-weight: 800; font-size: 16px;">PW Holdings</span>
+      </a>
+      <div>
+        <a href="articles.html" style="color: var(--primary-light); font-weight: 700; font-size: 14px;">&larr; All Articles</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <article class="article-header">
+      <span class="cat-pill">&#128218; Sri Lanka Tax & Zoho Books</span>
+      <h1>Zoho Books Sri Lanka VAT & SSCL Setup: Complete 2026 IRD Tax Guide</h1>
+      
+      <div class="author-bar">
+        <span>By <strong>PW Holdings Senior ERP Consultants</strong></span>
+        <span>&bull;</span>
+        <span>Published September 2026</span>
+        <span>&bull;</span>
+        <span>6 Min Read</span>
+      </div>
+
+      <!-- BLUF AI SNIPPET BOX -->
+      <div class="aeo-bluf-box">
+        <h3>⚡ Quick Takeaway (AI Overview Summary)</h3>
+        <p>
+          Sri Lankan businesses registered for Value Added Tax (VAT 18%) and Social Security Contribution Levy (SSCL 2.5%) can fully automate tax calculations in Zoho Books. By creating custom compound tax groups and setting up automated tax invoices with IRD TIN/VAT numbers, companies eliminate manual tax adjustments and generate audit-ready quarterly returns seamlessly.
+        </p>
+      </div>
+
+      <img
+        src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1200&auto=format&fit=crop"
+        alt="Sri Lanka VAT and Tax Accounting with Zoho Books"
+        class="featured-media"
+      />
+
+      <div class="article-body">
+        <h2>1. Why Sri Lankan Businesses Require Localized Zoho Books Setup</h2>
+        <p>
+          With ongoing updates by the <strong>Inland Revenue Department (IRD)</strong> of Sri Lanka regarding VAT thresholds and SSCL reporting, managing invoices on spreadsheets or standalone desktop software leads to costly compliance penalties.
+        </p>
+        <p>
+          Zoho Books provides an enterprise-ready cloud platform that handles:
+        </p>
+        <ul>
+          <li><strong>Automated VAT (18%) & SSCL (2.5%) Calculation</strong> on standard rated goods and services.</li>
+          <li><strong>Customer TIN and VAT Registration Number Display</strong> on printable PDF invoices.</li>
+          <li><strong>Withholding Tax (WHT / Advance Income Tax)</strong> deduction at source for vendor payments.</li>
+          <li><strong>Multi-Currency Bank Reconciliation</strong> with major Sri Lankan commercial banks.</li>
+        </ul>
+
+        <h2>2. Step-by-Step VAT & SSCL Configuration</h2>
+        
+        <div class="step-box">
+          <h4>Step 1: Set Currency and Base Locale</h4>
+          <p>Navigate to <em>Settings &rarr; Organization Profile</em> and set Base Currency to <strong>LKR (Sri Lankan Rupee)</strong> with Colombo time zone (+05:30).</p>
+        </div>
+
+        <div class="step-box">
+          <h4>Step 2: Create Custom Tax Rates</h4>
+          <p>Go to <em>Settings &rarr; Taxes &rarr; Tax Rates</em> and add:</p>
+          <ul>
+            <li><strong>SSCL (2.5%)</strong> - Applied on the turnover base value.</li>
+            <li><strong>VAT (18.0%)</strong> - Applied on the post-SSCL taxable value (or standard base).</li>
+          </ul>
+        </div>
+
+        <div class="step-box">
+          <h4>Step 3: Create Compound Tax Group (VAT + SSCL)</h4>
+          <p>Create a Tax Group named <strong>"VAT 18% + SSCL 2.5%"</strong>. Zoho Books automatically applies the correct compound logic so your customer invoices reflect the exact breakdown required by IRD guidelines.</p>
+        </div>
+
+        <!-- IN-ARTICLE CTA -->
+        <div class="article-cta-card">
+          <h3>Need Professional Setup for Your Sri Lankan Company?</h3>
+          <p>PW Holdings is Sri Lanka's official Zoho Authorized Partner. We configure chart of accounts, tax rules, and employee training for complete peace of mind.</p>
+          <a href="https://web.whatsapp.com/send?phone=94777885883&text=Hello!%20I%20need%20help%20setting%20up%20Zoho%20Books%20for%20my%20business" target="_blank" rel="noopener noreferrer" class="cta-btn">
+            <span>Schedule Expert Setup on WhatsApp</span>
+            &rarr;
+          </a>
+        </div>
+
+        <h2>3. Frequently Asked Questions</h2>
+        <h3>Can I migrate from Tally to Zoho Books without losing historical transactions?</h3>
+        <p>
+          Yes. Our engineering team at PW Holdings migrates complete historical ledgers, open bills, invoices, customer masters, and inventory opening balances into Zoho Books with zero business downtime.
+        </p>
+
+        <h3>Where can I get certified in Zoho Books Accounting?</h3>
+        <p>
+          PW Holdings offers an official certified course on Udemy: <a href="https://www.udemy.com/course/zoho-books-accounting-software/?referralCode=87319BA3C126F71A97A4" target="_blank" style="color: #60a5fa; font-weight: 700;">Master Zoho Books Accounting with Certificate of Completion</a>.
+        </p>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 PW Holdings (Pvt) Ltd. All Rights Reserved. | Zoho Authorized Partner Sri Lanka</p>
+    </div>
+  </footer>
+
+</body>
+</html>

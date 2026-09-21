@@ -1,0 +1,20 @@
+{
+  "name": "pwholdings-website",
+  "version": "1.0.0",
+  "description": "Official Website and Zoho Knowledge Hub for PW Holdings (Pvt) Ltd Sri Lanka",
+  "main": "index.html",
+  "scripts": {
+    "build": "node scripts/build-site.js",
+    "new-article": "node scripts/new-article.js",
+    "publish": "node scripts/build-site.js && git add . && git commit -m \"publish: auto-update articles and sitemaps\" && git push origin main"
+  },
+  "keywords": [
+    "zoho",
+    "cloud-erp",
+    "zoho-books",
+    "sri-lanka",
+    "pwholdings"
+  ],
+  "author": "PW Holdings (Pvt) Ltd",
+  "license": "ISC"
+}

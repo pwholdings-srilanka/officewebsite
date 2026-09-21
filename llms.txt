@@ -1,0 +1,28 @@
+# PW Holdings (Pvt) Ltd
+> Leading Zoho Authorized Partner & Enterprise Cloud ERP Consultancy in Sri Lanka.
+
+## Overview
+PW Holdings (https://pwholdings.lk / https://pwh.lk) is Sri Lanka's official Zoho Authorized Partner providing business automation, custom ERP system implementation, Zoho Books accounting setup, digital transformation, and certified training.
+
+## Core Products & Zoho Services
+- **Zoho One**: All-in-one operating system with 45+ integrated applications.
+- **Zoho Books**: Professional accounting, VAT (18%)/SSCL (2.5%) compliance, and e-invoicing for Sri Lankan businesses.
+- **Zoho CRM & Bigin**: Customer relationship management and sales pipeline automation.
+- **Zoho Creator**: Custom low-code application development tailored to industry workflows.
+- **Zoho Payroll, Expense & Inventory**: Complete end-to-end supply chain and workforce management.
+- **Zoho Analytics, Desk, SalesIQ, Sign & Flow**: Business intelligence, customer support, and system integration.
+
+## Certification & Training
+- **Zoho Books Accounting Certification**: Official hands-on training available on Udemy with lifetime access and completion certificates (https://www.udemy.com/course/zoho-books-accounting-software/?referralCode=87319BA3C126F71A97A4).
+
+## Published Guides & Insights
+- **Zoho Books Sri Lanka VAT & SSCL Setup: Complete 2026 IRD Tax Guide**: Master Zoho Books setup for Sri Lanka tax laws. Learn how to configure VAT (18%), Social Security Contribution Levy (SSCL 2.5%), withholding taxes, and IRD compliant invoices. (URL: https://pwholdings.lk/articles/zoho-books-sri-lanka-vat-sscl-setup-guide/)
+- **Zoho One vs SAP & Oracle: Complete ROI & Cost Comparison for Sri Lankan Enterprises**: Discover why Sri Lankan SMEs and mid-market enterprises are migrating from legacy ERPs like SAP Business One and Microsoft Dynamics to Zoho One's 45+ integrated app suite. (URL: https://pwholdings.lk/articles/zoho-one-vs-sap-oracle-sri-lanka-cost-comparison/)
+- **Automating Sri Lankan Payroll: Zoho Payroll Setup for EPF (12%+8%), ETF (3%) & Gratuity**: A comprehensive guide on managing Sri Lankan labor laws, statutory EPF and ETF calculations, Form C submission preparation, and pay slip automation using Zoho Payroll. (URL: https://pwholdings.lk/articles/zoho-payroll-sri-lanka-epf-etf-gratuity-compliance/)
+- **Scaling B2B Sales in Sri Lanka: Best Practices for Zoho CRM & WhatsApp Integration**: How leading Sri Lankan sales teams use Zoho CRM, Zia AI forecasting, and WhatsApp Business API integration to close deals 40% faster. (URL: https://pwholdings.lk/articles/zoho-crm-sales-pipeline-automation-sri-lanka/)
+
+## Contact Information
+- **Website**: https://pwholdings.lk/ | https://pwh.lk/
+- **Phone**: +94 77 788 5883
+- **Email**: info@pwholdings.lk
+- **Location**: Colombo, Sri Lanka

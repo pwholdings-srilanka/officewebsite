@@ -1,0 +1,36 @@
+User-agent: *
+Allow: /
+
+# Google Crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+# Generative AI & Answer Engine Crawlers (GEO & AEO)
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# Sitemaps & Feeds
+Sitemap: https://pwholdings.lk/sitemap.xml
+Sitemap: https://pwholdings.lk/rss.xml
+Sitemap: https://pwholdings.lk/feed.xml
