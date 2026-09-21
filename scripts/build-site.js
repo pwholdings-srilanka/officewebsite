@@ -240,7 +240,7 @@ function generateArticlePageHtml(art) {
     .navbar { background: rgba(7, 13, 30, 0.95); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-glass); padding: 16px 24px; position: sticky; top: 0; z-index: 100; }
     .navbar-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
     .brand { display: flex; align-items: center; gap: 12px; color: #fff; text-decoration: none; font-family: var(--font-heading); font-weight: 800; font-size: 18px; }
-    .brand img { width: 38px; height: 38px; border-radius: 8px; }
+    .brand img { height: 34px; width: auto; max-width: 140px; object-fit: contain; background: #ffffff; padding: 4px 10px; border-radius: 8px; display: block; }
     .nav-links { display: flex; gap: 24px; align-items: center; }
     .nav-links a { color: var(--text-muted); font-size: 14px; font-weight: 600; text-decoration: none; }
     .nav-links a:hover { color: #fff; }
@@ -508,7 +508,7 @@ function updateArticlesHtml(articles) {
       display: flex; align-items: center; justify-content: space-between;
     }
     .brand { display: flex; align-items: center; gap: 12px; }
-    .brand img { height: 36px; padding: 4px 10px; background: #fff; border-radius: 8px; }
+    .brand img { height: 34px; width: auto; max-width: 140px; object-fit: contain; padding: 4px 10px; background: #fff; border-radius: 8px; display: block; }
     .brand-title { font-family: var(--font-heading); font-weight: 800; font-size: 17px; }
     .nav-links { display: flex; align-items: center; gap: 14px; }
     .nav-links a {
