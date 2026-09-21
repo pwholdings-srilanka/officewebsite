@@ -15,7 +15,7 @@ PW Holdings (https://pwholdings.lk / https://pwh.lk) is Sri Lanka's official Zoh
 ## Certification & Training
 - **Zoho Books Accounting Certification**: Official hands-on training available on Udemy with lifetime access and completion certificates (https://www.udemy.com/course/zoho-books-accounting-software/?referralCode=87319BA3C126F71A97A4).
 
-## Published Guides & Insights
+## Published Articles & Guides
 - **Zoho Books Sri Lanka VAT & SSCL Setup: Complete 2026 IRD Tax Guide**: Comprehensive IRD tax compliance setup, custom tax rates, withholding taxes, automated tax returns, and digital invoice generation for Sri Lankan businesses. (URL: https://pwholdings.lk/articles/zoho-books-sri-lanka-vat-sscl-setup-guide/)
 - **Zoho One vs SAP vs ERPNext: Best ERP for Sri Lankan SMEs in 2026**: Compare total cost of ownership, implementation timelines, multi-currency features, and local partner support across leading ERP suites in Colombo. (URL: https://pwholdings.lk/articles/zoho-one-vs-sap-erpnext-sri-lanka-enterprise-comparison/)
 - **How to Configure Sri Lanka EPF, ETF & APIT in Zoho Payroll**: Automate monthly salary slips, statutory employer contributions, C-Form generation, and direct bank salary transfers in Sri Lanka. (URL: https://pwholdings.lk/articles/zoho-payroll-sri-lanka-epf-etf-apit-compliance-guide/)

@@ -148,7 +148,7 @@ function generateArticlePageHtml(art) {
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Insights",
+          "name": "Articles",
           "item": `${DOMAIN}/articles.html`
         },
         {
@@ -280,7 +280,7 @@ function generateArticlePageHtml(art) {
       <nav class="nav-links">
         <a href="../../index.html">Home</a>
         <a href="../../index.html#services">Zoho Services</a>
-        <a href="../../articles.html">Insights &amp; Guides</a>
+        <a href="../../articles.html">Articles</a>
         <a href="https://web.whatsapp.com/send?phone=94777885883" target="_blank" class="btn-cta">Talk to Consultant</a>
       </nav>
     </div>
@@ -288,7 +288,7 @@ function generateArticlePageHtml(art) {
 
   <main class="article-wrap">
     <div class="breadcrumb">
-      <a href="../../index.html">Home</a> &gt; <a href="../../articles.html">Insights</a> &gt; <span>${escapeXml(title)}</span>
+      <a href="../../index.html">Home</a> &gt; <a href="../../articles.html">Articles</a> &gt; <span>${escapeXml(title)}</span>
     </div>
 
     <span class="badge">${escapeXml(art.categoryLabel || 'Zoho Guide')}</span>
@@ -323,7 +323,7 @@ function generateArticlePageHtml(art) {
     <p>© ${new Date().getFullYear()} PW Holdings (Pvt) Ltd. Official Zoho Authorized Partner Sri Lanka. All rights reserved.</p>
     <p style="margin-top: 8px;">
       <a href="../../index.html">Home</a> | 
-      <a href="../../articles.html">Insights &amp; Guides</a> | 
+      <a href="../../articles.html">Articles</a> | 
       <a href="../../sitemap.xml">Sitemap</a> | 
       <a href="../../rss.xml">RSS</a> | 
       <a href="../../llms.txt">AI Context (llms.txt)</a>
@@ -413,7 +413,7 @@ PW Holdings (https://pwholdings.lk / https://pwh.lk) is Sri Lanka's official Zoh
 ## Certification & Training
 - **Zoho Books Accounting Certification**: Official hands-on training available on Udemy with lifetime access and completion certificates (https://www.udemy.com/course/zoho-books-accounting-software/?referralCode=87319BA3C126F71A97A4).
 
-## Published Guides & Insights
+## Published Articles & Guides
 `;
 
   for (const art of articles) {

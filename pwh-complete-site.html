@@ -2441,6 +2441,174 @@
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     }
 
+    /* ============================================================
+       10B. HOMEPAGE ARTICLES SECTION
+       ============================================================ */
+    .pwh-articles-section {
+      padding: 90px 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .pwh-articles-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .pwh-articles-title {
+      font-family: var(--font-heading);
+      font-size: clamp(30px, 4.5vw, 44px);
+      font-weight: 900;
+      color: #0f172a;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .pwh-articles-sub {
+      font-size: 16.5px;
+      color: #475569;
+      max-width: 680px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+
+    .pwh-articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+      margin-bottom: 42px;
+    }
+
+    .pwh-article-card-home {
+      background: #ffffff;
+      border: 1.5px solid rgba(99, 102, 241, 0.14);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.35s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pwh-article-card-home:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 22px 45px rgba(99, 102, 241, 0.18);
+      border-color: rgba(99, 102, 241, 0.35);
+    }
+
+    .pwh-article-card-thumb {
+      height: 190px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pwh-article-card-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.45s ease;
+    }
+
+    .pwh-article-card-home:hover .pwh-article-card-thumb img {
+      transform: scale(1.06);
+    }
+
+    .pwh-article-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(8px);
+      color: #818cf8;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    .pwh-article-body-home {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .pwh-article-meta-home {
+      font-size: 12px;
+      color: #64748b;
+      margin-bottom: 10px;
+      display: flex;
+      gap: 8px;
+    }
+
+    .pwh-article-title-home {
+      font-family: var(--font-heading);
+      font-size: 18px;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+
+    .pwh-article-title-home a {
+      color: #0f172a;
+      text-decoration: none;
+    }
+
+    .pwh-article-title-home a:hover {
+      color: #6366f1;
+    }
+
+    .pwh-article-desc-home {
+      font-size: 14px;
+      color: #475569;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+
+    .pwh-article-link-home {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #6366f1;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pwh-article-link-home:hover {
+      color: #4f46e5;
+      text-decoration: underline;
+    }
+
+    .pwh-articles-cta-center {
+      text-align: center;
+    }
+
+    .pwh-btn-articles-all {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+      color: #ffffff !important;
+      text-decoration: none !important;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 34px;
+      border-radius: 50px;
+      box-shadow: 0 8px 24px rgba(99, 102, 241, 0.28);
+      transition: all 0.3s ease;
+    }
+
+    .pwh-btn-articles-all:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 34px rgba(99, 102, 241, 0.4);
+    }
+
     /* FOOTER BACK TO TOP BUTTON */
     .back-to-top-btn {
       display: inline-flex;
@@ -2533,7 +2701,7 @@
           <a href="#hero" class="active">Home</a>
           <a href="#sec1">About Us</a>
           <a href="#zoho-services">Zoho Solutions</a>
-          <a href="articles.html">Insights &amp; Guides</a>
+          <a href="articles.html">Articles</a>
           <a href="https://web.whatsapp.com/send?phone=94777885883&text=Hello!%20Can%20I%20know%20about%20the%20products%20and%20training%3F" target="_blank">Contact Us</a>
           <a href="https://zohobooks.lk/" target="_blank" class="sr-nav-cta">
             Book Demo
@@ -3229,6 +3397,91 @@
     </section>
 
     <!-- ============================================================
+         10B. LATEST ARTICLES & GUIDES
+         ============================================================ -->
+    <section class="pwh-articles-section" id="articles" aria-label="Latest Articles & Guides">
+      <div class="pwh-articles-header">
+        <div class="pwh-pill-badge">KNOWLEDGE HUB</div>
+        <h2 class="pwh-articles-title">Latest <span class="purple-gradient">Articles &amp; Guides</span></h2>
+        <p class="pwh-articles-sub">Explore expert tutorials, Sri Lanka IRD tax compliance walkthroughs, and enterprise cloud ERP implementation strategies.</p>
+      </div>
+
+      <div class="pwh-articles-grid">
+        <!-- Card 1 -->
+        <article class="pwh-article-card-home">
+          <div class="pwh-article-card-thumb">
+            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1200&auto=format&fit=crop" alt="Zoho Books Sri Lanka VAT &amp; SSCL Setup Guide" loading="lazy" />
+            <span class="pwh-article-badge">Tax &amp; IRD Guide</span>
+          </div>
+          <div class="pwh-article-body-home">
+            <div class="pwh-article-meta-home">
+              <span>📅 Sep 15, 2026</span>
+              <span>&bull;</span>
+              <span>⏱️ 7 min read</span>
+            </div>
+            <h3 class="pwh-article-title-home">
+              <a href="articles/zoho-books-sri-lanka-vat-sscl-setup-guide/index.html">Zoho Books Sri Lanka VAT &amp; SSCL Setup: Complete 2026 IRD Tax Guide</a>
+            </h3>
+            <p class="pwh-article-desc-home">
+              Step-by-step tutorial on configuring 18% VAT, 2.5% Social Security Contribution Levy (SSCL), and automated IRD tax schedules in Zoho Books.
+            </p>
+            <a href="articles/zoho-books-sri-lanka-vat-sscl-setup-guide/index.html" class="pwh-article-link-home">Read Full Article &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="pwh-article-card-home">
+          <div class="pwh-article-card-thumb">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop" alt="Zoho One vs SAP vs ERPNext Sri Lanka" loading="lazy" />
+            <span class="pwh-article-badge">ERP Architecture</span>
+          </div>
+          <div class="pwh-article-body-home">
+            <div class="pwh-article-meta-home">
+              <span>📅 Sep 10, 2026</span>
+              <span>&bull;</span>
+              <span>⏱️ 9 min read</span>
+            </div>
+            <h3 class="pwh-article-title-home">
+              <a href="articles/zoho-one-vs-sap-erpnext-sri-lanka-enterprise-comparison/index.html">Zoho One vs SAP Business One vs ERPNext: Sri Lanka Enterprise Guide</a>
+            </h3>
+            <p class="pwh-article-desc-home">
+              Comprehensive cost-benefit analysis, total cost of ownership (TCO), and local IRD compliance comparison for Sri Lankan medium-to-large businesses.
+            </p>
+            <a href="articles/zoho-one-vs-sap-erpnext-sri-lanka-enterprise-comparison/index.html" class="pwh-article-link-home">Read Full Article &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="pwh-article-card-home">
+          <div class="pwh-article-card-thumb">
+            <img src="https://images.unsplash.com/photo-1579621970795-87facc2f976d?q=80&w=1200&auto=format&fit=crop" alt="Zoho Payroll Sri Lanka EPF ETF APIT Guide" loading="lazy" />
+            <span class="pwh-article-badge">Payroll Compliance</span>
+          </div>
+          <div class="pwh-article-body-home">
+            <div class="pwh-article-meta-home">
+              <span>📅 Sep 05, 2026</span>
+              <span>&bull;</span>
+              <span>⏱️ 6 min read</span>
+            </div>
+            <h3 class="pwh-article-title-home">
+              <a href="articles/zoho-payroll-sri-lanka-epf-etf-apit-compliance-guide/index.html">Automating Sri Lanka EPF, ETF &amp; APIT Tax with Zoho Payroll</a>
+            </h3>
+            <p class="pwh-article-desc-home">
+              Eliminate payroll errors: How to configure statutory 12% Employer / 8% Employee EPF, 3% ETF, and APIT tax brackets with direct CEFT bank file exports.
+            </p>
+            <a href="articles/zoho-payroll-sri-lanka-epf-etf-apit-compliance-guide/index.html" class="pwh-article-link-home">Read Full Article &rarr;</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="pwh-articles-cta-center">
+        <a href="articles.html" class="pwh-btn-articles-all">
+          <span>Explore All 6+ Articles &amp; Guides &rarr;</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============================================================
          11. LEAD BANNER & STRATEGY CONSULTATION
          ============================================================ -->
     <section class="pwh-lead-section" id="consultation" aria-label="Book Consultation">
@@ -3290,6 +3543,7 @@
             <a href="#zoho-services">Zoho Services</a>
             <a href="#why-us">Why Choose Us</a>
             <a href="#clients">Our Clients</a>
+            <a href="articles.html">Articles</a>
           </div>
 
           <!-- Direct Consultation -->
