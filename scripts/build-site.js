@@ -267,6 +267,52 @@ function generateArticlePageHtml(art) {
     .cta-btn-lg { display: inline-flex; align-items: center; gap: 10px; background: #25D366; color: #000; font-weight: 800; font-size: 16px; padding: 14px 28px; border-radius: 50px; text-decoration: none; transition: 0.2s; }
     .cta-btn-lg:hover { transform: scale(1.04); text-decoration: none; }
 
+    .article-body table { width: 100%; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; border-collapse: collapse; margin: 24px 0; }
+    .article-body table th, .article-body table td { padding: 10px 14px; border: 1px solid var(--border-glass); font-size: 14px; }
+    .article-body table th { background: rgba(59, 130, 246, 0.15); color: #fff; }
+    .article-body pre { max-width: 100%; overflow-x: auto; background: #0b1329; padding: 16px; border-radius: 10px; margin: 20px 0; }
+    .article-body img { max-width: 100%; height: auto; border-radius: 12px; }
+
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 6px; }
+    .hamburger span { display: block; width: 22px; height: 2.5px; background: #fff; margin: 4px 0; border-radius: 2px; transition: 0.3s; }
+
+    @media (max-width: 768px) {
+      .navbar { padding: 12px 16px; }
+      .brand img { height: 28px; max-width: 110px; padding: 3px 8px; }
+      .brand span { font-size: 16px; }
+      .hamburger { display: block; }
+      .nav-links {
+        display: none; position: absolute; top: 100%; left: 0; right: 0;
+        background: rgba(7, 13, 30, 0.98); backdrop-filter: blur(25px);
+        flex-direction: column; padding: 20px; gap: 14px;
+        border-bottom: 1px solid var(--border-glass);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { width: 100%; text-align: left; padding: 10px 14px; font-size: 15px; }
+      .btn-cta { width: 100%; text-align: center; justify-content: center; padding: 12px; font-size: 14px; }
+
+      .article-wrap { padding: 0 16px; margin: 20px auto 50px; }
+      h1 { font-size: 24px; line-height: 1.3; }
+      .lead { font-size: 15px; line-height: 1.6; }
+      .byline { flex-direction: column; gap: 8px; font-size: 12px; padding: 12px 14px; }
+      .hero-img { max-height: 220px; border-radius: 12px; margin-bottom: 24px; }
+      .article-body h2 { font-size: 20px; margin: 28px 0 12px; }
+      .article-body h3 { font-size: 17px; margin: 20px 0 10px; }
+      .article-body p { font-size: 15px; line-height: 1.7; }
+      .callout { padding: 16px; margin: 20px 0; font-size: 14px; }
+      .cta-box { padding: 24px 16px; margin: 36px 0; }
+      .cta-box h3 { font-size: 20px; }
+      .cta-box p { font-size: 14px; }
+      .cta-btn-lg { width: 100%; justify-content: center; font-size: 14px; padding: 12px 18px; }
+    }
+
+    @media (max-width: 420px) {
+      .brand span { font-size: 14px; }
+      h1 { font-size: 21px; }
+      .lead { font-size: 14px; }
+    }
+
     .footer { background: #040711; padding: 40px 20px 20px; border-top: 1px solid var(--border-glass); text-align: center; font-size: 13.5px; color: var(--text-muted); }
   </style>
 </head>
@@ -277,45 +323,47 @@ function generateArticlePageHtml(art) {
         <img src="${LOGO_IMAGE}" alt="PW Holdings Logo" />
         <span>PW Holdings</span>
       </a>
-      <nav class="nav-links">
+      <nav class="nav-links" id="artNav">
         <a href="../../index.html">Home</a>
-        <a href="../../index.html#services">Zoho Services</a>
+        <a href="../../index.html#sec1">About Us</a>
+        <a href="../../index.html#zoho-services">Zoho Services</a>
         <a href="../../articles.html">Articles</a>
         <a href="https://web.whatsapp.com/send?phone=94777885883" target="_blank" class="btn-cta">Talk to Consultant</a>
       </nav>
+      <button class="hamburger" id="artHam" aria-label="Toggle Navigation Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
   <main class="article-wrap">
     <div class="breadcrumb">
-      <a href="../../index.html">Home</a> &gt; <a href="../../articles.html">Articles</a> &gt; <span>${escapeXml(title)}</span>
+      <a href="../../index.html">Home</a> &gt; <a href="../../articles.html">Articles</a> &gt; <span>${escapeXml(art.categoryLabel)}</span>
     </div>
 
-    <span class="badge">${escapeXml(art.categoryLabel || 'Zoho Guide')}</span>
-    <h1>${escapeXml(title)}</h1>
-    <p class="lead">${escapeXml(description)}</p>
+    <div class="badge">${escapeXml(art.categoryLabel)}</div>
+    <h1>${escapeXml(art.title)}</h1>
+    <p class="lead">${escapeXml(art.description)}</p>
 
     <div class="byline">
-      <span>✍️ <strong>By:</strong> ${escapeXml(art.author || 'PW Holdings Senior Consultants')}</span>
-      <span>📅 <strong>Published:</strong> ${escapeXml(art.date)}</span>
-      <span>⏱️ <strong>Read Time:</strong> ${escapeXml(art.readTime || '6 min read')}</span>
-      <span>📍 <strong>Region:</strong> Sri Lanka</span>
+      <div>✍️ <strong>Author:</strong> ${escapeXml(art.author || 'PW Holdings Senior Consultants')}</div>
+      <div>📅 <strong>Published:</strong> ${escapeXml(art.date)}</div>
+      <div>⏱️ <strong>Read Time:</strong> ${escapeXml(art.readTime || '7 min read')}</div>
+      <div>📍 <strong>Region:</strong> Sri Lanka &bull; IRD Compliant</div>
     </div>
 
-    <img src="${escapeXml(image)}" alt="${escapeXml(title)}" class="hero-img" loading="eager" />
+    <img class="hero-img" src="${escapeXml(art.image)}" alt="${escapeXml(art.title)}" />
 
-    <div class="article-body">
-      ${sectionsHtml}
+    <article class="article-body">
+      ${art.bodyHtml || '<p>Detailed article content coming soon.</p>'}
+    </article>
 
-      ${faqHtml}
-
-      <div class="cta-box">
-        <h3>Ready to Transform Your Business with Zoho?</h3>
-        <p>Book a free 1-on-1 architecture consultation with PW Holdings' certified Zoho consultants in Colombo.</p>
-        <a href="https://web.whatsapp.com/send?phone=94777885883" target="_blank" class="cta-btn-lg">
-          💬 Chat on WhatsApp (+94 77 788 5883)
-        </a>
-      </div>
+    <div class="cta-box">
+      <h3>Ready to Modernize Your Operations with Zoho?</h3>
+      <p>Speak directly with Sri Lanka's leading certified Zoho implementation specialists. We handle everything from VAT/SSCL configuration to custom enterpriseDeluge workflows.</p>
+      <a href="https://web.whatsapp.com/send?phone=94777885883&text=Hello%20PW%20Holdings!%20I%20read%20your%20article%20'${encodeURIComponent(art.title)}'%20and%20would%20like%20a%20consultation." target="_blank" class="cta-btn-lg">
+        💬 WhatsApp Our Lead Consultant (+94 77 788 5883)
+      </a>
     </div>
   </main>
 
@@ -329,6 +377,17 @@ function generateArticlePageHtml(art) {
       <a href="../../llms.txt">AI Context (llms.txt)</a>
     </p>
   </footer>
+
+  <script>
+    const ham = document.getElementById('artHam');
+    const nav = document.getElementById('artNav');
+    if (ham && nav) {
+      ham.addEventListener('click', () => nav.classList.toggle('open'));
+      nav.querySelectorAll('a').forEach(l => {
+        l.addEventListener('click', () => nav.classList.remove('open'));
+      });
+    }
+  </script>
 </body>
 </html>`;
 }
@@ -834,13 +893,87 @@ function updateArticlesHtml(articles) {
       font-size: 13px; color: var(--text-subtle);
     }
 
+    .hamburger-btn {
+      display: none; background: transparent; border: none; cursor: pointer; padding: 6px;
+    }
+    .hamburger-btn span {
+      display: block; width: 24px; height: 2.5px; background: #ffffff;
+      margin: 4.5px 0; border-radius: 2px; transition: 0.3s;
+    }
+
     @media (max-width: 900px) {
-      .hero-card-grid { grid-template-columns: 1fr; }
-      .spotlight-grid { grid-template-columns: 1fr; }
+      .navbar { padding: 14px 18px; }
+      .hamburger-btn { display: block; }
+      .nav-links {
+        display: none; position: absolute; top: 100%; left: 0; right: 0;
+        background: rgba(7, 13, 30, 0.98); backdrop-filter: blur(25px);
+        flex-direction: column; padding: 22px 20px; gap: 14px;
+        border-bottom: 1px solid var(--border-glass);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { width: 100%; text-align: left; padding: 10px 14px; font-size: 15px; }
+      .btn-nav-cta { width: 100%; text-align: center; justify-content: center; padding: 12px !important; }
+
+      .hero-featured-section { padding: 28px 0 22px; }
+      .hero-card-grid { grid-template-columns: 1fr; padding: 22px 18px; gap: 22px; border-radius: 20px; }
+      .hero-card-title { font-size: 22px; line-height: 1.3; margin-bottom: 12px; }
+      .hero-card-desc { font-size: 14.5px; margin-bottom: 18px; }
+      .hero-card-meta { gap: 10px; font-size: 12px; margin-bottom: 20px; }
+      .btn-hero-read { width: 100%; justify-content: center; font-size: 14px; padding: 12px 20px; }
+      .hero-card-media { max-height: 220px; aspect-ratio: 16/9; }
+
+      .filter-section { padding: 18px 0 14px; }
+      .filter-bar-wrap { flex-direction: column; align-items: stretch; gap: 12px; }
+      .category-pills {
+        overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch;
+        padding-bottom: 8px; gap: 8px; width: 100%; scrollbar-width: none;
+      }
+      .category-pills::-webkit-scrollbar { display: none; }
+      .cat-pill { white-space: nowrap; flex-shrink: 0; padding: 8px 16px; font-size: 13px; }
+      .search-wrap { width: 100%; }
+      .search-wrap input { width: 100%; padding: 12px 16px 12px 42px; font-size: 16px; } /* 16px prevents iOS Safari auto-zoom */
+
+      .section-title-row { flex-direction: column; align-items: flex-start; gap: 6px; margin: 20px 0 18px; }
+      .section-heading { font-size: 21px; }
+
+      .articles-grid { grid-template-columns: 1fr; gap: 20px; margin-bottom: 40px; }
+      .thumb-box { height: 180px; }
+      .card-content { padding: 18px; }
+      .card-title { font-size: 17.5px; line-height: 1.35; }
+      .card-desc { font-size: 13.5px; margin-bottom: 16px; }
+
+      .spotlight-section { padding: 36px 0; }
+      .spotlight-title { font-size: 22px; }
+      .spotlight-sub { font-size: 13.5px; }
+      .spotlight-grid { grid-template-columns: 1fr; gap: 16px; }
       .spotlight-card { grid-template-columns: 1fr; }
-      .spotlight-thumb { height: 180px; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
+      .spotlight-thumb { height: 170px; min-height: unset; }
+      .spotlight-content { padding: 18px; }
+
+      .consult-callout-section { padding: 40px 0; }
+      .consult-card { padding: 30px 16px; border-radius: 20px; }
+      .consult-title { font-size: 21px; }
+      .consult-desc { font-size: 14px; margin-bottom: 20px; }
+      .consult-actions { flex-direction: column; gap: 12px; }
+      .btn-consult-wa, .btn-consult-call { width: 100%; justify-content: center; font-size: 14px; padding: 12px 20px; }
+
+      .footer { padding: 40px 0 20px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+      .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      .navbar { padding: 12px 14px; }
+      .brand img { height: 28px; max-width: 105px; padding: 2px 6px; }
+      .brand-title { font-size: 15px; }
+      .hero-card-grid { padding: 16px 14px; }
+      .hero-card-title { font-size: 20px; }
+      .hero-card-desc { font-size: 13.5px; }
+      .hero-card-meta { font-size: 11.5px; flex-direction: column; gap: 6px; }
+      .card-title { font-size: 16.5px; }
+      .consult-card { padding: 24px 14px; }
+      .consult-title { font-size: 19px; }
     }
   </style>
 </head>
@@ -854,7 +987,7 @@ function updateArticlesHtml(articles) {
         <span class="brand-title">PW Holdings</span>
       </a>
 
-      <nav class="nav-links">
+      <nav class="nav-links" id="mainNavLinks">
         <a href="index.html">Home</a>
         <a href="index.html#sec1">About Us</a>
         <a href="index.html#zoho-services">Zoho Solutions</a>
@@ -862,6 +995,9 @@ function updateArticlesHtml(articles) {
         <a href="https://web.whatsapp.com/send?phone=94777885883" target="_blank">Contact Us</a>
         <a href="https://zohobooks.lk/" target="_blank" class="btn-nav-cta">Book Demo</a>
       </nav>
+      <button class="hamburger-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
@@ -1072,6 +1208,17 @@ ${taxSpotlightsHtml}
       searchInput.addEventListener('input', (e) => {
         currentSearch = e.target.value.toLowerCase().trim();
         applyFilters();
+      });
+    }
+
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('mainNavLinks');
+    if (mobileBtn && navLinks) {
+      mobileBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+      });
+      navLinks.querySelectorAll('a').forEach(l => {
+        l.addEventListener('click', () => navLinks.classList.remove('open'));
       });
     }
   </script>

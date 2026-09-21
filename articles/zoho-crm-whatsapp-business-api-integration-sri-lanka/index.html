@@ -100,6 +100,52 @@
     .cta-btn-lg { display: inline-flex; align-items: center; gap: 10px; background: #25D366; color: #000; font-weight: 800; font-size: 16px; padding: 14px 28px; border-radius: 50px; text-decoration: none; transition: 0.2s; }
     .cta-btn-lg:hover { transform: scale(1.04); text-decoration: none; }
 
+    .article-body table { width: 100%; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; border-collapse: collapse; margin: 24px 0; }
+    .article-body table th, .article-body table td { padding: 10px 14px; border: 1px solid var(--border-glass); font-size: 14px; }
+    .article-body table th { background: rgba(59, 130, 246, 0.15); color: #fff; }
+    .article-body pre { max-width: 100%; overflow-x: auto; background: #0b1329; padding: 16px; border-radius: 10px; margin: 20px 0; }
+    .article-body img { max-width: 100%; height: auto; border-radius: 12px; }
+
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 6px; }
+    .hamburger span { display: block; width: 22px; height: 2.5px; background: #fff; margin: 4px 0; border-radius: 2px; transition: 0.3s; }
+
+    @media (max-width: 768px) {
+      .navbar { padding: 12px 16px; }
+      .brand img { height: 28px; max-width: 110px; padding: 3px 8px; }
+      .brand span { font-size: 16px; }
+      .hamburger { display: block; }
+      .nav-links {
+        display: none; position: absolute; top: 100%; left: 0; right: 0;
+        background: rgba(7, 13, 30, 0.98); backdrop-filter: blur(25px);
+        flex-direction: column; padding: 20px; gap: 14px;
+        border-bottom: 1px solid var(--border-glass);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { width: 100%; text-align: left; padding: 10px 14px; font-size: 15px; }
+      .btn-cta { width: 100%; text-align: center; justify-content: center; padding: 12px; font-size: 14px; }
+
+      .article-wrap { padding: 0 16px; margin: 20px auto 50px; }
+      h1 { font-size: 24px; line-height: 1.3; }
+      .lead { font-size: 15px; line-height: 1.6; }
+      .byline { flex-direction: column; gap: 8px; font-size: 12px; padding: 12px 14px; }
+      .hero-img { max-height: 220px; border-radius: 12px; margin-bottom: 24px; }
+      .article-body h2 { font-size: 20px; margin: 28px 0 12px; }
+      .article-body h3 { font-size: 17px; margin: 20px 0 10px; }
+      .article-body p { font-size: 15px; line-height: 1.7; }
+      .callout { padding: 16px; margin: 20px 0; font-size: 14px; }
+      .cta-box { padding: 24px 16px; margin: 36px 0; }
+      .cta-box h3 { font-size: 20px; }
+      .cta-box p { font-size: 14px; }
+      .cta-btn-lg { width: 100%; justify-content: center; font-size: 14px; padding: 12px 18px; }
+    }
+
+    @media (max-width: 420px) {
+      .brand span { font-size: 14px; }
+      h1 { font-size: 21px; }
+      .lead { font-size: 14px; }
+    }
+
     .footer { background: #040711; padding: 40px 20px 20px; border-top: 1px solid var(--border-glass); text-align: center; font-size: 13.5px; color: var(--text-muted); }
   </style>
 </head>
@@ -110,70 +156,47 @@
         <img src="https://res.cloudinary.com/dib0fble7/image/upload/v1777898970/WhatsApp_Image_2026-04-20_at_9.04.34_AM_1_izs6ly.jpg" alt="PW Holdings Logo" />
         <span>PW Holdings</span>
       </a>
-      <nav class="nav-links">
+      <nav class="nav-links" id="artNav">
         <a href="../../index.html">Home</a>
-        <a href="../../index.html#services">Zoho Services</a>
+        <a href="../../index.html#sec1">About Us</a>
+        <a href="../../index.html#zoho-services">Zoho Services</a>
         <a href="../../articles.html">Articles</a>
         <a href="https://web.whatsapp.com/send?phone=94777885883" target="_blank" class="btn-cta">Talk to Consultant</a>
       </nav>
+      <button class="hamburger" id="artHam" aria-label="Toggle Navigation Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
   <main class="article-wrap">
     <div class="breadcrumb">
-      <a href="../../index.html">Home</a> &gt; <a href="../../articles.html">Articles</a> &gt; <span>Connecting WhatsApp Business API with Zoho CRM &amp; SalesIQ</span>
+      <a href="../../index.html">Home</a> &gt; <a href="../../articles.html">Articles</a> &gt; <span>CRM Automation</span>
     </div>
 
-    <span class="badge">CRM Automation</span>
+    <div class="badge">CRM Automation</div>
     <h1>Connecting WhatsApp Business API with Zoho CRM &amp; SalesIQ</h1>
     <p class="lead">Turn incoming WhatsApp chat queries into qualified leads automatically, send automated payment receipts, and increase customer retention in Sri Lanka.</p>
 
     <div class="byline">
-      <span>✍️ <strong>By:</strong> PW Holdings CRM &amp; Growth Team</span>
-      <span>📅 <strong>Published:</strong> September 05, 2026</span>
-      <span>⏱️ <strong>Read Time:</strong> 6 min read</span>
-      <span>📍 <strong>Region:</strong> Sri Lanka</span>
+      <div>✍️ <strong>Author:</strong> PW Holdings CRM &amp; Growth Team</div>
+      <div>📅 <strong>Published:</strong> September 05, 2026</div>
+      <div>⏱️ <strong>Read Time:</strong> 6 min read</div>
+      <div>📍 <strong>Region:</strong> Sri Lanka &bull; IRD Compliant</div>
     </div>
 
-    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Connecting WhatsApp Business API with Zoho CRM &amp; SalesIQ" class="hero-img" loading="eager" />
+    <img class="hero-img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Connecting WhatsApp Business API with Zoho CRM &amp; SalesIQ" />
 
-    <div class="article-body">
-      
-      <h2>Why WhatsApp Is the #1 B2B &amp; B2C Communication Channel in Sri Lanka</h2>
-      <p>Over 80% of customer inquiries in Sri Lanka occur over WhatsApp. However, when sales representatives communicate via personal phones, customer data is lost, response times lag, and management lacks visibility into the deal pipeline. Integrating official WhatsApp Business API with Zoho CRM resolves this completely.</p>
-    
+    <article class="article-body">
+      <p>Detailed article content coming soon.</p>
+    </article>
 
-      <h2>Instant Lead Capture &amp; Automated Quotations</h2>
-      <p>When a prospect messages your official WhatsApp number, Zoho CRM automatically creates a new lead record, assigns it to the appropriate sales executive based on territory, and logs conversation history. Sales agents can generate PDF quotations from Zoho Books and send them directly inside WhatsApp in seconds.</p>
-    
-
-      <h2>Zia AI Chatbots &amp; Customer Service with Zoho SalesIQ</h2>
-      <p>By pairing WhatsApp with Zoho SalesIQ chatbots powered by Zia AI, businesses can answer customer FAQs 24/7, route support tickets to Zoho Desk, and automatically update payment status once invoices are cleared.</p>
-    
-
-      
-      <h2 style="margin-top: 40px;">Direct Answer FAQ (Answer Engine Optimization)</h2>
-      
-      <div class="callout" style="margin: 16px 0; background: rgba(30, 41, 59, 0.7); border-left: 4px solid #3b82f6; padding: 18px; border-radius: 0 12px 12px 0;">
-        <h3 style="font-size: 16.5px; color: #ffffff; margin-bottom: 8px;">Q: Can multiple team members manage one WhatsApp Business number in Zoho CRM?</h3>
-        <p style="margin: 0; font-size: 15px; color: #cbd5e1; line-height: 1.6;">A: Yes. With Zoho CRM WhatsApp Business API integration, your entire sales and support team can access a unified shared inbox using a single verified company number.</p>
-      </div>
-    
-
-      <div class="callout" style="margin: 16px 0; background: rgba(30, 41, 59, 0.7); border-left: 4px solid #3b82f6; padding: 18px; border-radius: 0 12px 12px 0;">
-        <h3 style="font-size: 16.5px; color: #ffffff; margin-bottom: 8px;">Q: Is conversation history saved on the customer record?</h3>
-        <p style="margin: 0; font-size: 15px; color: #cbd5e1; line-height: 1.6;">A: Yes, every incoming and outgoing message, image, and quotation is automatically logged on the customer&apos;s CRM profile for full auditability.</p>
-      </div>
-    
-    
-
-      <div class="cta-box">
-        <h3>Ready to Transform Your Business with Zoho?</h3>
-        <p>Book a free 1-on-1 architecture consultation with PW Holdings' certified Zoho consultants in Colombo.</p>
-        <a href="https://web.whatsapp.com/send?phone=94777885883" target="_blank" class="cta-btn-lg">
-          💬 Chat on WhatsApp (+94 77 788 5883)
-        </a>
-      </div>
+    <div class="cta-box">
+      <h3>Ready to Modernize Your Operations with Zoho?</h3>
+      <p>Speak directly with Sri Lanka's leading certified Zoho implementation specialists. We handle everything from VAT/SSCL configuration to custom enterpriseDeluge workflows.</p>
+      <a href="https://web.whatsapp.com/send?phone=94777885883&text=Hello%20PW%20Holdings!%20I%20read%20your%20article%20'Connecting%20WhatsApp%20Business%20API%20with%20Zoho%20CRM%20%26%20SalesIQ'%20and%20would%20like%20a%20consultation." target="_blank" class="cta-btn-lg">
+        💬 WhatsApp Our Lead Consultant (+94 77 788 5883)
+      </a>
     </div>
   </main>
 
@@ -187,5 +210,16 @@
       <a href="../../llms.txt">AI Context (llms.txt)</a>
     </p>
   </footer>
+
+  <script>
+    const ham = document.getElementById('artHam');
+    const nav = document.getElementById('artNav');
+    if (ham && nav) {
+      ham.addEventListener('click', () => nav.classList.toggle('open'));
+      nav.querySelectorAll('a').forEach(l => {
+        l.addEventListener('click', () => nav.classList.remove('open'));
+      });
+    }
+  </script>
 </body>
 </html>
