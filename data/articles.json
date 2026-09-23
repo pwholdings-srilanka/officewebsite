@@ -1,5 +1,95 @@
 [
   {
+    "slug": "zoho-desk-sri-lanka-customer-support-ticketing",
+    "title": "Zoho Desk Sri Lanka: Omnichannel Customer Support, Zia AI & Ticketing Setup Guide",
+    "description": "Master Zoho Desk in Sri Lanka. Complete guide to omnichannel customer support, SLA rules, Zia AI bots, WhatsApp ticketing, and certified implementation by PW Holdings.",
+    "category": "crm",
+    "categoryLabel": "Customer Support & Helpdesk",
+    "date": "September 23, 2026",
+    "readTime": "7 min read",
+    "author": "PW Holdings Customer Experience Architecture Team",
+    "image": "https://images.unsplash.com/photo-1534536281715-e28d76689b4d?q=80&w=1200&auto=format&fit=crop",
+    "url": "articles/zoho-desk-sri-lanka-customer-support-ticketing/index.html",
+    "headline": "Zoho Desk Sri Lanka: Transforming Helpdesk Operations into High-Velocity Customer Delight",
+    "sections": [
+      {
+        "heading": "Why Sri Lankan Enterprises Need Modern Context-Aware Support",
+        "content": "In today competitive Sri Lankan marketplace, customer experience (CX) is the ultimate differentiator. Traditional email inboxes and manual phone logs result in dropped tickets, slow resolution times, and frustrated clients. Zoho Desk delivers context-aware customer service that unifies inquiries from email, website live chat, social media, phone, and WhatsApp into a single prioritized interface, giving support teams 360-degree customer context before they even type a reply."
+      },
+      {
+        "heading": "Omnichannel Integration: Connecting Official WhatsApp Business API & Telephony",
+        "content": "Sri Lankan consumers prefer instant messaging over formal email tickets. By integrating Zoho Desk with the official WhatsApp Business API through PW Holdings, customer chats automatically convert into actionable helpdesk tickets with full chat histories. Support agents can trigger instant diagnostic questions, escalate complex technical issues to second-line engineers, and update ticket statuses directly from their mobile or web workspace."
+      },
+      {
+        "heading": "Configuring Intelligent SLA Rules & Zia AI Agent Automation",
+        "content": "Maintaining strict Service Level Agreements (SLAs) is vital for B2B contracts, financial institutions, and telecommunication providers in Colombo. With Zoho Desk workflow automation, incoming tickets are automatically routed based on customer tier, product category, and agent availability. Zia AI evaluates customer sentiment in real time, alerting team leads to unhappy clients before an escalation occurs, and automatically suggesting ready-to-send solutions from your company knowledge base."
+      },
+      {
+        "heading": "Unified Sync with Zoho CRM, Zoho Books & Zoho Analytics",
+        "content": "Zoho Desk does not operate in isolation. When deployed by PW Holdings, support tickets sync seamlessly with Zoho CRM, allowing sales reps to see open issues before renewal meetings, while finance teams can check invoicing status via Zoho Books. Real-time dashboards provide customer satisfaction (CSAT) scores, first response times, and resolution rates at a glance."
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is the price of Zoho Desk in Sri Lanka?",
+        "a": "Zoho Desk offers flexible tier pricing (Standard, Professional, and Enterprise) starting at affordable regional monthly rates per agent, with full local billing, training, and setup support provided by PW Holdings."
+      },
+      {
+        "q": "Can Zoho Desk integrate with WhatsApp for Sri Lankan customer support?",
+        "a": "Yes. PW Holdings integrates Zoho Desk with the official WhatsApp Business API, allowing customers to raise and track support tickets directly through WhatsApp messaging."
+      },
+      {
+        "q": "How does Zoho Desk help manage Service Level Agreements (SLAs)?",
+        "a": "Zoho Desk allows you to define custom SLA policies with multi-level escalation rules, automatic notifications, and due-date tracking to ensure zero missed customer inquiries."
+      }
+    ]
+  },
+  {
+    "slug": "zoho-analytics-sri-lanka-bi-dashboards-reporting",
+    "title": "Zoho Analytics Sri Lanka: Enterprise BI, AI Dashboards & Financial Reporting Guide",
+    "description": "Transform enterprise data into actionable intelligence with Zoho Analytics in Sri Lanka. Custom BI dashboards, Zia AI conversational query, ERP sync, and official partner deployment by PW Holdings.",
+    "category": "bi",
+    "categoryLabel": "Business Intelligence & AI",
+    "date": "September 23, 2026",
+    "readTime": "8 min read",
+    "author": "PW Holdings Enterprise Analytics & BI Practice",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
+    "url": "articles/zoho-analytics-sri-lanka-bi-dashboards-reporting/index.html",
+    "headline": "Zoho Analytics Sri Lanka: Turning Complex Business Data into Executive Decision Power",
+    "sections": [
+      {
+        "heading": "The Data Challenge for Sri Lankan Corporations",
+        "content": "Modern enterprises in Sri Lanka collect vast amounts of data across point-of-sale systems, accounting software, warehouse databases, and marketing campaigns. However, because this data is trapped in separate silos, CEOs and Finance Directors waste countless hours compiling error-prone manual spreadsheets. Zoho Analytics solves this by providing a unified self-service Business Intelligence (BI) and reporting platform that connects to over 500 data sources."
+      },
+      {
+        "heading": "Automated Cross-Functional Executive Dashboards",
+        "content": "With Zoho Analytics configured by PW Holdings, corporate leadership gains real-time visibility into vital KPIs. Live dashboards blend sales performance from Zoho CRM, revenue and cash flow from Zoho Books, inventory turnover, and employee metrics into interactive visualizations with drill-down capabilities down to the individual transaction level."
+      },
+      {
+        "heading": "Conversational AI with Zia: Ask Questions in Plain English",
+        "content": "Zoho Analytics incorporates Zia AI, an advanced natural language generation assistant. Executives can type or speak questions such as \"Show me monthly revenue by province for 2026\" or \"Predict Q4 gross margins\", and Zia instantly generates charts, predictive forecasts, and automated insight summaries without needing SQL code or database expertise."
+      },
+      {
+        "heading": "Security, Governance, and Automated Scheduled Delivery",
+        "content": "Data governance is strictly enforced with enterprise-grade role-based access control, ensuring department heads only see metrics relevant to their jurisdiction. Automated email schedules deliver weekly PDF executive briefing packs directly to board members every Monday morning, keeping all stakeholders aligned."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can Zoho Analytics connect to third-party databases and accounting software?",
+        "a": "Yes. Zoho Analytics connects seamlessly with SQL databases (MySQL, PostgreSQL, Oracle), cloud storage, Excel/CSV files, and external ERPs like SAP and QuickBooks, as well as the entire Zoho ecosystem."
+      },
+      {
+        "q": "How does Zia AI help with reporting in Zoho Analytics?",
+        "a": "Zia AI allows users to ask questions in plain natural language (e.g. \"What were top selling items last month?\") and automatically creates the charts and summary metrics in seconds."
+      },
+      {
+        "q": "Is Zoho Analytics suitable for mid-market and SME businesses in Sri Lanka?",
+        "a": "Absolutely. Zoho Analytics delivers Fortune-500 grade BI and visualization capabilities at a fraction of the cost of PowerBI or Tableau, with local setup and Deluge scripting provided by PW Holdings."
+      }
+    ]
+  },
+  {
     "slug": "zoho-books-sri-lanka-vat-sscl-setup-guide",
     "title": "Zoho Books Sri Lanka VAT & SSCL Setup: Complete 2026 IRD Tax Guide",
     "description": "Comprehensive IRD tax compliance setup, custom tax rates, withholding taxes, automated tax returns, and digital invoice generation for Sri Lankan businesses.",
