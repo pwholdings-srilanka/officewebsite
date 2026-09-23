@@ -83,10 +83,32 @@
           "Zoho One",
           "Zoho Books",
           "Zoho CRM",
+          "Zoho Desk",
+          "Zoho People",
+          "Zoho Recruit",
+          "Zoho Projects",
+          "Zoho Analytics",
           "Zoho Creator",
+          "Zoho Flow",
           "Zoho Inventory",
           "Zoho Payroll",
-          "Zoho Analytics",
+          "Zoho Billing",
+          "Zoho Expense",
+          "Zoho Sign",
+          "Zoho SalesIQ",
+          "Zoho Assist",
+          "Zoho Social",
+          "Zoho Forms",
+          "Zoho Bookings",
+          "Zoho Cliq",
+          "Zoho Mail",
+          "Zoho Catalyst",
+          "Zoho Contracts",
+          "Zoho CRM Plus",
+          "Zoho Finance Plus",
+          "Zoho People Plus",
+          "Zoho Marketing Plus",
+          "Zoho Workplace",
           "Enterprise Cloud ERP",
           "AI Agents for Zoho",
           "Zia AI Customization",
@@ -1700,8 +1722,92 @@
       font-size: 16px;
       color: #64748b;
       max-width: 600px;
-      margin: 0 auto 50px;
+      margin: 0 auto 35px;
       line-height: 1.65;
+    }
+
+    /* Complete Zoho Ecosystem Controls */
+    .zoho-eco-controls {
+      max-width: 1100px;
+      margin: 0 auto 36px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+    .zoho-search-box {
+      width: 100%;
+      max-width: 580px;
+      position: relative;
+    }
+    .zoho-search-box input {
+      width: 100%;
+      padding: 14px 20px 14px 46px;
+      font-size: 15px;
+      border-radius: 50px;
+      border: 1.5px solid rgba(99, 102, 241, 0.25);
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      outline: none;
+      transition: all 0.25s ease;
+      color: #0f172a;
+      font-family: inherit;
+    }
+    .zoho-search-box input:focus {
+      border-color: #6366f1;
+      box-shadow: 0 6px 24px rgba(99, 102, 241, 0.18);
+    }
+    .zoho-search-icon {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 16px;
+      color: #94a3b8;
+      pointer-events: none;
+    }
+    .zoho-cat-filters {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      max-width: 980px;
+    }
+    .zoho-cat-btn {
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #475569;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .zoho-cat-btn:hover {
+      background: rgba(99, 102, 241, 0.08);
+      color: #4338ca;
+      border-color: rgba(99, 102, 241, 0.3);
+    }
+    .zoho-cat-btn.active {
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      color: #ffffff;
+      border-color: transparent;
+      box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3);
+    }
+    .zoho-app-counter {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #64748b;
+    }
+    .zoho-no-results {
+      grid-column: 1 / -1;
+      padding: 40px 20px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 20px;
+      border: 1px dashed rgba(99, 102, 241, 0.3);
+      display: none;
     }
 
     .zoho-svc-grid {
@@ -3927,184 +4033,496 @@
     <!-- ============================================================
          ZOHO SERVICES & CERTIFICATION SECTION
          ============================================================ -->
+        <!-- ============================================================
+         COMPLETE ZOHO ECOSYSTEM (50+ APPLICATIONS)
+         ============================================================ -->
     <section class="zoho-services-section" id="zoho-services" aria-label="Zoho Services">
 
-      <div class="svc-eyebrow">🚀 Authorized Zoho Partner Sri Lanka</div>
-      <h2 class="svc-title">Zoho Services — <span>Start Today</span></h2>
-      <p class="svc-sub">Expert Zoho implementation, setup, and support tailored for Sri Lankan businesses. Register directly through PW Holdings for exclusive onboarding assistance.</p>
+      <div class="svc-eyebrow">🚀 Premier Authorized Zoho Partner Sri Lanka</div>
+      <h2 class="svc-title">Complete Zoho Ecosystem — <span>50+ Applications</span></h2>
+      <p class="svc-sub">From standalone app deployments to full enterprise ERP migrations, PW Holdings engineers certified solutions across the entire Zoho suite. Search or filter by department below.</p>
+
+      <!-- Interactive Controls -->
+      <div class="zoho-eco-controls">
+        <div class="zoho-search-box">
+          <span class="zoho-search-icon">🔍</span>
+          <input type="text" id="zohoAppSearch" placeholder="Search any Zoho app (e.g. People, Desk, Books, CRM, Creator, Flow)..." autocomplete="off" aria-label="Search Zoho Applications" />
+        </div>
+
+        <div class="zoho-cat-filters" id="zohoCatFilters">
+          <button type="button" class="zoho-cat-btn active" data-filter="all">All Apps (50)</button>
+          <button type="button" class="zoho-cat-btn" data-filter="bundles">Enterprise Bundles</button>
+          <button type="button" class="zoho-cat-btn" data-filter="finance">Finance &amp; ERP</button>
+          <button type="button" class="zoho-cat-btn" data-filter="sales">Sales &amp; CRM</button>
+          <button type="button" class="zoho-cat-btn" data-filter="support">Customer Support</button>
+          <button type="button" class="zoho-cat-btn" data-filter="hr">HR &amp; Recruitment</button>
+          <button type="button" class="zoho-cat-btn" data-filter="marketing">Marketing &amp; Web</button>
+          <button type="button" class="zoho-cat-btn" data-filter="bi">BI &amp; Analytics</button>
+          <button type="button" class="zoho-cat-btn" data-filter="custom">Custom Apps &amp; Low-Code</button>
+          <button type="button" class="zoho-cat-btn" data-filter="collaboration">Productivity &amp; Team</button>
+        </div>
+
+        <div class="zoho-app-counter" id="zohoAppCounter">Showing <strong>50</strong> of 50 certified applications</div>
+      </div>
 
       <!-- Services Grid -->
-      <div class="zoho-svc-grid">
+      <div class="zoho-svc-grid" id="zohoAppsGrid">
 
         <!-- Zoho One -->
-        <div class="zoho-svc-card">
-          <img src="https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg" alt="Zoho One Cloud ERP Implementation Sri Lanka Authorized Partner" title="Zoho One - Operating System for Business ERP" width="48" height="48" loading="lazy" />
-          <div class="svc-cat">Full Business Suite</div>
+        <div class="zoho-svc-card" data-category="bundles" data-name="zoho one">
+          <img src="https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg" alt="Zoho One Cloud ERP Sri Lanka" title="Zoho One - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Enterprise Suite</div>
           <h4>Zoho One</h4>
-          <p>The all-in-one operating system for business. Access 45+ integrated apps — CRM, Finance, HR, Marketing, and more — on a single platform at one low price.</p>
-          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=04d44b0fe02787c244dabbf565c32421" target="_blank" class="zoho-svc-btn svc-indigo">Register Now</a>
+          <p>The all-in-one operating system for business. 45+ unified applications covering CRM, Finance, HR, Operations, and AI under a single enterprise subscription.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=04d44b0fe02787c244dabbf565c32421" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-indigo">Register / Consult</a>
         </div>
 
-        <!-- Zoho Books -->
-        <div class="zoho-svc-card">
-          <img src="https://www.zoho.com/sites/zweb/images/productlogos/books.png" alt="Zoho Books Cloud Accounting IRD VAT 18% SSCL Compliance Sri Lanka" title="Zoho Books Accounting Software Sri Lanka" width="48" height="48" loading="lazy" />
-          <div class="svc-cat">Finance &amp; Accounting</div>
-          <h4>Zoho Books</h4>
-          <p>IRD-compliant cloud accounting for Sri Lanka. Automates VAT 18%, SSCL 2.5%, multi-currency invoicing, bank reconciliation, and real-time financial reporting.</p>
-          <a href="https://zohobooks.lk/pricing/" target="_blank" class="zoho-svc-btn svc-blue">Register Now</a>
+        <!-- Zoho CRM Plus -->
+        <div class="zoho-svc-card" data-category="bundles" data-name="zoho crm plus">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/crmplus.png" alt="Zoho CRM Plus Suite Sri Lanka" title="Zoho CRM Plus - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Customer Experience Suite</div>
+          <h4>Zoho CRM Plus</h4>
+          <p>Unified customer experience suite combining CRM, Desk, Campaigns, Social, SalesIQ, and Survey into a single collaborative omnichannel platform.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=9a5b9b0b014e59ddae1dcd8f751c7d79" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-blue">Register / Consult</a>
         </div>
 
-        <!-- Zoho Billing -->
-        <div class="zoho-svc-card">
-          <img src="https://www.zoho.com/sites/zweb/images/productlogos/billing.png" alt="Zoho Billing Recurring Invoicing and Subscription Management" title="Zoho Billing Subscriptions" width="48" height="48" loading="lazy" />
-          <div class="svc-cat">Billing &amp; Subscriptions</div>
-          <h4>Zoho Billing</h4>
-          <p>End-to-end billing management for subscription and one-time payments. Automate invoices, handle dunning, and collect payments with zero manual effort.</p>
-          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=6012753c9c1925819503a7df567f4771" target="_blank" class="zoho-svc-btn svc-green">Register Now</a>
-        </div>
-
-        <!-- Zoho Expense -->
-        <div class="zoho-svc-card">
-          <img src="https://www.zoho.com/sites/zweb/images/productlogos/expense.png" alt="Zoho Expense AI Receipt Scanning and Travel Spend Management" title="Zoho Expense Tracking" width="48" height="48" loading="lazy" />
-          <div class="svc-cat">Finance &amp; Accounting</div>
-          <h4>Zoho Expense</h4>
-          <p>Automated expense reporting and approval. Scan receipts with AI, enforce spending policies, and sync directly with Zoho Books for error-free reconciliation.</p>
-          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=d1c7d03112cd6889d1923c7baa9e64e7" target="_blank" class="zoho-svc-btn svc-red">Register Now</a>
-        </div>
-
-        <!-- Zoho Inventory -->
-        <div class="zoho-svc-card">
-          <img src="https://www.zoho.com/sites/zweb/images/productlogos/inventory.png" alt="Zoho Inventory Multi-Warehouse Barcode Stock Management System" title="Zoho Inventory Management Sri Lanka" width="48" height="48" loading="lazy" />
-          <div class="svc-cat">Operations &amp; Stock</div>
-          <h4>Zoho Inventory</h4>
-          <p>Multi-warehouse stock management with serial &amp; batch tracking, expiry control, purchase orders, and seamless eCommerce channel integrations in one place.</p>
-          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=3d47639d92902440a03da1e7c17ccb3a" target="_blank" class="zoho-svc-btn svc-orange">Register Now</a>
-        </div>
-
-        <!-- Zoho Checkout -->
-        <div class="zoho-svc-card">
-          <img src="https://www.zoho.com/sites/zweb/images/productlogos/checkout.png" alt="Zoho Checkout Hosted Online Payment Gateway Integration" title="Zoho Checkout Online Payments" width="48" height="48" loading="lazy" />
-          <div class="svc-cat">Payments</div>
-          <h4>Zoho Checkout</h4>
-          <p>No-code hosted payment pages to collect one-time and recurring payments online. Customise your checkout with your brand and start accepting payments in minutes.</p>
-          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=ec8aa3402c742d59b051b4b10451e29c" target="_blank" class="zoho-svc-btn svc-sky">Register Now</a>
-        </div>
-
-        <!-- Zoho Payroll -->
-        <div class="zoho-svc-card">
-          <img src="https://www.zoho.com/sites/zweb/images/productlogos/payroll.png" alt="Zoho Payroll Sri Lanka Statutory Tax EPF ETF APIT Software" title="Zoho Payroll Sri Lanka" width="48" height="48" loading="lazy" />
-          <div class="svc-cat">HR &amp; People</div>
-          <h4>Zoho Payroll</h4>
-          <p>Fully automated payroll processing with statutory tax compliance, digital payslip generation, leave deduction, and direct bank transfer support for Sri Lanka.</p>
-          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=283b65c7eabf3cd5a6727e5d49dcb0c5" target="_blank" class="zoho-svc-btn svc-pink">Register Now</a>
-        </div>
-
-        <!-- Finance Plus -->
-        <div class="zoho-svc-card">
-          <img src="https://www.zoho.com/sites/zweb/images/productlogos/financeplus.png" alt="Zoho Finance Plus Complete Integrated Accounting and Operations Suite" title="Zoho Finance Plus Suite" width="48" height="48" loading="lazy" />
+        <!-- Zoho Finance Plus -->
+        <div class="zoho-svc-card" data-category="bundles" data-name="zoho finance plus">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/financeplus.png" alt="Zoho Finance Plus Suite Sri Lanka" title="Zoho Finance Plus - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
           <div class="svc-cat">Finance Bundle</div>
-          <h4>Finance Plus</h4>
-          <p>Complete finance suite combining Books, Expense, Inventory, Billing, Checkout, and Subscriptions into one powerful, interconnected platform for growing businesses.</p>
-          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=ff7cd33e0769d077b3252b4e6f88fd76" target="_blank" class="zoho-svc-btn svc-emerald">Register Now</a>
+          <h4>Zoho Finance Plus</h4>
+          <p>Complete finance operations combining Books, Expense, Inventory, Billing, Checkout, and Subscriptions into one seamlessly interconnected engine.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=ff7cd33e0769d077b3252b4e6f88fd76" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-emerald">Register / Consult</a>
         </div>
 
-        <!-- Bigin -->
-        <div class="zoho-svc-card">
-          <img src="https://www.zoho.com/sites/zweb/images/productlogos/zohobigin.png" alt="Bigin by Zoho CRM Pipeline Sales Management for Small Business" title="Bigin by Zoho CRM" width="48" height="48" loading="lazy" />
-          <div class="svc-cat">Sales &amp; CRM</div>
-          <h4>Bigin by Zoho CRM</h4>
-          <p>Pipeline-centric CRM built specifically for small businesses. Manage customer journeys, track deals, and automate follow-ups — simple setup, powerful results.</p>
-          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=66d15dc73b702cc78bc9ce3368c336f3" target="_blank" class="zoho-svc-btn svc-teal">Register Now</a>
+        <!-- Zoho People Plus -->
+        <div class="zoho-svc-card" data-category="bundles" data-name="zoho people plus">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/peopleplus.png" alt="Zoho People Plus HR Suite" title="Zoho People Plus - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">HR & Workforce Suite</div>
+          <h4>Zoho People Plus</h4>
+          <p>Unified employee experience platform covering recruitment, core HR, payroll, performance appraisals, corporate learning, and expenses in one login.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=283b65c7eabf3cd5a6727e5d49dcb0c5" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-teal">Register / Consult</a>
         </div>
 
-        <!-- Zoho Desk -->
-        <div class="zoho-svc-card">
-          <img src="https://www.zoho.com/sites/zweb/images/productlogos/desk.png" alt="Zoho Desk Context Aware Customer Support Helpdesk Platform" title="Zoho Desk Support Ticketing" width="48" height="48" loading="lazy" />
-          <div class="svc-cat">IT &amp; Help Desk</div>
-          <h4>Zoho Desk</h4>
-          <p>Context-aware customer support platform with AI-powered Zia bot, multi-channel ticketing (email, chat, phone), and customer satisfaction scoring built-in.</p>
-          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=acb7e2f40032c9f914401a04a2634397" target="_blank" class="zoho-svc-btn svc-emerald">Register Now</a>
-        </div>
-
-        <!-- Zoho Sign -->
-        <div class="zoho-svc-card">
-          <img src="https://www.zoho.com/sites/zweb/images/productlogos/sign.png" alt="Zoho Sign Legally Binding Digital Signature and Contract Management" title="Zoho Sign Digital Signature" width="48" height="48" loading="lazy" />
-          <div class="svc-cat">Legal &amp; Compliance</div>
-          <h4>Zoho Sign</h4>
-          <p>Legally binding digital signature solution. Send contracts, collect eSignatures, set signing workflows, and track document status — fully paperless and secure.</p>
-          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=f1aa06daeaf37b43a4407d6f9f2a63b2" target="_blank" class="zoho-svc-btn svc-amber">Register Now</a>
-        </div>
-
-        <!-- Zoho CRM -->
-        <div class="zoho-svc-card">
-          <img src="https://www.zoho.com/sites/zweb/images/productlogos/crm.png" alt="Zoho CRM Zia AI Omnichannel Sales Automation and WhatsApp Integration" title="Zoho CRM Sales Platform Sri Lanka" width="48" height="48" loading="lazy" />
-          <div class="svc-cat">Sales &amp; CRM</div>
-          <h4>Zoho CRM</h4>
-          <p>AI-powered CRM to close more deals faster. Automate workflows, manage sales pipelines, get 360° customer views, and connect via WhatsApp, email, and calls.</p>
-          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=9a5b9b0b014e59ddae1dcd8f751c7d79" target="_blank" class="zoho-svc-btn svc-blue">Register Now</a>
-        </div>
-
-        <!-- Zoho Creator -->
-        <div class="zoho-svc-card">
-          <img src="https://www.zoho.com/sites/zweb/images/productlogos/creator.png" alt="Zoho Creator Low-Code Custom Business Application and ERP Development" title="Zoho Creator Custom App Development" width="48" height="48" loading="lazy" />
-          <div class="svc-cat">Low-Code Development</div>
-          <h4>Zoho Creator</h4>
-          <p>Build custom business applications with drag-and-drop ease. Create mobile-ready apps, automate processes, and integrate data from any source — no coding required.</p>
-          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=6c17da7b871204eb9cd2e888b246987f" target="_blank" class="zoho-svc-btn svc-blue">Register Now</a>
+        <!-- Zoho Marketing Plus -->
+        <div class="zoho-svc-card" data-category="bundles" data-name="zoho marketing plus">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/marketingplus.png" alt="Zoho Marketing Plus Sri Lanka" title="Zoho Marketing Plus - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Marketing Platform</div>
+          <h4>Zoho Marketing Plus</h4>
+          <p>Centralized marketing platform connecting email campaigns, social media, landing pages, webinars, and attribution analytics for marketing teams.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=4e454c8d7f7587d4813cbaec1fb2de20" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-rose">Register / Consult</a>
         </div>
 
         <!-- Zoho Workplace -->
-        <div class="zoho-svc-card">
-          <img src="https://www.zoho.com/sites/zweb/images/productlogos/workplace.png" alt="Zoho Workplace Ad-Free Enterprise Email and Collaboration Suite" title="Zoho Workplace Business Email" width="48" height="48" loading="lazy" />
-          <div class="svc-cat">Collaboration Suite</div>
+        <div class="zoho-svc-card" data-category="bundles" data-name="zoho workplace">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/workplace.png" alt="Zoho Workplace Enterprise Office" title="Zoho Workplace - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Productivity Suite</div>
           <h4>Zoho Workplace</h4>
-          <p>Complete business productivity suite — Mail, Cliq, Meeting, Docs, Sheet, and Show — all in one ad-free, privacy-first workspace for your entire team.</p>
-          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=a033c5f45fdbb5ba4c11635956b5d3aa" target="_blank" class="zoho-svc-btn svc-violet">Register Now</a>
+          <p>Secure, ad-free business productivity suite — Mail, Cliq, Meeting, WorkDrive, Writer, Sheet, and Show — keeping your workforce connected anywhere.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=a033c5f45fdbb5ba4c11635956b5d3aa" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-violet">Register / Consult</a>
         </div>
 
-        <!-- Zoho Campaigns -->
-        <div class="zoho-svc-card">
-          <img src="https://www.zoho.com/sites/zweb/images/productlogos/campaigns.png" alt="Zoho Campaigns Targeted Email Marketing Automation and Lead Nurturing" title="Zoho Campaigns Marketing" width="48" height="48" loading="lazy" />
-          <div class="svc-cat">Marketing</div>
-          <h4>Zoho Campaigns</h4>
-          <p>Professional email marketing with advanced segmentation, A/B testing, automation workflows, and real-time analytics — deeply synced with Zoho CRM data.</p>
-          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=4e454c8d7f7587d4813cbaec1fb2de20" target="_blank" class="zoho-svc-btn svc-rose">Register Now</a>
+        <!-- Zoho Books -->
+        <div class="zoho-svc-card" data-category="finance" data-name="zoho books">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/books.png" alt="Zoho Books Sri Lanka IRD VAT Compliant" title="Zoho Books - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Finance & Accounting</div>
+          <h4>Zoho Books</h4>
+          <p>IRD-compliant cloud accounting for Sri Lanka. Automates VAT 18%, SSCL 2.5%, multi-currency invoicing, bank reconciliation, and audit-ready tax reports.</p>
+          <a href="https://zohobooks.lk/pricing/" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-blue">Register / Consult</a>
         </div>
 
-        <!-- Zoho Analytics -->
-        <div class="zoho-svc-card">
-          <img src="https://www.zoho.com/sites/zweb/images/productlogos/analytics.png" alt="Zoho Analytics Business Intelligence and AI Zia Executive Dashboards" title="Zoho Analytics BI Dashboards" width="48" height="48" loading="lazy" />
-          <div class="svc-cat">Analytics &amp; BI</div>
-          <h4>Zoho Analytics</h4>
-          <p>Self-service business intelligence with 500+ data connectors, AI-powered Zia insights, and stunning drag-and-drop dashboards for data-driven decisions.</p>
-          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=2b13a1063c2660bf481479dd669691c1" target="_blank" class="zoho-svc-btn svc-purple">Register Now</a>
+        <!-- Zoho Inventory -->
+        <div class="zoho-svc-card" data-category="finance" data-name="zoho inventory">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/inventory.png" alt="Zoho Inventory Multi-Warehouse Stock" title="Zoho Inventory - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Stock & Operations</div>
+          <h4>Zoho Inventory</h4>
+          <p>Multi-location warehouse stock management with barcode scanning, batch & expiry control, automated re-order points, and eCommerce channel sync.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=3d47639d92902440a03da1e7c17ccb3a" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-orange">Register / Consult</a>
         </div>
 
-        <!-- Zoho SalesIQ -->
-        <div class="zoho-svc-card">
-          <img src="https://www.zoho.com/sites/zweb/images/productlogos/salesiq.png" alt="Zoho SalesIQ Website Visitor Tracking Live Chat and Lead Bot" title="Zoho SalesIQ Live Chat" width="48" height="48" loading="lazy" />
-          <div class="svc-cat">Sales &amp; CRM</div>
-          <h4>Zoho SalesIQ</h4>
-          <p>Live chat, AI chatbots, and real-time visitor tracking to convert website visitors into leads. Identifies who is browsing your site and triggers smart engagement.</p>
-          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=2b13a1063c2660bf481479dd669691c1" target="_blank" class="zoho-svc-btn svc-red">Register Now</a>
+        <!-- Zoho Payroll -->
+        <div class="zoho-svc-card" data-category="finance" data-name="zoho payroll">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/payroll.png" alt="Zoho Payroll Sri Lanka EPF ETF APIT" title="Zoho Payroll - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Statutory Payroll</div>
+          <h4>Zoho Payroll</h4>
+          <p>Automated payroll processing with Sri Lanka statutory tax compliance, digital payslip distribution, leave deductions, and direct bank transfers.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=283b65c7eabf3cd5a6727e5d49dcb0c5" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-pink">Register / Consult</a>
         </div>
 
-        <!-- Zoho Flow -->
-        <div class="zoho-svc-card">
-          <img src="https://www.zoho.com/sites/zweb/images/productlogos/flow.png" alt="Zoho Flow No-Code Integration and Workflow Automation Platform" title="Zoho Flow Business Integration" width="48" height="48" loading="lazy" />
-          <div class="svc-cat">Automation &amp; Integration</div>
-          <h4>Zoho Flow</h4>
-          <p>No-code workflow automation platform. Connect Zoho apps and 700+ third-party tools to build powerful automated business processes without writing a single line of code.</p>
-          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=a8aed1b9dfcd5d84af7eb6c79a6465e6ad98713379ab6f8a4ad45281fac4bf1f" target="_blank" class="zoho-svc-btn svc-sky">Register Now</a>
+        <!-- Zoho Billing -->
+        <div class="zoho-svc-card" data-category="finance" data-name="zoho billing">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/billing.png" alt="Zoho Billing Subscriptions Sri Lanka" title="Zoho Billing - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Recurring Billing</div>
+          <h4>Zoho Billing</h4>
+          <p>End-to-end billing and subscription management. Automate complex tiered pricing, usage-based invoicing, recurring collections, and dunning rules.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=6012753c9c1925819503a7df567f4771" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-green">Register / Consult</a>
+        </div>
+
+        <!-- Zoho Expense -->
+        <div class="zoho-svc-card" data-category="finance" data-name="zoho expense">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/expense.png" alt="Zoho Expense Travel & Spend Tracking" title="Zoho Expense - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Spend Management</div>
+          <h4>Zoho Expense</h4>
+          <p>AI receipt OCR scanning, employee expense reports, travel approvals, and automatic general ledger sync with Zoho Books for clean audits.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=d1c7d03112cd6889d1923c7baa9e64e7" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-red">Register / Consult</a>
         </div>
 
         <!-- Zoho Invoice -->
-        <div class="zoho-svc-card">
-          <img src="https://www.zoho.com/sites/zweb/images/productlogos/invoice.png" alt="Zoho Invoice Professional Free Invoicing and Payment Tracking Software" title="Zoho Invoice Free Billing" width="48" height="48" loading="lazy" />
-          <div class="svc-cat">Finance &amp; Accounting</div>
+        <div class="zoho-svc-card" data-category="finance" data-name="zoho invoice">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/invoice.png" alt="Zoho Invoice Free Digital Billing" title="Zoho Invoice - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Free Invoicing</div>
           <h4>Zoho Invoice</h4>
-          <p>Free professional invoicing software. Create branded invoices in seconds, automate payment reminders, accept online payments, and track every rupee owed.</p>
-          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=a8aed1b9dfcd5d84af7eb6c79a6465e6ad98713379ab6f8a4ad45281fac4bf1f" target="_blank" class="zoho-svc-btn svc-blue">Register Now</a>
+          <p>100% free professional digital invoicing software. Send branded estimates, track billable hours, record client payments, and track overdue accounts.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=a8aed1b9dfcd5d84af7eb6c79a6465e6ad98713379ab6f8a4ad45281fac4bf1f" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-sky">Register / Consult</a>
+        </div>
+
+        <!-- Zoho Checkout -->
+        <div class="zoho-svc-card" data-category="finance" data-name="zoho checkout">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/checkout.png" alt="Zoho Checkout Online Hosted Pages" title="Zoho Checkout - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Payment Gateway</div>
+          <h4>Zoho Checkout</h4>
+          <p>No-code hosted payment checkout pages to collect one-time or recurring card payments online with customizable brand themes and instant receipts.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=ec8aa3402c742d59b051b4b10451e29c" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-sky">Register / Consult</a>
+        </div>
+
+        <!-- Zoho Subscriptions -->
+        <div class="zoho-svc-card" data-category="finance" data-name="zoho subscriptions">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/subscriptions.png" alt="Zoho Subscriptions Customer Lifecycle" title="Zoho Subscriptions - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">SaaS Billing Engine</div>
+          <h4>Zoho Subscriptions</h4>
+          <p>Automated recurring billing engine for SaaS and service firms. Manages trials, proration, mid-cycle upgrades, and multi-currency billing.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=6012753c9c1925819503a7df567f4771" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-teal">Register / Consult</a>
+        </div>
+
+        <!-- Zoho CRM -->
+        <div class="zoho-svc-card" data-category="sales" data-name="zoho crm">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/crm.png" alt="Zoho CRM Sri Lanka Sales Automation" title="Zoho CRM - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Sales & CRM</div>
+          <h4>Zoho CRM</h4>
+          <p>AI Zia powered sales pipeline automation. Close deals faster with 360-degree customer records, official WhatsApp Business API sync, and sales forecasting.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=9a5b9b0b014e59ddae1dcd8f751c7d79" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-blue">Register / Consult</a>
+        </div>
+
+        <!-- Bigin by Zoho CRM -->
+        <div class="zoho-svc-card" data-category="sales" data-name="bigin by zoho crm">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/zohobigin.png" alt="Bigin by Zoho Pipeline CRM" title="Bigin by Zoho CRM - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Small Business CRM</div>
+          <h4>Bigin by Zoho CRM</h4>
+          <p>Simple, visual pipeline-centric CRM tailored for startups and small enterprises. Setup in 30 minutes to track leads, emails, calls, and activities.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=66d15dc73b702cc78bc9ce3368c336f3" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-teal">Register / Consult</a>
+        </div>
+
+        <!-- Zoho Bookings -->
+        <div class="zoho-svc-card" data-category="sales" data-name="zoho bookings">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/bookings.png" alt="Zoho Bookings Appointment Scheduling" title="Zoho Bookings - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Scheduling & Calendar</div>
+          <h4>Zoho Bookings</h4>
+          <p>Customer appointment booking system for consultants, clinics, and service firms. Syncs with Google Calendar and Zoho CRM to prevent double-booking.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=9a5b9b0b014e59ddae1dcd8f751c7d79" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-indigo">Register / Consult</a>
+        </div>
+
+        <!-- Zoho Forms -->
+        <div class="zoho-svc-card" data-category="sales" data-name="zoho forms">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/forms.png" alt="Zoho Forms Mobile Data Collection" title="Zoho Forms - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Online Forms</div>
+          <h4>Zoho Forms</h4>
+          <p>Advanced online form builder with conditional logic, offline mobile data collection, digital signatures, and direct pipeline injection into Zoho CRM.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=9a5b9b0b014e59ddae1dcd8f751c7d79" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-emerald">Register / Consult</a>
+        </div>
+
+        <!-- Zoho Sign -->
+        <div class="zoho-svc-card" data-category="sales" data-name="zoho sign">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/sign.png" alt="Zoho Sign Legally Binding e-Signatures" title="Zoho Sign - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Digital Signature</div>
+          <h4>Zoho Sign</h4>
+          <p>Legally binding digital signature and document workflow system. Securely sign NDAs, vendor contracts, sales agreements, and HR offer letters.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=f1aa06daeaf37b43a4407d6f9f2a63b2" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-amber">Register / Consult</a>
+        </div>
+
+        <!-- Zoho RouteIQ -->
+        <div class="zoho-svc-card" data-category="sales" data-name="zoho routeiq">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/routeiq.png" alt="Zoho RouteIQ Field Sales Routing" title="Zoho RouteIQ - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Route Optimization</div>
+          <h4>Zoho RouteIQ</h4>
+          <p>Intelligent map visualization and route planning for field sales agents across Sri Lanka. Optimize travel routes and visit more clients daily.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=9a5b9b0b014e59ddae1dcd8f751c7d79" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-sky">Register / Consult</a>
+        </div>
+
+        <!-- Zoho SalesIQ -->
+        <div class="zoho-svc-card" data-category="sales" data-name="zoho salesiq">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/salesiq.png" alt="Zoho SalesIQ Live Chat & Bots" title="Zoho SalesIQ - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Live Chat & Visitor Tracking</div>
+          <h4>Zoho SalesIQ</h4>
+          <p>Live website visitor tracking and conversational AI bots. Know who is browsing your website in real time and automatically convert them into qualified leads.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=2b13a1063c2660bf481479dd669691c1" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-red">Register / Consult</a>
+        </div>
+
+        <!-- Zoho Desk -->
+        <div class="zoho-svc-card" data-category="support" data-name="zoho desk">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/desk.png" alt="Zoho Desk Sri Lanka Omnichannel Support" title="Zoho Desk - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Customer Helpdesk</div>
+          <h4>Zoho Desk</h4>
+          <p>Context-aware customer support platform with AI Zia ticketing, SLA management, and unified channels (WhatsApp, Email, Web, and Telephony).</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=acb7e2f40032c9f914401a04a2634397" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-emerald">Register / Consult</a>
+        </div>
+
+        <!-- Zoho Assist -->
+        <div class="zoho-svc-card" data-category="support" data-name="zoho assist">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/assist.png" alt="Zoho Assist Remote Support & Screen Share" title="Zoho Assist - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Remote Desktop Support</div>
+          <h4>Zoho Assist</h4>
+          <p>Cloud-based remote customer support and unattended computer access. Connect securely across firewalls to troubleshoot client IT issues instantly.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=acb7e2f40032c9f914401a04a2634397" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-indigo">Register / Consult</a>
+        </div>
+
+        <!-- Zoho Lens -->
+        <div class="zoho-svc-card" data-category="support" data-name="zoho lens">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/lens.png" alt="Zoho Lens Augmented Reality Support" title="Zoho Lens - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">AR Remote Assistance</div>
+          <h4>Zoho Lens</h4>
+          <p>Interactive Augmented Reality (AR) remote assistance. Field technicians and customers stream live smartphone video while experts draw 3D arrows on screen.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=acb7e2f40032c9f914401a04a2634397" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-purple">Register / Consult</a>
+        </div>
+
+        <!-- Zoho FSM -->
+        <div class="zoho-svc-card" data-category="support" data-name="zoho fsm">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/fsm.png" alt="Zoho FSM Field Service Dispatch" title="Zoho FSM - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Field Service Management</div>
+          <h4>Zoho FSM</h4>
+          <p>Complete field service management software. Dispatch technicians, manage service work orders, track spare parts inventory, and invoice on site.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=acb7e2f40032c9f914401a04a2634397" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-teal">Register / Consult</a>
+        </div>
+
+        <!-- Zoho People -->
+        <div class="zoho-svc-card" data-category="hr" data-name="zoho people">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/people.png" alt="Zoho People Sri Lanka HR & Attendance" title="Zoho People - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Core Cloud HR</div>
+          <h4>Zoho People</h4>
+          <p>Complete cloud HR management system. Manage employee records, biometric attendance, custom leave policies, performance reviews, and self-service portals.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=283b65c7eabf3cd5a6727e5d49dcb0c5" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-pink">Register / Consult</a>
+        </div>
+
+        <!-- Zoho Recruit -->
+        <div class="zoho-svc-card" data-category="hr" data-name="zoho recruit">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/recruit.png" alt="Zoho Recruit ATS & Talent Acquisition" title="Zoho Recruit - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Applicant Tracking (ATS)</div>
+          <h4>Zoho Recruit</h4>
+          <p>Modern recruitment software and Applicant Tracking System (ATS). Post jobs across LinkedIn and job boards, parse resumes, and schedule candidate interviews.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=283b65c7eabf3cd5a6727e5d49dcb0c5" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-teal">Register / Consult</a>
+        </div>
+
+        <!-- Zoho Connect -->
+        <div class="zoho-svc-card" data-category="hr" data-name="zoho connect">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/connect.png" alt="Zoho Connect Corporate Intranet" title="Zoho Connect - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Enterprise Intranet</div>
+          <h4>Zoho Connect</h4>
+          <p>Secure enterprise social intranet. Build department channels, share company-wide announcements, host discussion forums, and build an internal knowledge wiki.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=a033c5f45fdbb5ba4c11635956b5d3aa" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-sky">Register / Consult</a>
+        </div>
+
+        <!-- Zoho Learn -->
+        <div class="zoho-svc-card" data-category="hr" data-name="zoho learn">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/learn.png" alt="Zoho Learn Corporate LMS & Training" title="Zoho Learn - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Knowledge & LMS</div>
+          <h4>Zoho Learn</h4>
+          <p>Corporate Learning Management System (LMS) and knowledge repository. Create interactive staff training courses, conduct quizzes, and build SOP manuals.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=283b65c7eabf3cd5a6727e5d49dcb0c5" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-amber">Register / Consult</a>
+        </div>
+
+        <!-- Zoho Campaigns -->
+        <div class="zoho-svc-card" data-category="marketing" data-name="zoho campaigns">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/campaigns.png" alt="Zoho Campaigns Email Automation" title="Zoho Campaigns - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Email Marketing</div>
+          <h4>Zoho Campaigns</h4>
+          <p>Targeted email marketing with automated nurturing sequences, A/B testing, subscriber segmentation, and deep revenue synchronization with Zoho CRM.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=4e454c8d7f7587d4813cbaec1fb2de20" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-rose">Register / Consult</a>
+        </div>
+
+        <!-- Zoho Social -->
+        <div class="zoho-svc-card" data-category="marketing" data-name="zoho social">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/social.png" alt="Zoho Social Media Marketing Platform" title="Zoho Social - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Social Media Management</div>
+          <h4>Zoho Social</h4>
+          <p>Manage and schedule social media posts across Facebook, LinkedIn, Instagram, and X (Twitter) with audience monitoring and ROI engagement metrics.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=4e454c8d7f7587d4813cbaec1fb2de20" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-indigo">Register / Consult</a>
+        </div>
+
+        <!-- Zoho Sites -->
+        <div class="zoho-svc-card" data-category="marketing" data-name="zoho sites">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/sites.png" alt="Zoho Sites Drag & Drop Web Builder" title="Zoho Sites - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Website Builder</div>
+          <h4>Zoho Sites</h4>
+          <p>Clean, responsive visual website builder with free SSL, CDN hosting, and drag-and-drop sections designed for businesses that need fast web presence.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=4e454c8d7f7587d4813cbaec1fb2de20" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-emerald">Register / Consult</a>
+        </div>
+
+        <!-- Zoho PageSense -->
+        <div class="zoho-svc-card" data-category="marketing" data-name="zoho pagesense">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/pagesense.png" alt="Zoho PageSense Conversion Optimization" title="Zoho PageSense - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">CRO & Heatmaps</div>
+          <h4>Zoho PageSense</h4>
+          <p>Website conversion rate optimization platform. Run A/B split tests, track visitor mouse heatmaps, analyze checkout funnels, and boost conversions.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=4e454c8d7f7587d4813cbaec1fb2de20" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-purple">Register / Consult</a>
+        </div>
+
+        <!-- Zoho Backstage -->
+        <div class="zoho-svc-card" data-category="marketing" data-name="zoho backstage">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/backstage.png" alt="Zoho Backstage Corporate Conferences" title="Zoho Backstage - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Event Management</div>
+          <h4>Zoho Backstage</h4>
+          <p>End-to-end event management software for corporate conferences, summits, and webinars. Sell tickets, build event agendas, and manage speaker stages.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=4e454c8d7f7587d4813cbaec1fb2de20" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-teal">Register / Consult</a>
+        </div>
+
+        <!-- Zoho Analytics -->
+        <div class="zoho-svc-card" data-category="bi" data-name="zoho analytics">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/analytics.png" alt="Zoho Analytics Sri Lanka BI Platform" title="Zoho Analytics - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">BI & Executive Dashboards</div>
+          <h4>Zoho Analytics</h4>
+          <p>Self-service Business Intelligence with 500+ data connectors, Zia AI conversational query, interactive KPI dashboards, and automated scheduled reporting.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=2b13a1063c2660bf481479dd669691c1" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-purple">Register / Consult</a>
+        </div>
+
+        <!-- Zoho DataPrep -->
+        <div class="zoho-svc-card" data-category="bi" data-name="zoho dataprep">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/dataprep.png" alt="Zoho DataPrep Enterprise Data Pipeline" title="Zoho DataPrep - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Data Pipeline & Cleaning</div>
+          <h4>Zoho DataPrep</h4>
+          <p>Automated machine-learning powered data preparation and cleansing tool. Clean, transform, and enrich raw data pipelines before feeding to BI dashboards.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=2b13a1063c2660bf481479dd669691c1" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-sky">Register / Consult</a>
+        </div>
+
+        <!-- Zoho Creator -->
+        <div class="zoho-svc-card" data-category="custom" data-name="zoho creator">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/creator.png" alt="Zoho Creator Custom ERP Development" title="Zoho Creator - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Low-Code App Builder</div>
+          <h4>Zoho Creator</h4>
+          <p>Build bespoke enterprise applications and mobile ERP modules using visual drag-and-drop tools and Deluge logic with certified PW Holdings developers.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=6c17da7b871204eb9cd2e888b246987f" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-blue">Register / Consult</a>
+        </div>
+
+        <!-- Zoho Flow -->
+        <div class="zoho-svc-card" data-category="custom" data-name="zoho flow">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/flow.png" alt="Zoho Flow Cloud Integration Engine" title="Zoho Flow - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Integration & Webhooks</div>
+          <h4>Zoho Flow</h4>
+          <p>No-code integration platform. Build automated multi-step logic circuits connecting Zoho apps and 700+ external SaaS services with webhook triggers.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=a8aed1b9dfcd5d84af7eb6c79a6465e6ad98713379ab6f8a4ad45281fac4bf1f" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-sky">Register / Consult</a>
+        </div>
+
+        <!-- Zoho Catalyst -->
+        <div class="zoho-svc-card" data-category="custom" data-name="zoho catalyst">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/catalyst.png" alt="Zoho Catalyst Serverless Platform" title="Zoho Catalyst - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Serverless Cloud</div>
+          <h4>Zoho Catalyst</h4>
+          <p>Full-stack serverless platform for cloud microservices. Deploy Node.js and Python backend logic, API gateways, and relational datastores without server management.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=6c17da7b871204eb9cd2e888b246987f" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-emerald">Register / Consult</a>
+        </div>
+
+        <!-- Zoho Contracts -->
+        <div class="zoho-svc-card" data-category="custom" data-name="zoho contracts">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/contracts.png" alt="Zoho Contracts Legal Lifecycle" title="Zoho Contracts - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Contract Lifecycle (CLM)</div>
+          <h4>Zoho Contracts</h4>
+          <p>Comprehensive Contract Lifecycle Management (CLM) software. Manage contract drafting, approvals, e-signature signoffs, milestone tracking, and renewals.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=f1aa06daeaf37b43a4407d6f9f2a63b2" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-amber">Register / Consult</a>
+        </div>
+
+        <!-- Zoho Vault -->
+        <div class="zoho-svc-card" data-category="custom" data-name="zoho vault">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/vault.png" alt="Zoho Vault Enterprise Password Manager" title="Zoho Vault - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Enterprise Password Vault</div>
+          <h4>Zoho Vault</h4>
+          <p>Secure password and credential management for corporate teams. Store passwords, control role-based permissions, and log audit trails securely.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=a033c5f45fdbb5ba4c11635956b5d3aa" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-teal">Register / Consult</a>
+        </div>
+
+        <!-- Zoho Mail -->
+        <div class="zoho-svc-card" data-category="collaboration" data-name="zoho mail">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/mail.png" alt="Zoho Mail Ad-Free Corporate Email" title="Zoho Mail - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Secure Business Email</div>
+          <h4>Zoho Mail</h4>
+          <p>Ad-free corporate email hosting with custom domain names, advanced anti-spam protection, 99.9% uptime SLA, and built-in calendar and contacts.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=a033c5f45fdbb5ba4c11635956b5d3aa" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-blue">Register / Consult</a>
+        </div>
+
+        <!-- Zoho Cliq -->
+        <div class="zoho-svc-card" data-category="collaboration" data-name="zoho cliq">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/cliq.png" alt="Zoho Cliq Business Messaging" title="Zoho Cliq - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Team Chat & Channels</div>
+          <h4>Zoho Cliq</h4>
+          <p>Secure enterprise chat with organized channels, audio/video calling, screen sharing, and automated bots integrated directly into your business workflows.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=a033c5f45fdbb5ba4c11635956b5d3aa" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-teal">Register / Consult</a>
+        </div>
+
+        <!-- Zoho Projects -->
+        <div class="zoho-svc-card" data-category="collaboration" data-name="zoho projects">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/projects.png" alt="Zoho Projects Gantt Chart Management" title="Zoho Projects - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Project Management</div>
+          <h4>Zoho Projects</h4>
+          <p>Cloud project management software with interactive Gantt charts, milestone tracking, timesheets, bug tracking, and real-time team collaboration.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=a033c5f45fdbb5ba4c11635956b5d3aa" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-orange">Register / Consult</a>
+        </div>
+
+        <!-- Zoho Sprints -->
+        <div class="zoho-svc-card" data-category="collaboration" data-name="zoho sprints">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/sprints.png" alt="Zoho Sprints Agile Scrum Software" title="Zoho Sprints - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Agile & Scrum Planning</div>
+          <h4>Zoho Sprints</h4>
+          <p>Agile project planning tool designed for software and tech teams. Plan sprints, manage Scrum backlog boards, and track velocity burn-down charts.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=a033c5f45fdbb5ba4c11635956b5d3aa" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-indigo">Register / Consult</a>
+        </div>
+
+        <!-- Zoho Meeting -->
+        <div class="zoho-svc-card" data-category="collaboration" data-name="zoho meeting">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/meeting.png" alt="Zoho Meeting Secure Web Video & Webinars" title="Zoho Meeting - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Video Conferencing</div>
+          <h4>Zoho Meeting</h4>
+          <p>Secure video conferencing and online webinar software. Host interactive meetings, broadcast to thousands of attendees, and record sessions in cloud.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=a033c5f45fdbb5ba4c11635956b5d3aa" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-red">Register / Consult</a>
+        </div>
+
+        <!-- Zoho WorkDrive -->
+        <div class="zoho-svc-card" data-category="collaboration" data-name="zoho workdrive">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/workdrive.png" alt="Zoho WorkDrive Enterprise Cloud Storage" title="Zoho WorkDrive - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Cloud Storage & Sync</div>
+          <h4>Zoho WorkDrive</h4>
+          <p>Online team file management and cloud storage. Secure shared team folders, fine-grained access permissions, and desktop syncing for corporate files.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=a033c5f45fdbb5ba4c11635956b5d3aa" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-blue">Register / Consult</a>
+        </div>
+
+        <!-- Zoho Writer -->
+        <div class="zoho-svc-card" data-category="collaboration" data-name="zoho writer">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/writer.png" alt="Zoho Writer Document Collaboration" title="Zoho Writer - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Cloud Word Processor</div>
+          <h4>Zoho Writer</h4>
+          <p>Distraction-free cloud word processor with real-time co-authoring, Zia grammar suggestions, and automated mail merge from CRM databases.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=a033c5f45fdbb5ba4c11635956b5d3aa" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-sky">Register / Consult</a>
+        </div>
+
+        <!-- Zoho Sheet -->
+        <div class="zoho-svc-card" data-category="collaboration" data-name="zoho sheet">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/sheet.png" alt="Zoho Sheet AI Cloud Spreadsheets" title="Zoho Sheet - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Cloud Spreadsheets</div>
+          <h4>Zoho Sheet</h4>
+          <p>Collaborative cloud spreadsheet with automated data cleaning, 350+ functions, automated charts, and Zia AI automated data insights.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=a033c5f45fdbb5ba4c11635956b5d3aa" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-emerald">Register / Consult</a>
+        </div>
+
+        <!-- Zoho Show -->
+        <div class="zoho-svc-card" data-category="collaboration" data-name="zoho show">
+          <img src="https://www.zoho.com/sites/zweb/images/productlogos/show.png" alt="Zoho Show Slide Presentation Designer" title="Zoho Show - Authorized Partner Deployment" width="48" height="48" loading="lazy" onerror="this.src='https://www.zoho.com/sites/zweb/images/producticon/zoho-one.svg'" />
+          <div class="svc-cat">Slide Presentations</div>
+          <h4>Zoho Show</h4>
+          <p>Modern collaborative presentation design software. Craft professional corporate slide decks, deliver live remote broadcasts, and present on any screen.</p>
+          <a href="https://store.zoho.com/ResellerCustomerSignUp.do?id=a033c5f45fdbb5ba4c11635956b5d3aa" target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-amber">Register / Consult</a>
+        </div>
+
+        <div class="zoho-no-results" id="zohoNoResults">
+          <div style="font-size: 36px; margin-bottom: 12px;">🔍</div>
+          <h3 style="font-size: 20px; font-weight: 700; color: #0f172a; margin-bottom: 8px;">Looking for another specific Zoho application?</h3>
+          <p style="color: #64748b; font-size: 14.5px; max-width: 500px; margin: 0 auto 20px;">PW Holdings is certified across all 55+ Zoho cloud applications and custom Deluge workflows. Contact our team for custom licensing and implementation.</p>
+          <a href="https://web.whatsapp.com/send?phone=94777885883&text=Hello!%20I%20am%20looking%20for%20a%20Zoho%20application%20not%20listed%20on%20the%20site." target="_blank" rel="noopener noreferrer" class="zoho-svc-btn svc-indigo" style="display: inline-block;">Talk to Zoho Architect on WhatsApp ➔</a>
         </div>
 
       </div><!-- /.zoho-svc-grid -->
@@ -5005,6 +5423,64 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     }
+  
+    // Complete Zoho 50+ Apps Live Search & Category Filtering
+    (function() {
+      const searchInput = document.getElementById('zohoAppSearch');
+      const filterButtons = document.querySelectorAll('#zohoCatFilters .zoho-cat-btn');
+      const cards = document.querySelectorAll('#zohoAppsGrid .zoho-svc-card');
+      const counter = document.getElementById('zohoAppCounter');
+      const noResults = document.getElementById('zohoNoResults');
+      const totalApps = cards.length;
+
+      let activeFilter = 'all';
+      let searchQuery = '';
+
+      function filterApps() {
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+          const cat = card.getAttribute('data-category') || '';
+          const name = (card.getAttribute('data-name') || '') + ' ' + (card.querySelector('h4')?.textContent || '') + ' ' + (card.querySelector('p')?.textContent || '');
+          const matchesCategory = (activeFilter === 'all' || cat === activeFilter);
+          const matchesSearch = (!searchQuery || name.toLowerCase().includes(searchQuery));
+
+          if (matchesCategory && matchesSearch) {
+            card.style.display = 'flex';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        if (counter) {
+          counter.innerHTML = `Showing <strong>${visibleCount}</strong> of ${totalApps} certified applications`;
+        }
+
+        if (noResults) {
+          noResults.style.display = (visibleCount === 0) ? 'block' : 'none';
+        }
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener('input', function(e) {
+          searchQuery = e.target.value.trim().toLowerCase();
+          filterApps();
+        });
+      }
+
+      if (filterButtons) {
+        filterButtons.forEach(btn => {
+          btn.addEventListener('click', function() {
+            filterButtons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            activeFilter = this.getAttribute('data-filter') || 'all';
+            filterApps();
+          });
+        });
+      }
+    })();
+
   </script>
 
 </body>
