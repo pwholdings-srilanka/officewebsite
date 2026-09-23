@@ -5,7 +5,7 @@
     <link>https://pwholdings.lk/articles.html</link>
     <description>Expert Zoho Guides, Sri Lanka IRD VAT/SSCL Tax Accounting, and Cloud ERP Trends by PW Holdings.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 21 Sep 2026 18:31:28 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 23 Sep 2026 06:43:14 GMT</lastBuildDate>
     <atom:link href="https://pwholdings.lk/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Zoho Books Sri Lanka VAT &amp; SSCL Setup: Complete 2026 IRD Tax Guide</title>
@@ -66,6 +66,26 @@
       <category>Supply Chain &amp; Inventory</category>
       <description>Real-time barcode scanning, batch tracking with expiry dates, and automated PO generation across warehouse hubs in Sri Lanka.</description>
       <media:content url="https://images.unsplash.com/photo-1450133064473-71024230f91b?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" medium="image" width="1200" height="675" />
+    </item>
+    <item>
+      <title>PW Holdings Official Industry Sponsor for ICME 2026 – University of Ruhuna</title>
+      <link>https://pwholdings.lk/articles/pw-holdings-sponsors-icme-2026-ruhuna-university/</link>
+      <guid isPermaLink="true">https://pwholdings.lk/articles/pw-holdings-sponsors-icme-2026-ruhuna-university/</guid>
+      <pubDate>Sat, 19 Sep 2026 18:30:00 GMT</pubDate>
+      <dc:creator>PW Holdings Corporate Communications</dc:creator>
+      <category>Publicity &amp; Academic CSR</category>
+      <description>PW Holdings partners with the Faculty of Management &amp; Finance, University of Ruhuna as an official sponsor for the 15th International Conference on Management and Economics (ICME 2026).</description>
+      <media:content url="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" medium="image" width="1200" height="675" />
+    </item>
+    <item>
+      <title>Global Zoho Implementation Playbook: Why Multinational Enterprises Choose PW Holdings</title>
+      <link>https://pwholdings.lk/articles/global-zoho-implementation-offshore-consulting-playbook/</link>
+      <guid isPermaLink="true">https://pwholdings.lk/articles/global-zoho-implementation-offshore-consulting-playbook/</guid>
+      <pubDate>Mon, 21 Sep 2026 18:30:00 GMT</pubDate>
+      <dc:creator>PW Holdings Global Delivery Practice</dc:creator>
+      <category>Global Enterprise &amp; AI</category>
+      <description>How PW Holdings delivers enterprise Zoho One, multi-currency Zoho Books, and custom AI Agent automation across USA, UK, UAE, Australia, and APAC at 60% lower TCO.</description>
+      <media:content url="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" medium="image" width="1200" height="675" />
     </item>
   </channel>
 </rss>

@@ -33,14 +33,31 @@ if (articles.some(a => a.slug === slug)) {
 const newArticle = {
   slug: slug,
   title: titleArg,
-  description: `Complete guide and expert recommendations on ${titleArg} for Sri Lankan enterprises by PW Holdings.`,
+  description: `Complete guide and expert recommendations on ${titleArg} for Sri Lankan and global enterprises by PW Holdings.`,
   category: categoryArg,
   categoryLabel: categoryLabelArg,
   date: dateStr,
   readTime: "6 min read",
   author: "PW Holdings Senior ERP Consultants",
   image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop",
-  url: `https://pwholdings.lk/articles/${slug}/`
+  url: `articles/${slug}/index.html`,
+  headline: `Expert Guide & Best Practices: ${titleArg}`,
+  sections: [
+    {
+      heading: "1. Strategic Overview & Business Value",
+      content: `In today's fast-evolving enterprise landscape, ${titleArg} plays a critical role in driving operational efficiency, automated cloud workflows, and data-driven scalability.`
+    },
+    {
+      heading: "2. Enterprise Deployment & Best Practices",
+      content: `PW Holdings delivers turnkey architecture, customized Deluge automations, and dedicated multi-timezone technical support to ensure seamless enterprise adoption with zero downtime.`
+    }
+  ],
+  faq: [
+    {
+      q: `How does PW Holdings support ${titleArg}?`,
+      a: "Our certified Zoho consultants handle solution architecture, data migration, staff training, and 24/7 SLA technical support worldwide."
+    }
+  ]
 };
 
 articles.unshift(newArticle);

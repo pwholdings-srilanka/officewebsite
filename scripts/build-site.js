@@ -3,8 +3,8 @@ const path = require('path');
 
 const rootDir = path.join(__dirname, '..');
 const DOMAIN = 'https://pwholdings.lk';
-const DEFAULT_IMAGE = 'https://pwholdings.lk/wp-content/uploads/2026/08/Gemini_Generated_Image_ovqv6vovqv6vovqv.png';
-const LOGO_IMAGE = 'https://res.cloudinary.com/dib0fble7/image/upload/v1777898970/WhatsApp_Image_2026-04-20_at_9.04.34_AM_1_izs6ly.jpg';
+const DEFAULT_IMAGE = 'https://res.cloudinary.com/dib0fble7/image/upload/b_white,c_pad,w_1200,h_630/v1790048197/New_Logo_Pwholdings_2-removebg-preview_1_sunbja.png';
+const LOGO_IMAGE = 'https://res.cloudinary.com/dib0fble7/image/upload/v1790048197/New_Logo_Pwholdings_2-removebg-preview_1_sunbja.png';
 
 function escapeXml(unsafe) {
   if (!unsafe) return '';
@@ -355,7 +355,45 @@ function generateArticlePageHtml(art) {
     <img class="hero-img" src="${escapeXml(art.image)}" alt="${escapeXml(art.title)}" />
 
     <article class="article-body">
-      ${art.bodyHtml || '<p>Detailed article content coming soon.</p>'}
+      ${(() => {
+        if (art.bodyHtml) return art.bodyHtml;
+        let html = '';
+        if (art.headline) {
+          html += `<div class="callout" style="border-left: 4px solid #3b82f6; background: rgba(30, 41, 59, 0.7); padding: 20px 24px; border-radius: 0 12px 12px 0; margin-bottom: 32px;">
+            <p style="font-size: 17px; font-weight: 700; color: #93c5fd; margin: 0; line-height: 1.5;">💡 ${escapeXml(art.headline)}</p>
+          </div>`;
+        }
+        if (Array.isArray(art.sections)) {
+          html += art.sections.map((sec, idx) => `
+            <section class="art-section" style="margin-bottom: 36px;">
+              <h2 style="font-family: var(--font-heading); font-size: 24px; color: #ffffff; margin: 32px 0 14px; letter-spacing: -0.01em;">
+                ${idx + 1}. ${escapeXml(sec.heading)}
+              </h2>
+              <div style="font-size: 16.5px; line-height: 1.85; color: #cbd5e1;">
+                ${escapeXml(sec.content).split('\n\n').map(p => `<p style="margin-bottom: 16px;">${p.replace(/\n/g, '<br/>')}</p>`).join('')}
+              </div>
+            </section>
+          `).join('\n');
+        }
+        if (Array.isArray(art.faq) && art.faq.length > 0) {
+          html += `
+          <section class="art-faq-box" style="margin-top: 44px; padding: 28px; background: rgba(14, 23, 46, 0.9); border: 1.5px solid rgba(59, 130, 246, 0.3); border-radius: 18px;">
+            <h2 style="font-size: 22px; color: #93c5fd; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+              <span>💬 Frequently Asked Questions</span>
+            </h2>
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              ${art.faq.map((f, fIdx) => `
+                <div style="padding: 16px 20px; background: rgba(11, 19, 41, 0.8); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
+                  <h3 style="font-size: 16.5px; font-weight: 700; color: #ffffff; margin-bottom: 8px;">Q${fIdx+1}: ${escapeXml(f.q)}</h3>
+                  <p style="font-size: 15px; color: #94a3b8; line-height: 1.65; margin: 0;">${escapeXml(f.a)}</p>
+                </div>
+              `).join('\n')}
+            </div>
+          </section>
+          `;
+        }
+        return html;
+      })()}
     </article>
 
     <div class="cta-box">
