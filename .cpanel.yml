@@ -3,3 +3,5 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/pwholdin/public_html/
     - /bin/cp -R * $DEPLOYPATH
+    - /bin/cp -f .htaccess $DEPLOYPATH 2>/dev/null || true
+
