@@ -358,7 +358,7 @@ function generateArticlePageHtml(art) {
       <div>✍️ <strong>Author:</strong> ${escapeXml(art.author || 'PW Holdings Senior Consultants')}</div>
       <div>📅 <strong>Published:</strong> ${escapeXml(art.date)}</div>
       <div>⏱️ <strong>Read Time:</strong> ${escapeXml(art.readTime || '7 min read')}</div>
-      <div>📍 <strong>Region:</strong> Sri Lanka &bull; IRD Compliant</div>
+      <div>📍 <strong>Region:</strong> ${escapeXml(art.region || 'Worldwide • Global & Offshore Partner')}</div>
     </div>
 
     <img class="hero-img" src="${escapeXml(art.image)}" alt="${escapeXml(art.title)}" />
@@ -406,9 +406,9 @@ function generateArticlePageHtml(art) {
     </article>
 
     <div class="cta-box">
-      <h3>Ready to Modernize Your Operations with Zoho?</h3>
-      <p>Speak directly with Sri Lanka's leading certified Zoho implementation specialists. We handle everything from VAT/SSCL configuration to custom enterpriseDeluge workflows.</p>
-      <a href="https://web.whatsapp.com/send?phone=94777885883&text=Hello%20PW%20Holdings!%20I%20read%20your%20article%20'${encodeURIComponent(art.title)}'%20and%20would%20like%20a%20consultation." target="_blank" class="cta-btn-lg">
+      <h3>${escapeXml(art.ctaHeading || 'Ready to Modernize Your Operations with Zoho Worldwide?')}</h3>
+      <p>${escapeXml(art.ctaText || "Partner with certified global Zoho implementation specialists. Serving modern enterprises worldwide with custom Deluge automation, multi-country solution architecture, and dedicated technical support.")}</p>
+      <a href="https://web.whatsapp.com/send?phone=94777885883&text=Hello%20PW%20Holdings!%20I%20read%20your%20article%20'${encodeURIComponent(art.title)}'%20and%20would%20like%20a%20global%20consultation." target="_blank" class="cta-btn-lg">
         💬 WhatsApp Our Lead Consultant (+94 77 788 5883)
       </a>
     </div>
