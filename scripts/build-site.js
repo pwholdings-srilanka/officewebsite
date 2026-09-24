@@ -206,6 +206,9 @@ function generateArticlePageHtml(art) {
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="${escapeXml(title)}" />
+  <link rel="image_src" href="${escapeXml(image)}" />
+  <meta itemprop="image" content="${escapeXml(image)}" />
+  <meta name="thumbnail" content="${escapeXml(image)}" />
   <meta property="og:site_name" content="PW Holdings" />
   <meta property="article:published_time" content="${isoDate}" />
   <meta property="article:author" content="${escapeXml(art.author || 'PW Holdings')}" />
