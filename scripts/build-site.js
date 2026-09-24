@@ -165,6 +165,12 @@ function generateArticlePageHtml(art) {
     schemaGraph.push(faqSchemaGraph);
   }
 
+  if (Array.isArray(art.imageObjects)) {
+    art.imageObjects.forEach(imgObj => {
+      schemaGraph.push(imgObj);
+    });
+  }
+
   return `<!DOCTYPE html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
@@ -272,6 +278,9 @@ function generateArticlePageHtml(art) {
     .article-body table th { background: rgba(59, 130, 246, 0.15); color: #fff; }
     .article-body pre { max-width: 100%; overflow-x: auto; background: #0b1329; padding: 16px; border-radius: 10px; margin: 20px 0; }
     .article-body img { max-width: 100%; height: auto; border-radius: 12px; }
+    .zoho-comparison-figure { margin: 36px 0; overflow: hidden; border-radius: 14px; border: 1px solid var(--border-glass); background: rgba(14, 23, 46, 0.7); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45); }
+    .zoho-comparison-figure img { width: 100%; height: auto; display: block; object-fit: cover; border-radius: 14px 14px 0 0; }
+    .zoho-comparison-figure figcaption { padding: 14px 18px; text-align: center; font-size: 13.5px; color: #cbd5e1; background: rgba(11, 19, 41, 0.9); border-top: 1px solid var(--border-glass); line-height: 1.6; }
 
     .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 6px; }
     .hamburger span { display: block; width: 22px; height: 2.5px; background: #fff; margin: 4px 0; border-radius: 2px; transition: 0.3s; }
