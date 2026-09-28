@@ -159,8 +159,49 @@
     .aeo-bluf-box h3 { font-family: var(--font-heading); font-size: 16px; font-weight: 800; color: #93c5fd; margin-bottom: 10px; }
     .aeo-bluf-box p { font-size: 15px; color: #e2e8f0; margin: 0; }
 
+    /* Figures & Media */
+    .article-figure {
+      margin: 28px auto 36px;
+      text-align: center;
+      width: 100%;
+    }
+    .article-figure.hero-figure {
+      max-width: 780px;
+      margin: 24px auto 36px;
+    }
+    .article-figure.compact-figure {
+      max-width: 620px;
+      margin: 26px auto 34px;
+    }
+    .featured-media {
+      width: 100%;
+      height: auto;
+      max-height: 380px;
+      object-fit: contain;
+      border-radius: 16px;
+      border: 1px solid var(--border-glass);
+      background: #040814;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+      display: block;
+      margin: 0 auto;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .featured-media:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 38px rgba(37, 99, 235, 0.25);
+    }
+    .article-figure figcaption {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-top: 12px;
+      margin-bottom: 0;
+      text-align: center;
+      font-style: italic;
+      padding: 0 16px;
+    }
+
     /* Content */
-    .featured-media { width: 100%; border-radius: 18px; margin: 30px 0; border: 1px solid var(--border-glass); display: block; }
     .article-body h2 { font-family: var(--font-heading); font-size: 26px; font-weight: 800; margin: 44px 0 16px; color: #fff; }
     .article-body h3 { font-family: var(--font-heading); font-size: 20px; font-weight: 700; margin: 28px 0 12px; color: #93c5fd; }
     .article-body p { font-size: 16px; color: #cbd5e1; margin-bottom: 20px; }
@@ -230,9 +271,24 @@
     /* Footer */
     .footer { background: #040711; padding: 40px 0 20px; border-top: 1px solid var(--border-glass); text-align: center; color: var(--text-subtle); font-size: 13px; }
 
+    @media (max-width: 768px) {
+      .article-figure.hero-figure,
+      .article-figure.compact-figure {
+        max-width: 100%;
+        margin: 20px auto 28px;
+      }
+      .featured-media {
+        max-height: 280px;
+        border-radius: 12px;
+      }
+    }
+
     @media (max-width: 600px) {
       .score-grid, .pricing-grid { grid-template-columns: 1fr; }
       .article-header h1 { font-size: 26px; }
+      .featured-media {
+        max-height: 220px;
+      }
     }
   </style>
 </head>
@@ -268,7 +324,7 @@
           <p><strong>Zoho Desk wins on price, ecosystem integration, and AI depth</strong> — with plans starting at $14/agent/month and a powerful Zia AI engine. <strong>Freshdesk wins on marketplace breadth and onboarding simplicity.</strong> For businesses already on Zoho CRM or Zoho One, Zoho Desk is the clear choice. In 2026, Zoho Desk holds the overall edge in value for global enterprises.</p>
         </div>
 
-        <figure class="comparison-hero-image" style="margin:0;">
+        <figure class="article-figure hero-figure">
           <img
             src="https://res.cloudinary.com/dl8qnwybd/image/upload/v1790569483/Generated_Image_September_28_2026_-_9_52AM_zyhuln.jpg"
             alt="Zoho Desk vs Freshdesk 2026 comparison: Overall score of 8.6 vs 7.9, pricing breakdown, and helpdesk platform evaluation"
@@ -277,7 +333,7 @@
             width="1200" height="675"
             loading="eager" decoding="async"
           />
-          <figcaption style="font-size:13px;color:#64748b;text-align:center;margin-top:-20px;margin-bottom:30px;">
+          <figcaption>
             Zoho Desk vs Freshdesk (2026): PW Holdings rates Zoho Desk at 8.6/10 for overall enterprise value, deep Zia AI, and lower pricing tiers.
           </figcaption>
         </figure>
@@ -336,7 +392,7 @@
         <h2>3. Pricing Comparison (2026)</h2>
         <p>Zoho Desk is consistently <strong>30–50% cheaper</strong> than Freshdesk at every comparable tier. A 20-agent enterprise team saves over <strong>$9,000/year</strong> by choosing Zoho Desk.</p>
 
-        <figure class="comparison-pricing-image" style="margin:0;">
+        <figure class="article-figure compact-figure">
           <img
             src="https://res.cloudinary.com/dl8qnwybd/image/upload/v1790569480/Generated_Image_September_28_2026_-_9_53AM_1_izszcl.jpg"
             alt="Enterprise Helpdesk Cost Comparison: A 20-agent team saves over $9,000 annually by choosing Zoho Desk over Freshdesk"
@@ -345,7 +401,7 @@
             width="1200" height="675"
             loading="lazy" decoding="async"
           />
-          <figcaption style="font-size:13px;color:#64748b;text-align:center;margin-top:-20px;margin-bottom:30px;">
+          <figcaption>
             Enterprise cost comparison: A 20-agent team choosing Zoho Desk over Freshdesk saves upwards of $9,000 annually while retaining native CRM and ERP data flow.
           </figcaption>
         </figure>
@@ -391,7 +447,7 @@
         </div>
         <p><strong>Verdict:</strong> Zia is more deeply integrated into the core workflow and available at lower plan tiers. Freddy Copilot's most powerful features are locked behind expensive add-ons.</p>
 
-        <figure class="comparison-ai-image" style="margin:0;">
+        <figure class="article-figure compact-figure">
           <img
             src="https://res.cloudinary.com/dl8qnwybd/image/upload/v1790569482/Generated_Image_September_28_2026_-_9_53AM_zhndzo.jpg"
             alt="AI Helpdesk Duel: Zoho Desk Zia AI with native sentiment analysis versus Freshdesk Freddy AI copilot"
@@ -400,7 +456,7 @@
             width="1200" height="675"
             loading="lazy" decoding="async"
           />
-          <figcaption style="font-size:13px;color:#64748b;text-align:center;margin-top:-20px;margin-bottom:30px;">
+          <figcaption>
             Zia AI vs. Freddy AI: Zoho Desk's native sentiment tracking and auto-tagging provide contextual ticket triage without requiring costly enterprise add-on licensing.
           </figcaption>
         </figure>
