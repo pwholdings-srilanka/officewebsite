@@ -38,8 +38,12 @@
   <meta name="twitter:image" content="https://res.cloudinary.com/dib0fble7/image/upload/b_white,c_pad,w_1200,h_630/v1790048197/New_Logo_Pwholdings_2-removebg-preview_1_sunbja.png" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/jpeg" href="https://res.cloudinary.com/dib0fble7/image/upload/v1790048197/New_Logo_Pwholdings_2-removebg-preview_1_sunbja.png" />
-  <link rel="apple-touch-icon" href="https://res.cloudinary.com/dib0fble7/image/upload/v1790048197/New_Logo_Pwholdings_2-removebg-preview_1_sunbja.png" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
   <!-- GEO (Generative Engine Optimization) Discovery for Perplexity, ChatGPT, Claude -->
   <link rel="help" href="/llms.txt" type="text/plain" title="LLM Context for AI Engines" />
@@ -326,8 +330,65 @@
         "@type": "WebSite",
         "@id": "https://pwholdings.lk/#website",
         "url": "https://pwholdings.lk/",
-        "name": "PW Holdings Sri Lanka",
-        "publisher": { "@id": "https://pwholdings.lk/#organization" }
+        "name": "PW Holdings",
+        "publisher": { "@id": "https://pwholdings.lk/#organization" },
+        "hasPart": [
+          {
+            "@type": "WebPage",
+            "name": "About Us",
+            "url": "https://pwholdings.lk/about.html"
+          },
+          {
+            "@type": "WebPage",
+            "name": "Zoho Solutions",
+            "url": "https://pwholdings.lk/services.html"
+          },
+          {
+            "@type": "WebPage",
+            "name": "Articles & Knowledge Hub",
+            "url": "https://pwholdings.lk/articles.html"
+          },
+          {
+            "@type": "WebPage",
+            "name": "Contact Us",
+            "url": "https://pwholdings.lk/contact.html"
+          }
+        ]
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://pwholdings.lk/#site-navigation",
+        "name": "Main Site Navigation",
+        "itemListElement": [
+          {
+            "@type": "SiteNavigationElement",
+            "position": 1,
+            "name": "About Us",
+            "description": "About PW Holdings - Authorized Zoho Partner in Sri Lanka",
+            "url": "https://pwholdings.lk/about.html"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 2,
+            "name": "Zoho Solutions",
+            "description": "Enterprise Zoho One, Books, CRM & Cloud ERP Services",
+            "url": "https://pwholdings.lk/services.html"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 3,
+            "name": "Articles & Knowledge Hub",
+            "description": "Actionable Zoho ERP tutorials, benchmarks, and Sri Lankan business tax guides",
+            "url": "https://pwholdings.lk/articles.html"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 4,
+            "name": "Contact Us",
+            "description": "Official Contact, Corporate Office Location & Enterprise Demo Booking",
+            "url": "https://pwholdings.lk/contact.html"
+          }
+        ]
       }
     ]
   }
@@ -3749,14 +3810,13 @@
         <!-- RIGHT: NAV LINKS -->
         <nav class="sr-nav">
           <a href="#hero" class="active">Home</a>
-          <a href="#sec1">About Us</a>
-          <a href="#zoho-services">Zoho Solutions</a>
+          <a href="about.html">About Us</a>
+          <a href="services.html">Zoho Solutions</a>
           <a href="#global-support">Worldwide</a>
           <a href="#zoho-ai-agents">AI Automation</a>
-          <a href="#articles">Articles</a>
-          <a href="#csr">CSR</a>
-          <a href="https://web.whatsapp.com/send?phone=94777885883&text=Hello!%20Can%20I%20know%20about%20the%20products%20and%20training%3F" target="_blank">Contact Us</a>
-          <a href="https://zohobooks.lk/" target="_blank" class="sr-nav-cta">
+          <a href="articles.html">Articles</a>
+          <a href="contact.html">Contact Us</a>
+          <a href="contact.html#book-demo" class="sr-nav-cta">
             Book Demo
             <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
               <path d="M3 8h10M9 4l4 4-4 4" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>

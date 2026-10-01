@@ -254,6 +254,9 @@ async function main() {
     const articlesPath = path.join(rootDir, 'data', 'articles.json');
     urlsToIndex = [
       `${DOMAIN}/`,
+      `${DOMAIN}/about.html`,
+      `${DOMAIN}/services.html`,
+      `${DOMAIN}/contact.html`,
       `${DOMAIN}/articles.html`
     ];
 
