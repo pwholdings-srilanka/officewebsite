@@ -423,7 +423,7 @@ function generateArticlePageHtml(art) {
   </main>
 
   <footer class="footer">
-    <p>© ${new Date().getFullYear()} PW Holdings (Pvt) Ltd. Official Zoho Authorized Partner Sri Lanka. All rights reserved.</p>
+    <p>© ${new Date().getFullYear()} PW Holdings. Official Zoho Authorized Partner Sri Lanka. All rights reserved.</p>
     <p style="margin-top: 8px;">
       <a href="../../index.html">Home</a> | 
       <a href="../../articles.html">Articles</a> | 
@@ -1218,7 +1218,7 @@ ${taxSpotlightsHtml}
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; ${new Date().getFullYear()} PW Holdings (Pvt) Ltd. All Rights Reserved. Official Zoho Authorized Partner Sri Lanka.</p>
+        <p>&copy; ${new Date().getFullYear()} PW Holdings. All Rights Reserved. Official Zoho Authorized Partner Sri Lanka.</p>
         <p><a href="rss.xml" style="color: inherit;">RSS Feed</a> &bull; <a href="feed.xml" style="color: inherit;">Atom Feed</a></p>
       </div>
     </div>
@@ -1286,7 +1286,7 @@ ${taxSpotlightsHtml}
 
 function updateLlmsTxt(articles) {
   const llmsPath = path.join(rootDir, 'llms.txt');
-  let text = `# PW Holdings (Pvt) Ltd
+  let text = `# PW Holdings
 > Leading Zoho Authorized Partner & Enterprise Cloud ERP Consultancy in Sri Lanka.
 
 ## Overview

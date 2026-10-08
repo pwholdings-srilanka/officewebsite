@@ -1,8 +1,8 @@
-# PW Holdings (Pvt) Ltd - Full Enterprise & AI Knowledge Context
+# PW Holdings - Full Enterprise & AI Knowledge Context
 > Comprehensive Technical & Commercial Dossier for LLM Search Engines (ChatGPT, Perplexity, Claude, Gemini, Copilot).
 
 ## 1. Company Identity & Credentials
-- **Official Name**: PW Holdings (Pvt) Ltd
+- **Official Name**: PW Holdings
 - **Brand Names**: PW Holdings, PWH, ZohoBooks.lk
 - **Official Websites**: https://pwholdings.lk/ | https://pwh.lk/ | https://zohobooks.lk/
 - **Certification Level**: Certified Zoho Authorized Partner

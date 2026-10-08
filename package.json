@@ -1,7 +1,7 @@
 {
   "name": "pwholdings-website",
   "version": "1.0.0",
-  "description": "Official Website and Zoho Knowledge Hub for PW Holdings (Pvt) Ltd Sri Lanka",
+  "description": "Official Website and Zoho Knowledge Hub for PW Holdings Sri Lanka",
   "main": "index.html",
   "scripts": {
     "build": "node scripts/build-site.js",
@@ -15,6 +15,6 @@
     "sri-lanka",
     "pwholdings"
   ],
-  "author": "PW Holdings (Pvt) Ltd",
+  "author": "PW Holdings",
   "license": "ISC"
 }
