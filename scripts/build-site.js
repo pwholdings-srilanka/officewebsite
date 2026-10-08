@@ -3,7 +3,7 @@ const path = require('path');
 
 const rootDir = path.join(__dirname, '..');
 const DOMAIN = 'https://pwholdings.lk';
-const DEFAULT_IMAGE = 'https://res.cloudinary.com/dib0fble7/image/upload/b_white,c_pad,w_1200,h_630/v1790048197/New_Logo_Pwholdings_2-removebg-preview_1_sunbja.png';
+const DEFAULT_IMAGE = 'https://res.cloudinary.com/dozg5zxmk/image/upload/v1791439547/Gemini_Generated_Image_dry19edry19edry1_lhnewh.jpg';
 const LOGO_IMAGE = 'https://res.cloudinary.com/dib0fble7/image/upload/v1790048197/New_Logo_Pwholdings_2-removebg-preview_1_sunbja.png';
 
 function escapeXml(unsafe) {
